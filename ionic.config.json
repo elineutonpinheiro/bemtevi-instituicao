@@ -1,5 +1,7 @@
 {
   "name": "bemtevi-instituicao",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -1,0 +1,53 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>home</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content color="warning" class="ion-padding" scroll-y="true">
+
+  <div style="height: 70px"> 
+    <div class="header-data" style="display: inline-flex; float: left;">
+      <ion-label>
+        <h1 style="font-size: 32px;">Hoje</h1>
+        <p style="font-size: 16px;">Terça-feira, 1 de Outubro</p>
+      </ion-label>
+    </div>
+    <div class="select-turmas"
+      style="display: flex; 
+      align-items: center; 
+      float: right; 
+      max-width: 160px; 
+      height: 36px;
+      margin-top: 12px; 
+      background: white; 
+      border-radius: 3px;">
+
+      <div style="font-size: 16px; padding-left: 8px; color: black;">
+        {{turmaSelecionada}}
+      </div>
+
+      <ion-buttons slot="primary" *ngIf="true" style="display: inline-block;">
+        <ion-button (click)="openSelect()" class="icon-select" color="dark">
+          <ion-icon slot="icon-only" name="arrow-down" mode="ios" size="small"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+      <ion-select interface="action-sheet" mode="md" #turmaList [hidden]='showList' (ionChange)='setTurma()'
+        *ngIf="true">
+        <ion-select-option *ngFor="let turma of turmas">{{turma.nome}}</ion-select-option>
+      </ion-select>
+
+    </div>
+
+  </div>
+
+
+  <app-progresso-avaliacoes></app-progresso-avaliacoes>
+
+  <div style="height: 10px"></div>
+
+  <app-lista-alunos-avaliacao></app-lista-alunos-avaliacao>
+
+
+</ion-content>
