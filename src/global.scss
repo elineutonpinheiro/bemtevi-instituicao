@@ -24,3 +24,13 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+/* Half-Modal Criar e Editar Atividade */
+.half-modal .modal-wrapper {
+    height: 40%;
+    top: 60%;
+    position: absolute;
+    display: block;
+    border-radius: 15px 15px 0px 0px;
+}

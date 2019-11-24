@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -19,9 +20,14 @@ export class ListaAlunosAvaliacaoPage implements OnInit {
     {nome: 'Ana Clara Muniz'},
   ];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
+
+  avaliar() {
+    this.router.navigateByUrl('/avaliacao');
+  }
+
 
 }

@@ -16,7 +16,7 @@
   <ion-content>
 
     <ion-list lines="none" *ngFor="let aluno of alunos" style="padding-top: 0px; padding-bottom: 0px">
-      <ion-item>
+      <ion-item (click)="avaliar()">
         <ion-icon slot="start" name="star-outline"></ion-icon>
         <ion-label>{{aluno.nome}}</ion-label>
         <ion-icon name="ios-arrow-forward" slot="end"></ion-icon>

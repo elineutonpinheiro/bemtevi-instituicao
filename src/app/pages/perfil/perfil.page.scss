@@ -1,0 +1,29 @@
+.circle {
+    background-color: rgb(243, 243, 243);
+    border-radius: 50%;
+    width: 128px;
+    height: 128px;
+    overflow: hidden;
+    position: relative;
+    //margin-right: 8px;
+    display: flex;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  
+  .circle img {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .personal-information {
+      text-align: center;
+  }
+
+  .button-sair {
+    display: flex;
+    width: 50%;
+    margin-left:auto;
+    margin-right:auto;
+  }

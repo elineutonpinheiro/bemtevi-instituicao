@@ -17,3 +17,46 @@
         </ion-label>
     </ion-item>
 </div>
+
+
+<!-- Codigo correspondente ao formulario de criar nova atividade -->
+
+<ion-header mode="ios">
+        <ion-toolbar>
+          <!-- Implementar a navegação para a atividade na TAB e no arquivoModule.ts -->
+          <ion-buttons slot="start">
+            <ion-button (click)="closeNovaAtividade()">
+              <ion-icon name="arrow-back"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+      
+          <ion-title>Atividades</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      
+      <ion-content class="ion-padding" style="--background: #F7F7F7;">
+      
+        <div>
+          <form [formGroup]="novaAtividadeForm" (ngSubmit)="onSubmit()">
+            <ion-item lines="none" style="border: 1px solid #E9E9E9; border-radius: 5px; margin-bottom: 10px;">
+              <ion-label position="floating">Titulo</ion-label>
+              <ion-input formControlName="titulo" type="text"></ion-input>
+            </ion-item>
+            <ion-item lines="none" style="border: 1px solid #E9E9E9; border-radius: 5px; margin-bottom: 20px;">
+              <ion-label position="floating">Descrição</ion-label>
+              <ion-textarea rows="2" formControlName="descricao" type="text" autoGrow="true"></ion-textarea>
+            </ion-item>
+          </form>
+        </div>
+      
+      </ion-content>
+      
+      <ion-footer>
+          <ion-toolbar color="warning">
+              <ion-button style="--background: none;" expand="full" fill="clear" color="light" size="large" type="submit" [disabled]="novaAtividadeForm.invalid">
+                Salvar
+              </ion-button>
+          </ion-toolbar>
+        </ion-footer>
+      
+      

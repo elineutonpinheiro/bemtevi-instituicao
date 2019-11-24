@@ -1,0 +1,17 @@
+<ion-content class="ion-padding">
+
+  <div>
+    <form [formGroup]="novaAtividadeForm" (ngSubmit)="onSubmit()">
+      <ion-item lines="none">
+        <ion-textarea rows="6" formControlName="descricao" type="text" placeholder="Inserir descrição da atividade">
+        </ion-textarea>
+      </ion-item>
+    </form>
+  </div>
+ 
+</ion-content>
+
+<ion-button expand="full" type="submit" fill="clear" [disabled]="novaAtividadeForm.invalid" 
+mode="ios">
+    <ion-label [ngStyle]="{'color': novaAtividadeForm.invalid ? '#c3c3c3' : '#ffce00'}" style="font-size: 16px; padding-right: 16px;">Concluido</ion-label>
+</ion-button>

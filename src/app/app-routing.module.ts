@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: 'atividades', loadChildren: './pages/atividades/atividades.module#AtividadesPageModule' },
   { path: 'perfil', loadChildren: './pages/perfil/perfil.module#PerfilPageModule' },
   { path: 'progresso-avaliacoes', loadChildren: './pages/progresso-avaliacoes/progresso-avaliacoes.module#ProgressoAvaliacoesPageModule' },
-  { path: 'lista-alunos-avaliacao', loadChildren: './pages/lista-alunos-avaliacao/lista-alunos-avaliacao.module#ListaAlunosAvaliacaoPageModule' }
+  { path: 'lista-alunos-avaliacao', loadChildren: './pages/lista-alunos-avaliacao/lista-alunos-avaliacao.module#ListaAlunosAvaliacaoPageModule' },
+  { path: 'avaliacao', loadChildren: './pages/avaliacao/avaliacao.module#AvaliacaoPageModule' }
 ];
 @NgModule({
   imports: [

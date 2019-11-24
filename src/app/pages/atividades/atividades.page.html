@@ -18,13 +18,12 @@
 
 <ion-content class="ion-padding" style="--background: #F7F7F7;">
 
-  <ion-item-sliding id="item100" style="border: 0.5px solid #E9E9E9; border-radius: 5px;">
+  <ion-item-sliding id="itemAtividade" style="border: 0.5px solid #E9E9E9; border-radius: 5px;">
     <ion-item href="#" lines="none">
-      <ion-label style="padding-top: 10px; padding-bottom: 10px;">
-        <h2>Título da atividade</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque eius pariatur sit voluptas aspernatur blanditiis mollitia ipsam quo provident suscipit molestias et, laudantium aliquid velit natus asperiores veritatis ipsa accusamus!</p>
+      <ion-label style="padding-top: 10px; padding-bottom: 10px;" class="ion-text-wrap">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque eius pariatur sit voluptas aspernatur blanditiis mollitia ipsam quo provident suscipit!</p>
       </ion-label>
-      <ion-note slot="end">
+      <ion-note slot="end" style="margin-left: 0px;">
         10:45 AM
       </ion-note>
     </ion-item>
@@ -36,9 +35,10 @@
     </ion-item-options>
   </ion-item-sliding>
 
+
   <!-- fab placed to the bottom end -->
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" style="margin-right: 16px; margin-bottom: 16px;">
-    <ion-fab-button color="warning" mode="ios" style="--box-shadow: none">
+    <ion-fab-button color="warning" mode="ios" style="--box-shadow: none" (click)="openNovaAtividade()">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>

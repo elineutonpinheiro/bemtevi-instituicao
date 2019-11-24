@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { NovaAtividadePage } from '../nova-atividade/nova-atividade.page';
 
 @Component({
   selector: 'app-atividades',
@@ -13,7 +15,17 @@ export class AtividadesPage implements OnInit {
     { titulo: 'Pintura criativa', descricao: 'Pintura para desenvolver a coordenação motora e trabalhar a criativade e inteligencia.', criadaEm: '10:45 AM' }
   ];
 
-  constructor() { }
+  constructor(public novaAtividadeController: ModalController) { }
+
+
+  //Modal de Nova Atividade
+  async openNovaAtividade() {
+    const modal = await this.novaAtividadeController.create({
+      component: NovaAtividadePage,
+      cssClass: 'half-modal'
+    });
+    return await modal.present();
+  }
 
   ngOnInit() {
   }
