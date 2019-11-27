@@ -20,6 +20,8 @@ export class ListaAlunosAvaliacaoPage implements OnInit {
     {nome: 'Ana Clara Muniz'},
   ];
 
+  exibeBarraPesquisa: false;
+
   constructor(private router: Router) { }
 
   ngOnInit() {

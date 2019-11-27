@@ -9,8 +9,14 @@
           Alunos para avaliação
         </div>
       </ion-label>
-      <ion-icon slot="end" name="search" style="margin-right: 0px;"></ion-icon>
+      <ion-icon slot="end" name="search" style="margin-right: 0px;" (click)="exibeBarraPesquisa = !exibeBarraPesquisa" *ngIf="!exibeBarraPesquisa"></ion-icon>
+      <ion-icon slot="end" name="close" style="margin-right: 0px;" (click)="exibeBarraPesquisa = !exibeBarraPesquisa" *ngIf="exibeBarraPesquisa"></ion-icon>
     </ion-item-divider>
+  </div>
+
+  <div *ngIf="exibeBarraPesquisa">
+    <ion-searchbar placeholder="Buscar aluno" mode="ios">
+    </ion-searchbar>
   </div>
 
   <ion-content>

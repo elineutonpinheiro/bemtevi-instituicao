@@ -1,3 +1,4 @@
+import { EditaAtividadePageModule } from './pages/edita-atividade/edita-atividade.module';
 import { NovaAtividadePageModule } from './pages/nova-atividade/nova-atividade.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,7 +15,7 @@ import { AppComponent } from './app.component';
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
-  NovaAtividadePageModule],
+  NovaAtividadePageModule, EditaAtividadePageModule],
   providers: [
     StatusBar,
     SplashScreen,
