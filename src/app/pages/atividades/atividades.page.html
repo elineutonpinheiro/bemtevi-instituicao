@@ -1,22 +1,21 @@
 <ion-header mode="ios">
   <ion-toolbar>
-    <ion-buttons slot="secondary">
-      <ion-button>
-        <ion-icon slot="icon-only" name="search"></ion-icon>
-      </ion-button>
-    </ion-buttons>
     <ion-buttons slot="primary">
       <ion-button>
-        <ion-icon slot="icon-only" name="more"></ion-icon>
+        <ion-icon slot="icon-only" name="calendar"></ion-icon>
       </ion-button>
     </ion-buttons>
 
     <ion-title>Atividades</ion-title>
+
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content class="ion-padding" style="--background: #F7F7F7;">
+
+
+<!-- Searchbar with a placeholder -->
+<ion-searchbar placeholder="Filtrar por Descrição" mode="ios" style="padding: 0px;"></ion-searchbar>
 
   <ion-item-sliding id="itemAtividade" style="border: 0.5px solid #E9E9E9; border-radius: 5px;">
     <ion-item href="#" lines="none">

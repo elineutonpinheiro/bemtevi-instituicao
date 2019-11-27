@@ -1,3 +1,23 @@
+<ion-toolbar color="dark">
+  <ion-buttons slot="secondary">
+    <ion-button color="warning">
+      <ion-icon slot="icon-only" name="save"></ion-icon>
+    </ion-button>
+    <ion-button>
+      <ion-icon slot="icon-only" name="send"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="/"></ion-back-button>
+  </ion-buttons>
+  <!-- <ion-buttons slot="primary">
+      <ion-button color="warning">
+        <ion-icon slot="icon-only" name="more"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+  <ion-title>FRANCISCO ELINEUTON</ion-title>
+</ion-toolbar>
+
 <ion-content class="ion-padding" style="--background: #F7F7F7; border-radius: 3px;">
 
 
@@ -18,88 +38,72 @@
   </ion-list> -->
 
 
+  <div
+    style="display:flex;justify-content:center;align-items:center; height: 32px; margin-bottom: 2px; background: white; border: 0.5px solid #E9E9E9;">
+    <ion-label style="font-size: 12px;">{{"Salva em rascunho" | uppercase}}</ion-label>
+  </div>
+
+
+
   <form [formGroup]="avaliacaoForm" (ngSubmit)="onSubmit()">
-    <ion-list>
-      <ion-list-header>
-        Avaliação do Luigi
-      </ion-list-header>
+
+    <ion-list style="padding-top: 0px;">
 
       <ion-item-group>
-        <ion-item-divider>
-          <ion-label>Alimentação</ion-label>
+        <ion-item-divider style="background: #e4e4e4; border-bottom-width: 0px;">
+          <ion-icon name="alert" slot="start" size="small"
+            style="margin-right: 5px; margin-left: 0px; margin-top: 10px; margin-bottom: 10px;"></ion-icon>
+          <ion-label style="font-size: 16px; color: goldenrod;">{{"Alimentação" | uppercase}}</ion-label>
         </ion-item-divider>
 
-        <ion-item *ngFor="let item of questoesAlimentacao" lines="none">
+        <ion-item *ngFor="let item of questoesAlimentacao;" lines="none">
           <ion-label>{{item.descricao}}</ion-label>
           <ion-select interface="popover" placeholder="">
-            <ion-select-option value="">Aceitou bem</ion-select-option>
-            <ion-select-option value="">Aceitou pouco</ion-select-option>
-            <ion-select-option value="">Não aceitou</ion-select-option>
+            <ion-select-option value="aceitou bem">Aceitou bem</ion-select-option>
+            <ion-select-option value="aceitou pouco">Aceitou pouco</ion-select-option>
+            <ion-select-option value="não aceitou">Não aceitou</ion-select-option>
           </ion-select>
         </ion-item>
 
-        <ion-item-divider>
-          <ion-label>Saúde</ion-label>
-        </ion-item-divider>
-
-        <ion-item lines="none">
-          <ion-label>Urina</ion-label>
-          <ion-select interface="popover" placeholder="">
-            <ion-select-option value="">Normal</ion-select-option>
-            <ion-select-option value="">Escura</ion-select-option>
-          </ion-select>
-        </ion-item>
-
-        <ion-item lines="none">
-          <ion-label>Evacuação</ion-label>
-          <ion-select interface="popover" placeholder="">
-            <ion-select-option value="">Normal</ion-select-option>
-            <ion-select-option value="">Ressecada</ion-select-option>
-            <ion-select-option value="">Diárréria</ion-select-option>
-          </ion-select>
-        </ion-item>
-
-        <ion-item lines="none">
-          <ion-label>Febre</ion-label>
-          <ion-toggle slot="end" name="febre" color="warning"></ion-toggle>
-        </ion-item>
-
-        <ion-item-divider>
-          <ion-label>Higiene</ion-label>
+        <ion-item-divider style="background: #e4e4e4; border-bottom-width: 0px;">
+          <ion-icon name="alert" slot="start" size="small"
+            style="margin-right: 5px; margin-left: 0px; margin-top: 10px; margin-bottom: 10px;"></ion-icon>
+          <ion-label style="font-size: 16px; color: goldenrod;">{{"Higiene" | uppercase}}</ion-label>
         </ion-item-divider>
 
         <ion-item lines="none">
           <ion-label>Banho</ion-label>
           <ion-select interface="popover" placeholder="">
-            <ion-select-option value="">1 vez</ion-select-option>
-            <ion-select-option value="">2 vezes</ion-select-option>
-            <ion-select-option value="">3 vezes</ion-select-option>
-            <ion-select-option value="Mais que 3 vezes">Mais que 3 vezes</ion-select-option>
+            <ion-select-option value="1 vez">1 vez</ion-select-option>
+            <ion-select-option value="2 vezes">2 vezes</ion-select-option>
+            <ion-select-option value="3 vezes">3 vezes</ion-select-option>
+            <ion-select-option value="4 ou mais vezes">4 ou mais vezes</ion-select-option>
           </ion-select>
         </ion-item>
 
         <ion-item lines="none">
           <ion-label>Fralda</ion-label>
           <ion-select interface="popover" placeholder="">
-            <ion-select-option value="">1 vez</ion-select-option>
-            <ion-select-option value="">2 vezes</ion-select-option>
-            <ion-select-option value="">3 vezes</ion-select-option>
-            <ion-select-option value="Mais que 3 vezes">Mais que 3 vezes</ion-select-option>
+            <ion-select-option value="1 vez">1 vez</ion-select-option>
+            <ion-select-option value="2 vezes">2 vezes</ion-select-option>
+            <ion-select-option value="3 vezes">3 vezes</ion-select-option>
+            <ion-select-option value="4 ou mais vezes">4 ou mais vezes</ion-select-option>
           </ion-select>
         </ion-item>
 
         <ion-item lines="none">
           <ion-label>Escovação</ion-label>
           <ion-select interface="popover" placeholder="">
-            <ion-select-option value="">1 vez</ion-select-option>
-            <ion-select-option value="">2 vezes</ion-select-option>
-            <ion-select-option value="">3 vezes</ion-select-option>
-            <ion-select-option value="Mais que 3 vezes">Mais que 3 vezes</ion-select-option>
+            <ion-select-option value="1 vez">1 vez</ion-select-option>
+            <ion-select-option value="2 vezes">2 vezes</ion-select-option>
+            <ion-select-option value="3 ou mais vezes">3 ou mais vezes</ion-select-option>
           </ion-select>
         </ion-item>
 
-        <ion-item-divider>
-          <ion-label>Sono</ion-label>
+        <ion-item-divider style="background: #e4e4e4; border-bottom-width: 0px;">
+          <ion-icon name="alert" slot="start" size="small"
+            style="margin-right: 5px; margin-left: 0px; margin-top: 10px; margin-bottom: 10px;"></ion-icon>
+          <ion-label style="font-size: 16px; color: goldenrod;">{{"Sono" | uppercase}}</ion-label>
         </ion-item-divider>
 
         <ion-item lines="none">
@@ -110,30 +114,71 @@
         <ion-item lines="none" *ngIf="avaliacaoForm.get('dormiu').value == true">
           <ion-label>Estado</ion-label>
           <ion-select interface="popover" placeholder="">
-            <ion-select-option value="">Tranquilo</ion-select-option>
-            <ion-select-option value="">Agitado</ion-select-option>
+            <ion-select-option value="tranquilo">Tranquilo</ion-select-option>
+            <ion-select-option value="agitado">Agitado</ion-select-option>
           </ion-select>
         </ion-item>
 
-        <ion-item-divider>
-          <ion-label>Socialização</ion-label>
+        <ion-item-divider style="background: #e4e4e4; border-bottom-width: 0px;">
+          <ion-icon name="alert" slot="start" size="small"
+            style="margin-right: 5px; margin-left: 0px; margin-top: 10px; margin-bottom: 10px;"></ion-icon>
+          <ion-label style="font-size: 16px; color: goldenrod;">{{"Saúde" | uppercase}}</ion-label>
+        </ion-item-divider>
+
+        <ion-item lines="none">
+          <ion-label>Urina</ion-label>
+          <ion-select interface="popover" placeholder="">
+            <ion-select-option value="normal">Normal</ion-select-option>
+            <ion-select-option value="escura">Escura</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label>Evacuação</ion-label>
+          <ion-select interface="popover" placeholder="">
+            <ion-select-option value="normal">Normal</ion-select-option>
+            <ion-select-option value="ressecada">Ressecada</ion-select-option>
+            <ion-select-option value="esbranquiçada">Esbranquiçada</ion-select-option>
+            <ion-select-option value="diarréia">Diárréria</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label>Febre</ion-label>
+          <ion-toggle slot="end" name="febre" color="warning"></ion-toggle>
+        </ion-item>
+
+        <ion-item-divider style="background: #e4e4e4; border-bottom-width: 0px;">
+          <ion-icon name="alert" slot="start" size="small"
+            style="margin-right: 5px; margin-left: 0px; margin-top: 10px; margin-bottom: 10px;"></ion-icon>
+          <ion-label style="font-size: 16px; color: goldenrod;">{{"Socialização" | uppercase}}</ion-label>
         </ion-item-divider>
 
         <ion-item lines="none">
           <ion-label>Interação</ion-label>
           <ion-select interface="popover" placeholder="">
-            <ion-select-option value="">Boa</ion-select-option>
-            <ion-select-option value="">Razoável</ion-select-option>
-            <ion-select-option value="">Não interagiu</ion-select-option>
+            <ion-select-option value="boa">Boa</ion-select-option>
+            <ion-select-option value="razoável">Razoável</ion-select-option>
+            <ion-select-option value="fraca">Fraca</ion-select-option>
           </ion-select>
         </ion-item>
 
         <ion-item lines="none">
           <ion-label>Participação</ion-label>
           <ion-select interface="popover" placeholder="">
-            <ion-select-option value="">Dispersa</ion-select-option>
-            <ion-select-option value="">Ativa</ion-select-option>
+            <ion-select-option value="atenta">Atenta</ion-select-option>
+            <ion-select-option value="dispersa">Dispersa</ion-select-option>
           </ion-select>
+        </ion-item>
+
+        <ion-item-divider style="background: #e4e4e4; border-bottom-width: 0px;">
+          <ion-icon name="alert" slot="start" size="small"
+            style="margin-right: 5px; margin-left: 0px; margin-top: 10px; margin-bottom: 10px;"></ion-icon>
+          <ion-label style="font-size: 16px; color: goldenrod;">{{"Observação" | uppercase}}</ion-label>
+        </ion-item-divider>
+
+        <ion-item lines="none">
+          <ion-input type="text" placeholder="Fazer observação" clearInput></ion-input>
         </ion-item>
 
 
@@ -144,10 +189,10 @@
 
 </ion-content>
 
-<ion-footer>
+<!-- <ion-footer>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button [routerLink]="['/home']" routerLinkActive="router-link-active" >
+      <ion-button [routerLink]="['/home']" routerLinkActive="router-link-active">
         <ion-label>Salvar rascunho</ion-label>
         <ion-icon slot="start" name="finger-print"></ion-icon>
       </ion-button>
@@ -160,4 +205,4 @@
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
-</ion-footer>
+</ion-footer> -->
