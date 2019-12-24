@@ -2,9 +2,12 @@
 
     <div>
       <form [formGroup]="editaAtividadeForm" (ngSubmit)="onSubmit()">
+        <ion-item lines="none" style="text-align: center;">
+          <!-- <ion-icon name="pizza" slot="start"></ion-icon> -->
+          <ion-label>Editar atividade</ion-label>
+        </ion-item>
         <ion-item lines="none">
-          <ion-textarea rows="6" formControlName="descricao" type="text" value="Eu testando">
-           {{"Descrição da atividade selecionada"}}
+          <ion-textarea rows="6" formControlName="descricao" type="text" value="Eu testando" style="background: yellow;">
           </ion-textarea>
         </ion-item>
       </form>

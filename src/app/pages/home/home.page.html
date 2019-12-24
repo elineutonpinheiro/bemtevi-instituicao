@@ -13,7 +13,7 @@
         <p style="font-size: 16px;">Terça-feira, 1 de Outubro</p>
       </ion-label>
     </div>
-    <div class="select-turmas"
+    <div class="select-turmas" (click)="openSelect()"
       style="display: flex; 
       align-items: center; 
       float: right; 
@@ -28,7 +28,7 @@
       </div>
 
       <ion-buttons slot="primary" *ngIf="true" style="display: inline-block;">
-        <ion-button (click)="openSelect()" class="icon-select" color="dark">
+        <ion-button class="icon-select" color="dark" disabled>
           <ion-icon slot="icon-only" name="arrow-down" mode="ios" size="small"></ion-icon>
         </ion-button>
       </ion-buttons>

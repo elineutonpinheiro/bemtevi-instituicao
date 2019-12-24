@@ -1,8 +1,9 @@
 <ion-header mode="ios">
   <ion-toolbar>
-    <ion-buttons slot="primary">
+    <ion-buttons slot="primary" (click)="onClick()">
       <ion-button>
-        <ion-icon slot="icon-only" name="more"></ion-icon>
+        <ion-label>Editar</ion-label>
+        <ion-icon slot="end" name="create"></ion-icon>
       </ion-button>
     </ion-buttons>
 
@@ -11,50 +12,89 @@
 </ion-header>
 
 
-<ion-content class="ion-padding" style="--background: #F7F7F7; border-radius: 3px;">
+<ion-content class="ion-padding" style="--background: #F7F7F7; border-radius: 0px;">
 
-  <ion-card style="background: white; width: 100%; height: 100%; margin: 0px;">
-    <div class="ion-padding">
-      <div class="circle">
-        <img src="https://i.stack.imgur.com/atUuf.png">
+  <ion-card style="background: white; width: 100%; height: 100%; margin: 0px; 
+  border-radius: 0px; box-shadow: none;">
+    <div class="ion-padding" style="display: flex; justify-content: center; align-items: center; 
+    background: #f7f7f7; height: 50%; border-radius: 0px;">
+      <div>
+        <div class="circle">
+          <img src="https://i.stack.imgur.com/atUuf.png">
+        </div>
+
+        <div class="personal-information">
+          <h3>Francisca Lemos</h3>
+          <p style="color: darkgray; font-size: 18px; margin-top: 0px; margin-bottom: 0px;">Cuidadora</p>
+        </div>
       </div>
-
-      <div class="personal-information">
-        <h2>Francisca Lemos</h2>
-        <h5 style="color: darkgray;">Cuidadora</h5>
-      </div>
-
-      <ion-button class="button-sair" (click)="onClick()">
+      <!-- <ion-button class="button-sair" (click)="onClick()">
         Sair
-      </ion-button>
+      </ion-button> -->
     </div>
 
-    <div class="ion-padding" style="padding-top: 10px;">
 
+
+    <div class="ion-padding" style="padding-top: 10px; height: 50%; background: #f7f7f7;">
+      <form [formGroup]="editaInfoUsuarioForm" (ngSubmit)="onSubmit()">
+        <ion-list class="ion-no-padding">
+
+          <!-- <ion-list-header style="padding-left: 0px; background: #f7f7f7;">
+                <ion-label style="font-weight: bold;">INFORMAÇÕES DE PERFIL</ion-label>
+              </ion-list-header> -->
+
+          <div class="ion-padding-top" style="background: #f7f7f7;">
+            <div style="padding-bottom: 10px;">
+              <ion-label>Telefone</ion-label>
+            </div>
+            <ion-item lines="none" style="border: 0.5px solid #E9E9E9; border-radius: 10px;">
+              <ion-icon slot="start" name="call"></ion-icon>
+              <ion-input type="text" name="telefone" formControlName="telefone" 
+              [brmasker]="{phone: true}"></ion-input>
+            </ion-item>
+          </div>
+          <div class="ion-padding-top" style="background: #f7f7f7;">
+            <div style="padding-bottom: 10px;">
+              <ion-label>Senha</ion-label>
+            </div>
+            <ion-item lines="none" style="border: 0.5px solid #E9E9E9; border-radius: 10px;">
+              <ion-icon slot="start" name="lock"></ion-icon>
+              <ion-input type="password" formControlName="senha"></ion-input>
+            </ion-item>
+          </div>
+        </ion-list>
+      </form>
+    </div>
+
+
+
+    <!-- <div class="ion-padding" style="padding-top: 10px; height: 50%; background: #f7f7f7;">
       <ion-list class="ion-no-padding">
-        <ion-item-divider mode="md">
-          <ion-label>
-            DADOS PESSOAIS
-          </ion-label>
-        </ion-item-divider>
 
-        <ion-item>
-          <ion-label position="fixed">Nome</ion-label>
-          <ion-input value="Francisca Lemos" disabled></ion-input>
-        </ion-item>
+        <ion-list-header style="padding-left: 0px; background: #f7f7f7;">
+          <ion-label style="font-weight: bold;">INFORMAÇÕES DE PERFIL</ion-label>
+        </ion-list-header>
 
-        <ion-item>
-          <ion-label position="fixed">Telefone</ion-label>
-          <ion-input value="(95) 99111-8293" disabled></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-label position="fixed">Senha</ion-label>
-          <ion-input value="minhasenha" type="password" disabled></ion-input>
-          <ion-icon slot="end" name="eye"></ion-icon>
-        </ion-item>
+        <div class="ion-padding-top" style="background: #f7f7f7;">
+          <div style="padding-bottom: 10px;">
+              <ion-label>Telefone</ion-label>
+          </div>
+          <ion-item lines="none" style="border: 0.5px solid #E9E9E9; border-radius: 10px;">
+            <ion-icon slot="start" name="call"></ion-icon>
+            <ion-input type="number" value="(95) 99111-8293" ></ion-input>
+          </ion-item>
+        </div>
+        <div class="ion-padding-top" style="background: #f7f7f7;">
+            <div style="padding-bottom: 10px;">
+                <ion-label>Senha</ion-label>
+            </div>
+          <ion-item lines="none" style="border: 0.5px solid #E9E9E9; border-radius: 10px;">
+            <ion-icon slot="start" name="lock"></ion-icon>
+            <ion-input type="password" value="(95) 99111-8293"></ion-input>
+          </ion-item>
+        </div>
       </ion-list>
-    </div>
+    </div> -->
 
   </ion-card>
 

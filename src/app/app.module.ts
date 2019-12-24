@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { EditaAtividadePageModule } from './pages/edita-atividade/edita-atividade.module';
 import { NovaAtividadePageModule } from './pages/nova-atividade/nova-atividade.module';
 import { NgModule } from '@angular/core';
@@ -14,7 +15,7 @@ import { AppComponent } from './app.component';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
+  imports: [FormsModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule,
   NovaAtividadePageModule, EditaAtividadePageModule],
   providers: [
     StatusBar,
