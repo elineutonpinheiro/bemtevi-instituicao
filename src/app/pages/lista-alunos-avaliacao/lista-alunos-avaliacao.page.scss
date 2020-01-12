@@ -1,4 +1,4 @@
-.card-alunos-av {
+/* .card-alunos-av {
     width: 100%; 
     height: 53vh !important;
     //height: 100%;
@@ -8,4 +8,32 @@
     box-shadow: none;
     display:flex;
     flex-direction: column;
+} */
+
+
+.div-list-children{
+    height: 40vh;
+    //position: absolute;
+    top: 220px;
+    bottom: 0;        
+    right: 0px;
+    left: 0px;
+    //padding-top: 10px;
+    overflow-y: scroll;
+    //background: #A3A0FB;
+
+    .list-children { 
+        padding: 3px;
+        margin-left: 60px;
+        margin-right: 60px;
+        margin-bottom: 0;
+        //height: 44vh;
+
+        .item-list-children {
+            border: 1px solid lightgrey; 
+            border-radius: 10px;
+            margin-bottom: 5px;
+      }
+
+    }
 }

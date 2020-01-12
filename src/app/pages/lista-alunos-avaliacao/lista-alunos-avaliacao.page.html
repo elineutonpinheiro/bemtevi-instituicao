@@ -1,7 +1,17 @@
-<ion-card class="card-alunos-av" style="margin-top: 10px; padding-top: 5px; ">
+<div class="div-list-children">
+  <ion-list lines="none" class="list-children" *ngFor="let aluno of alunos">
+    <ion-item class="item-list-children" (click)="avaliar()">
+      <ion-icon slot="start" name="add" style="margin-right: 12px;"></ion-icon>
+      <ion-label>{{aluno.nome}}</ion-label>
+      <ion-icon slot="end" name="arrow-forward" mode="ios"></ion-icon>
+    </ion-item>
+  </ion-list>
+</div>
+
+<!-- <ion-card class="card-alunos-av" style="margin-top: 10px; padding-top: 5px; "> -->
 
 
-  <div style="padding: 16px; padding-top: 0px; padding-bottom: 0px;">
+<!-- <div style="padding: 16px; padding-top: 0px; padding-bottom: 0px;">
     <ion-item-divider style="--padding-start: 0px;">
       <ion-icon slot="start" name="list" size="small" style="margin-right: 0px"></ion-icon>
       <ion-label style="margin: 5px;">
@@ -9,27 +19,25 @@
           Alunos para avaliação
         </div>
       </ion-label>
-      <ion-icon slot="end" name="search" style="margin-right: 0px;" (click)="exibeBarraPesquisa = !exibeBarraPesquisa" *ngIf="!exibeBarraPesquisa"></ion-icon>
-      <ion-icon slot="end" name="close" style="margin-right: 0px;" (click)="exibeBarraPesquisa = !exibeBarraPesquisa" *ngIf="exibeBarraPesquisa"></ion-icon>
+      <ion-icon slot="end" name="search" style="margin-right: 0px;" (click)="exibeBarraPesquisa = !exibeBarraPesquisa"
+        *ngIf="!exibeBarraPesquisa"></ion-icon>
+      <ion-icon slot="end" name="close" style="margin-right: 0px;" (click)="exibeBarraPesquisa = !exibeBarraPesquisa"
+        *ngIf="exibeBarraPesquisa"></ion-icon>
     </ion-item-divider>
-  </div>
+  </div> -->
 
-  <div *ngIf="exibeBarraPesquisa">
+<!-- <div *ngIf="exibeBarraPesquisa">
     <ion-searchbar placeholder="Buscar aluno" mode="ios">
     </ion-searchbar>
-  </div>
+  </div> -->
 
-  <ion-content>
 
-    <ion-list lines="none" *ngFor="let aluno of alunos" style="padding-top: 0px; padding-bottom: 0px">
+<!-- <ion-list lines="none" *ngFor="let aluno of alunos" style="padding-top: 0px; padding-bottom: 0px">
       <ion-item (click)="avaliar()">
         <ion-icon slot="start" name="star-outline"></ion-icon>
         <ion-label>{{aluno.nome}}</ion-label>
         <ion-icon name="ios-arrow-forward" slot="end"></ion-icon>
       </ion-item>
-    </ion-list>
+    </ion-list> -->
 
-  </ion-content>
-
-
-</ion-card>
+<!-- </ion-card> -->

@@ -13,11 +13,11 @@ export class ListaAlunosAvaliacaoPage implements OnInit {
     {nome: 'Thiago Ventura'},
     {nome: 'Diana Dias Ventura'},
     {nome: 'Thiago Souza de Lima'},
-    {nome: 'Ana Clara Muniz'},
-    {nome: 'Ana Clara Muniz'},
-    {nome: 'Ana Clara Muniz'},
-    {nome: 'Ana Clara Muniz'},
-    {nome: 'Ana Clara Muniz'},
+    {nome: 'Francisco Elineuton'},
+    {nome: 'Iam Barroso'},
+    {nome: 'Genildo Gomes da Silva'},
+    {nome: 'Ana Francisca'},
+    {nome: 'Anne Shirley'},
   ];
 
   exibeBarraPesquisa: false;

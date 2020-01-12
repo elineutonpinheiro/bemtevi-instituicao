@@ -1,7 +1,105 @@
-.card-progresso-avs {
+/* .card-progresso-avs {
     //height: 109px;
     width: 100%;
     margin: 0px;
     background: white;
     box-shadow: none;
+} */
+
+.container {
+    width: 220px;   
+}
+
+.container .box {
+    top: 10px;
+    position: relative;
+    text-align: center;
+    left: -45px;
+}
+
+.percent {
+    position: relative;
+    display: inline-block;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    //box-shadow: 1px 2px 10px #888;
+    background: #fff;
+    z-index: 1000;
+}
+
+.percent .number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.percent .number h2 {
+    color: #777;
+    font-weight: 700;
+    font-size: 32px;
+    transition: 0.5s;
+}
+
+.box:hover .percent .number h2 {
+    color: #000;
+    font-size: 48px;
+}
+
+.percent .number h2 span {
+    font-size: 24px;
+    color: #777;
+    transition: 0.5s;
+}
+
+.box:hover .percent .number h2 span {
+    color: #000;
+}
+
+svg {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    z-index: 1000;
+}
+
+svg circle {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: #191919;
+    stroke-width: 10;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+}
+
+svg circle:nth-child(2) {
+    stroke-dasharray: 320;
+    stroke-dashoffset: 320;
+}
+
+.box:nth-child(1) svg circle:nth-child(2) {
+    stroke-dashoffset: calc(360 - (360 * 90) / 100);
+    stroke: lightslategray;
+}
+
+.text {
+    position: relative;
+    color: #777;
+    margin-top: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+.box:hover .text {
+    color: #000;
 }

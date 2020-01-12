@@ -1,8 +1,125 @@
-* {
-    margin: 0;
+ion-content {
+    font-family: 'Open Sans', sans-serif;
 }
 
-.sc-ion-buttons-md-s .button-clear, .sc-ion-buttons-md-s .button-outline {
+.background-radius {
+    background-color: white; 
+    width: 120%; 
+    height: 87%; 
+    left: -10%;
+    right:-10%;
+    position: absolute; 
+    bottom: 0;
+    border-top-left-radius: 50% 25%;
+    border-top-right-radius: 50% 25%;
+
+    .background-circle {
+        background-color: white;
+        width: 130px; 
+        height: 130px; 
+        position: relative;
+        top: -60px;
+        bottom: 0px;
+        margin-left:auto;
+        margin-right:auto;
+        border-radius: 50% 50%;
+
+        .progress-circle {
+            background-color: #A3A0FB;
+            width: 100px; 
+            height: 100px; 
+            right: 0px;
+            left: 0px;
+            position: absolute;
+            margin-top: 10px;
+            margin-left:auto;
+            margin-right:auto;
+            border-radius: 50% 50%;
+
+            .label-progress-circle {
+                font-size: 14px;
+                color: black;
+                width: 110px;
+                margin-top: 105px; 
+                text-align: center;
+                position: relative;
+                left: -5px
+            }
+        }
+    }
+
+    .turma-section {
+        padding: 0px 60px 0 60px; 
+        top: -20px;
+        display:flex; 
+        justify-content:center;
+
+        .turma-select {
+            display: flex; 
+            align-items: center;
+            max-width: 250px; 
+            height: 36px;
+
+            .label-turma-select {
+                font-size: 24px; 
+                font-weight: bold; 
+                color: black;
+            }
+
+            .button-turma-select {
+                display: inline-block;
+            }
+        }
+    }
+
+    .grid-section-children {
+        padding: 10px 60px 10px 60px; 
+        font-size: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+        .icon-search {
+            display: flex; 
+            float: right;
+        }
+    }
+
+    .div-list-children{
+        height: 42vh;
+        position: absolute;
+        bottom: 0;        
+        right: 0px;
+        left: 0px;
+        overflow-y: scroll;
+        //background: #A3A0FB;
+
+        .list-children { 
+            padding: 3px;
+            margin-left: 60px;
+            margin-right: 60px;
+            //height: 44vh;
+    
+            .item-list-children {
+                border: 1px solid lightgrey; 
+                border-radius: 10px;
+                margin-bottom: 5px;
+          }
+    
+        }
+    }
+
+    
+}
+
+
+
+/* ion-content.background{
+    --background: url(../../../assets/img/backTeste.png) no-repeat 100% 100%;
+} */
+
+
+
+/* .sc-ion-buttons-md-s .button-clear, .sc-ion-buttons-md-s .button-outline {
     width: 32px;
     height: 32px;
 }
@@ -12,7 +129,7 @@
     --padding-end: 0px;
     --padding-bottom: 0px;
     --padding-start: 0px;
-}
+} */
 
 
 
