@@ -1,0 +1,31 @@
+ion-content {
+  font-family: "Open Sans", sans-serif;
+}
+
+.div-label-page {
+  font-size: 24px;
+  height: 70px;
+  color: black;
+  font-weight: 700;
+  text-align: center;
+  //margin-bottom: 20px;
+  background: #ffc205;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+
+  .label-name {
+    display: block;
+    padding-top: 10px;
+  }
+
+  .label-status {
+    display: block;
+    font-size: 18px;
+    color: #fff;
+    font-weight: bold;
+  }
+}
+
+ion-toolbar {
+  box-shadow: 0 0.5px 1px rgba(205, 210, 211, 1);
+}

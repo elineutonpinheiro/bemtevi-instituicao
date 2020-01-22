@@ -23,10 +23,8 @@ export class NovaAtividadePage implements OnInit {
 
   createForm() {
     this.novaAtividadeForm = this.fb.group({
-      //titulo: ['', Validators.required],
       descricao: ['',  Validators.required],
-      criadaEm: new Date(),
-      turmaId: ['']
+      intante: new Date()
     });
   }
 
@@ -40,15 +38,6 @@ export class NovaAtividadePage implements OnInit {
   onSubmit() {
     this.save();
   }
-
-  protected adjustTextarea(event: any): void {
-    let textarea: any		= event.target;
-    textarea.style.overflow = 'hidden';
-    textarea.style.height 	= 'auto';
-    textarea.style.height 	= textarea.scrollHeight + 'px';
-    return;
-  }
-
 
   ngOnInit() {
     this.createForm();

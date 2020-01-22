@@ -14,9 +14,14 @@ export class AtividadesPage implements OnInit {
               public editaAtividadeController: ModalController) { }
 
 
-  atividades: [
+  atividades = [
     // tslint:disable-next-line: max-line-length
-    { titulo: 'Pintura criativa', descricao: 'Pintura para desenvolver a coordenação motora e trabalhar a criativade e inteligencia.', criadaEm: '10:45 AM' }
+    { descricao: 'Pintura para desenvolver a coordenação motora e trabalhar a criativade e inteligencia.', instante: '10:45 AM' },
+    { descricao: 'Pintura para desenvolver a coordenação motora e trabalhar a criativade e inteligencia.', instante: '10:45 AM' },
+    { descricao: 'Pintura para desenvolver a coordenação motora e trabalhar a criativade e inteligencia.', instante: '10:45 AM' },
+    { descricao: 'Pintura para desenvolver a coordenação motora e trabalhar a criativade e inteligencia.', instante: '10:45 AM' },
+    { descricao: 'Pintura para desenvolver a coordenação motora e trabalhar a criativade e inteligencia.', instante: '10:45 AM' },
+    { descricao: 'Pintura para desenvolver a coordenação motora e trabalhar a criativade e inteligencia.', instante: '10:45 AM' },
   ];
 
   // openPeriodo: false;
@@ -54,6 +59,9 @@ export class AtividadesPage implements OnInit {
   async openEditaAtividade() {
     const modal = await this.editaAtividadeController.create({
       component: EditaAtividadePage,
+      componentProps: {
+        descricao: this.atividades[0].descricao
+      },
       cssClass: 'half-modal'
     });
     return await modal.present();

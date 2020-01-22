@@ -17,20 +17,27 @@ export class AvaliacaoPage implements OnInit {
   ];
 
   questoesAlimentacao = [
-    {descricao: 'Café da manhã'},
-    {descricao: 'Lanche da manhã'},
-    {descricao: 'Almoço'},
-    {descricao: 'Lanche da tarde'}
+    { descricao: 'Café da manhã' },
+    { descricao: 'Lanche da manhã' },
+    { descricao: 'Almoço' },
+    { descricao: 'Lanche da tarde' }
   ];
 
   questoesSaude = [
-    {descricao: 'Urina'},
-    {descricao: 'Evacuação'},
-    {descricao: 'Febre'},
+    { descricao: 'Urina' },
+    { descricao: 'Evacuação' },
+    { descricao: 'Febre' },
   ];
 
-  avaliacaoForm = this.fb.group ({
-    dormiu: [false]
+  questoesHigiene = [
+    { descricao: 'Banho', quantidade: 0 },
+    { descricao: 'Fralda', quantidade: 0 },
+    { descricao: 'Escovação', quantidade: 0 },
+  ];
+  
+  avaliacaoForm = this.fb.group({
+    dormiu: [false],
+    febre: [false]
   });
 
   constructor(private fb: FormBuilder) { }
@@ -45,6 +52,18 @@ export class AvaliacaoPage implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  incrementa(index: number) {
+    if (this.questoesHigiene[index].quantidade < 99) {
+      this.questoesHigiene[index].quantidade++;
+    }
+  }
+
+  decrementa(index: number) {
+    if (this.questoesHigiene[index].quantidade > 0) {
+      this.questoesHigiene[index].quantidade--;
+    }
   }
 
 }

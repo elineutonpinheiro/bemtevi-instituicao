@@ -8,9 +8,9 @@ import { IonSelect } from '@ionic/angular';
 })
 export class HomePage implements OnInit {
 
-  mostrarTurma = false;
-  showList = true;
-  turmaSelecionada = 'Selecione';
+  mostraTurma = false;
+  mostraLista = true;
+  turmaSelecionada = 'Fundamental III';
 
   turmas = [
     { id: '1', nome: 'Infantil I' },

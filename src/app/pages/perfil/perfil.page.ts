@@ -14,8 +14,9 @@ export class PerfilPage implements OnInit {
 
   createForm() {
     this.editaInfoUsuarioForm = this.fb.group({
-      telefone: [{value: '', disabled: true}, Validators.required],
-      senha: [{value: '', disabled: true},  Validators.required]
+      email: [{value: '', disabled: false}, Validators.required],
+      telefone: [{value: '', disabled: false}, Validators.required],
+      senha: [{value: '', disabled: false},  Validators.required]
     });
   }
 

@@ -1,20 +1,17 @@
-<ion-content class="ion-padding">
+<div class="div-title">
+  <ion-label>Editar atividade</ion-label>
+</div>
 
-    <div>
-      <form [formGroup]="editaAtividadeForm" (ngSubmit)="onSubmit()">
-        <ion-item lines="none" style="text-align: center;">
-          <!-- <ion-icon name="pizza" slot="start"></ion-icon> -->
-          <ion-label>Editar atividade</ion-label>
-        </ion-item>
-        <ion-item lines="none">
-          <ion-textarea rows="6" formControlName="descricao" type="text" value="Eu testando" style="background: yellow;">
-          </ion-textarea>
-        </ion-item>
-      </form>
-    </div>
-   
-  </ion-content>
-  
-  <ion-button expand="full" type="submit" fill="clear" mode="ios">
-      <ion-label style="font-size: 16px; padding-right: 16px;">Concluido</ion-label>
+<ion-content class="ion-padding">
+    <form [formGroup]="editaAtividadeForm" (ngSubmit)="onSubmit()">
+      <ion-item lines="none">
+        <ion-textarea rows="4" formControlName="descricao" type="text" [value]="descricao"></ion-textarea>
+      </ion-item>
+    </form>
+</ion-content>
+
+<div class="div-button">
+  <ion-button expand="block" fill="outline" type="submit" mode="ios" class="button-concluido">
+    Concluído
   </ion-button>
+</div>

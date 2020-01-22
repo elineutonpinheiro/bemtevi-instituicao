@@ -10,11 +10,41 @@
     flex-direction: column;
 } */
 
+.div-title-list-children {
+    display: flex; 
+    align-items: center; 
+    justify-content: left; 
+    padding: 0;
+    //background: #444444;
+    //border-left: 5px solid #e9e9e9;
+    //border-top: 1px solid #e9e9e9;
+    //border: 1px solid #e9e9e9;
+    margin-left: 75px;
+    margin-right: 75px;
+  
+    //border-radius: 10px;
+    margin-bottom: 10px;
+    height: 30px;
+
+    .label-title-list-children {
+        margin: 0; 
+        font-weight: 700;
+        font-size: 14px; 
+        font-family: 'Open Sans', sans-serif; 
+        letter-spacing: 1px;
+        //color: #9BA5A7; 
+        color: #444444;
+        text-transform: uppercase;
+    }
+}
+
 
 .div-list-children{
-    height: 40vh;
+    //height: 43.8vh;
     //position: absolute;
-    top: 220px;
+    height: 46.8vh;
+    //top: 220px;
+    top: 165px;
     bottom: 0;        
     right: 0px;
     left: 0px;
@@ -23,17 +53,53 @@
     //background: #A3A0FB;
 
     .list-children { 
-        padding: 3px;
-        margin-left: 60px;
-        margin-right: 60px;
-        margin-bottom: 0;
+        padding: 0px;
+        margin-left: 75px;
+        margin-right: 75px;
+        margin-bottom: 10px;
         //height: 44vh;
 
         .item-list-children {
-            border: 1px solid lightgrey; 
+            border: 1px solid #CDD2D3; 
             border-radius: 10px;
-            margin-bottom: 5px;
+            //margin-bottom: 5px;
       }
 
     }
+}
+
+  
+.icon-children {   
+    border-radius: 50%;
+    background: #FFC205;
+    padding: 5px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 12px;
+}
+
+.div-orientation {
+    margin-top: 5px; 
+    position: absolute; 
+    bottom: 0;
+    left: 0; 
+    right: 0;
+    align-items: center; 
+    justify-content: center; 
+    display: flex; 
+    background: #F1F3F2;
+
+    .div-container-orientation {
+        width: 230px; 
+        text-align: center; 
+        padding-top: 5px; 
+        padding-bottom: 5px;
+
+        .label-orientation {
+            font-size: 12px; 
+            color: #9BA5A7;
+        }
+
+    }
+
 }

@@ -1,43 +1,37 @@
 <div class="div-list-children">
-  <ion-list lines="none" class="list-children" *ngFor="let aluno of alunos">
-    <ion-item class="item-list-children" (click)="avaliar()">
-      <ion-icon slot="start" name="add" style="margin-right: 12px;"></ion-icon>
-      <ion-label>{{aluno.nome}}</ion-label>
+  <ion-list lines="none" class="list-children" *ngFor="let aluno of alunos; let i = index">
+
+    <!-- <ion-item class="item-list-children" (click)="avaliar()">
+      <ion-icon class="icon-children" slot="start" size="small" src="assets/svg/icon-bebe.svg"
+        style="margin-right: 12px;"></ion-icon>
+      <ion-label>{{aluno.nome | uppercase}}</ion-label>
       <ion-icon slot="end" name="arrow-forward" mode="ios"></ion-icon>
-    </ion-item>
+    </ion-item> -->
+
+    <ion-item-sliding class="item-list-children" [ngStyle]="{'border-color': (aluno.ausencia ? '#F1F3F2' : '#CDD2D3')}">
+
+      <ion-item-options side="start">
+        <ion-item-option color="danger" expandable (click)="registrarFrequencia(i)" *ngIf="!aluno.ausencia">F
+        </ion-item-option>
+        <ion-item-option color="primary" expandable (click)="registrarFrequencia(i)" *ngIf="aluno.ausencia">P
+        </ion-item-option>
+      </ion-item-options>
+
+      <ion-item (click)="avaliar()" [disabled]="aluno.ausencia">
+        <ion-icon class="icon-children" slot="start" size="small" src="assets/svg/icon-bebe.svg"
+          [ngStyle]="{'background': (aluno.ausencia ? '#CDD2D3' : '#FFC205')}"></ion-icon>
+        <ion-label [ngStyle]="{'color': (aluno.ausencia ? '#CDD2D3' : '#444444')}">{{aluno.nome | uppercase}}
+        </ion-label>
+        <ion-icon slot="end" name="arrow-forward" mode="ios"></ion-icon>
+      </ion-item>
+
+    </ion-item-sliding>
+
   </ion-list>
 </div>
 
-<!-- <ion-card class="card-alunos-av" style="margin-top: 10px; padding-top: 5px; "> -->
-
-
-<!-- <div style="padding: 16px; padding-top: 0px; padding-bottom: 0px;">
-    <ion-item-divider style="--padding-start: 0px;">
-      <ion-icon slot="start" name="list" size="small" style="margin-right: 0px"></ion-icon>
-      <ion-label style="margin: 5px;">
-        <div style="font-size: 20px; font-weight: bold;">
-          Alunos para avaliação
-        </div>
-      </ion-label>
-      <ion-icon slot="end" name="search" style="margin-right: 0px;" (click)="exibeBarraPesquisa = !exibeBarraPesquisa"
-        *ngIf="!exibeBarraPesquisa"></ion-icon>
-      <ion-icon slot="end" name="close" style="margin-right: 0px;" (click)="exibeBarraPesquisa = !exibeBarraPesquisa"
-        *ngIf="exibeBarraPesquisa"></ion-icon>
-    </ion-item-divider>
-  </div> -->
-
-<!-- <div *ngIf="exibeBarraPesquisa">
-    <ion-searchbar placeholder="Buscar aluno" mode="ios">
-    </ion-searchbar>
-  </div> -->
-
-
-<!-- <ion-list lines="none" *ngFor="let aluno of alunos" style="padding-top: 0px; padding-bottom: 0px">
-      <ion-item (click)="avaliar()">
-        <ion-icon slot="start" name="star-outline"></ion-icon>
-        <ion-label>{{aluno.nome}}</ion-label>
-        <ion-icon name="ios-arrow-forward" slot="end"></ion-icon>
-      </ion-item>
-    </ion-list> -->
-
-<!-- </ion-card> -->
+<div class="div-orientation">
+  <div class="div-container-orientation">
+    <ion-label class="label-orientation">Para ver a lista completa, role para cima.</ion-label>
+  </div>
+</div>

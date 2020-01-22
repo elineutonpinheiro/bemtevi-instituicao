@@ -1,4 +1,64 @@
-<ion-header mode="ios">
+<ion-content style="--background: #FFC205;">
+
+  <div class="icon-log-out">
+    <ion-icon name="log-out" mode="ios" size="large"></ion-icon>
+  </div>
+
+  <div class="background-radius">
+    <div class="background-circle">
+      <div class="image-circle">
+        <img src="assets/svg/img-perfil-320.svg">
+      </div>
+    </div>
+    <div class="div-label-page">
+      <ion-label class="label-name">Ana Clara Muniz</ion-label>
+      <ion-label class="label-function">Cuidadora</ion-label>
+    </div>
+    <div class="div-button-edit">
+      <ion-button class="button-edit" fill="outline" size="small">
+        Editar
+      </ion-button>
+    </div>
+    <div class="div-form-user">
+      <form [formGroup]="editaInfoUsuarioForm" (ngSubmit)="onSubmit()">
+        <div class="ion-no-padding div-field-form-user">
+          <div class="ion-padding-top field-form-user">
+            <div class="label-field-form-user">
+              <ion-label>Telefone</ion-label>
+            </div>
+            <ion-item lines="none" class="item-field-form-user">
+              <ion-icon slot="start" name="call" size="small"></ion-icon>
+              <ion-input type="text" name="telefone" formControlName="telefone" [brmasker]="{phone: true}"></ion-input>
+            </ion-item>
+          </div>
+          <div class="ion-padding-top field-form-user">
+            <div class="label-field-form-user">
+              <ion-label>E-mail</ion-label>
+            </div>
+            <ion-item lines="none" class="item-field-form-user">
+              <ion-icon slot="start" name="mail" size="small"></ion-icon>
+              <ion-input type="text" name="email" formControlName="email"></ion-input>
+            </ion-item>
+          </div>
+          <div class="ion-padding-top field-form-user">
+            <div class="label-field-form-user">
+              <ion-label>Senha</ion-label>
+            </div>
+            <ion-item lines="none" class="item-field-form-user">
+              <ion-icon slot="start" name="lock" size="small"></ion-icon>
+              <ion-input type="password" formControlName="senha"></ion-input>
+              <ion-icon slot="end" name="eye" size="small" style="color: #CDD2D3;"></ion-icon>
+            </ion-item>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+</ion-content>
+
+
+<!-- <ion-header mode="ios">
   <ion-toolbar>
     <ion-buttons slot="primary" (click)="onClick()">
       <ion-button>
@@ -9,10 +69,10 @@
 
     <ion-title>Perfil</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 
-<ion-content class="ion-padding" style="--background: #F7F7F7; border-radius: 0px;">
+<!-- <ion-content class="ion-padding" style="--background: #F7F7F7; border-radius: 0px;">
 
   <ion-card style="background: white; width: 100%; height: 100%; margin: 0px; 
   border-radius: 0px; box-shadow: none;">
@@ -28,9 +88,9 @@
           <p style="color: darkgray; font-size: 18px; margin-top: 0px; margin-bottom: 0px;">Cuidadora</p>
         </div>
       </div>
-      <!-- <ion-button class="button-sair" (click)="onClick()">
+      <ion-button class="button-sair" (click)="onClick()">
         Sair
-      </ion-button> -->
+      </ion-button>
     </div>
 
 
@@ -39,9 +99,9 @@
       <form [formGroup]="editaInfoUsuarioForm" (ngSubmit)="onSubmit()">
         <ion-list class="ion-no-padding">
 
-          <!-- <ion-list-header style="padding-left: 0px; background: #f7f7f7;">
+          <ion-list-header style="padding-left: 0px; background: #f7f7f7;">
                 <ion-label style="font-weight: bold;">INFORMAÇÕES DE PERFIL</ion-label>
-              </ion-list-header> -->
+              </ion-list-header>
 
           <div class="ion-padding-top" style="background: #f7f7f7;">
             <div style="padding-bottom: 10px;">
@@ -68,7 +128,7 @@
 
 
 
-    <!-- <div class="ion-padding" style="padding-top: 10px; height: 50%; background: #f7f7f7;">
+    <div class="ion-padding" style="padding-top: 10px; height: 50%; background: #f7f7f7;">
       <ion-list class="ion-no-padding">
 
         <ion-list-header style="padding-left: 0px; background: #f7f7f7;">
@@ -94,8 +154,8 @@
           </ion-item>
         </div>
       </ion-list>
-    </div> -->
+    </div>
 
   </ion-card>
 
-</ion-content>
+</ion-content> -->

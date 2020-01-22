@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 
@@ -12,6 +12,7 @@ export class EditaAtividadePage implements OnInit {
 
   editaAtividadeForm: FormGroup;
   atividadeService: any;
+  @Input() descricao: any;
 
   constructor(private editaAtividadeController: ModalController,
               private fb: FormBuilder,

@@ -2,7 +2,7 @@
 
 <!-- Codigo correspondente ao card atividade -->
 
-<div style="margin: 5px;">
+<!-- <div style="margin: 5px;">
     <ion-item lines="none" style="border: 0.5px solid #E9E9E9; border-radius: 5px;">
         <ion-icon slot="start" color="medium" name="bookmark" style="margin-right: 16px;"></ion-icon>
         <ion-label class="ion-text-wrap">
@@ -16,14 +16,14 @@
                 inteligencia.</h3>
         </ion-label>
     </ion-item>
-</div>
+</div> -->
 
 
 <!-- Codigo correspondente ao formulario de criar nova atividade -->
-
+<!--
 <ion-header mode="ios">
         <ion-toolbar>
-          <!-- Implementar a navegação para a atividade na TAB e no arquivoModule.ts -->
+          Implementar a navegação para a atividade na TAB e no arquivoModule.ts
           <ion-buttons slot="start">
             <ion-button (click)="closeNovaAtividade()">
               <ion-icon name="arrow-back"></ion-icon>
@@ -58,5 +58,414 @@
               </ion-button>
           </ion-toolbar>
         </ion-footer>
-      
-      
+ -->
+<!-- ===================================================================================== -->  
+ <!-- //------------------------------------    
+ // Partes do Código de Home.page.html
+ //------------------------------------
+<ion-header>
+  <ion-toolbar>
+    <ion-title>home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<div style="height: 70px"> 
+  <div class="header-data" style="display: inline-flex; float: left;">
+    <ion-label>
+      <h1 style="font-size: 32px;">Hoje</h1>
+      <p style="font-size: 16px;">Terça-feira, 1 de Outubro</p>
+    </ion-label>
+  </div>
+  <div class="select-turmas" (click)="openSelect()"
+    style="display: flex; 
+    align-items: center; 
+    float: right; 
+    max-width: 160px; 
+    height: 36px;
+    margin-top: 12px; 
+    background: white; 
+    border-radius: 3px;">
+
+    <div style="font-size: 16px; padding-left: 8px; color: black;">
+      {{turmaSelecionada}}
+    </div>
+
+    <ion-buttons slot="primary" *ngIf="true" style="display: inline-block;">
+      <ion-button class="icon-select" color="dark" disabled>
+        <ion-icon slot="icon-only" name="arrow-down" mode="ios" size="small"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </div>
+
+</div>
+
+<div style="height: 10px"></div>
+
+<app-lista-alunos-avaliacao></app-lista-alunos-avaliacao> 
+
+<div style="text-align: center; 
+    border: 1px solid lightgrey;
+    padding: 3px;
+    margin-left: 60px;
+    margin-right: 60px;
+    border-radius: 10px;
+    margin-bottom: 5px;">
+      <ion-item lines="none">
+        <ion-icon slot="start" name="add" style="margin-right: 12px;"></ion-icon>
+        <label>Francisco Elineuton</label>
+        <ion-icon slot="end" name="arrow-forward" mode="ios"></ion-icon>
+      </ion-item>
+    </div>
+
+    <div class="div-list-children">
+      <ion-list lines="none" class="list-children">
+        <ion-item class="item-list-children">
+            <ion-icon slot="start" name="add" style="margin-right: 12px;"></ion-icon>
+            <ion-label>Pokémon Yellow</ion-label>
+            <ion-icon slot="end" name="arrow-forward" mode="ios"></ion-icon>
+        </ion-item>
+        <ion-item class="item-list-children">
+            <ion-icon slot="start" name="add" style="margin-right: 12px;"></ion-icon>
+            <ion-label>Pokémon Yellow</ion-label>
+            <ion-icon slot="end" name="arrow-forward" mode="ios"></ion-icon>
+        </ion-item>
+        <ion-item class="item-list-children">
+            <ion-icon slot="start" name="add" style="margin-right: 12px;"></ion-icon>
+            <ion-label>Pokémon Yellow</ion-label>
+            <ion-icon slot="end" name="arrow-forward" mode="ios"></ion-icon>
+        </ion-item>
+        <ion-item class="item-list-children">
+            <ion-icon slot="start" name="add" style="margin-right: 12px;"></ion-icon>
+            <ion-label>Pokémon Yellow</ion-label>
+            <ion-icon slot="end" name="arrow-forward" mode="ios"></ion-icon>
+        </ion-item>
+        <ion-item class="item-list-children">
+            <ion-icon slot="start" name="add" style="margin-right: 12px;"></ion-icon>
+            <ion-label>Pokémon Yellow</ion-label>
+            <ion-icon slot="end" name="arrow-forward" mode="ios"></ion-icon>
+        </ion-item>
+        <ion-item class="item-list-children">
+            <ion-icon slot="start" name="add" style="margin-right: 12px;"></ion-icon>
+            <ion-label>Pokémon Yellow</ion-label>
+            <ion-icon slot="end" name="arrow-forward" mode="ios"></ion-icon>
+        </ion-item>
+      </ion-list>
+    </div> -->
+
+ <!--  =====================================================================================  -->
+ <!-- //
+ // Parte do Código de lista-alunos-avaliação.page.html
+ //
+
+<ion-card class="card-alunos-av" style="margin-top: 10px; padding-top: 5px; ">
+
+
+<div style="padding: 16px; padding-top: 0px; padding-bottom: 0px;">
+    <ion-item-divider style="--padding-start: 0px;">
+      <ion-icon slot="start" name="list" size="small" style="margin-right: 0px"></ion-icon>
+      <ion-label style="margin: 5px;">
+        <div style="font-size: 20px; font-weight: bold;">
+          Alunos para avaliação
+        </div>
+      </ion-label>
+      <ion-icon slot="end" name="search" style="margin-right: 0px;" (click)="exibeBarraPesquisa = !exibeBarraPesquisa"
+        *ngIf="!exibeBarraPesquisa"></ion-icon>
+      <ion-icon slot="end" name="close" style="margin-right: 0px;" (click)="exibeBarraPesquisa = !exibeBarraPesquisa"
+        *ngIf="exibeBarraPesquisa"></ion-icon>
+    </ion-item-divider>
+  </div> 
+
+<div *ngIf="exibeBarraPesquisa">
+    <ion-searchbar placeholder="Buscar aluno" mode="ios">
+    </ion-searchbar>
+  </div>
+
+
+<ion-list lines="none" *ngFor="let aluno of alunos" style="padding-top: 0px; padding-bottom: 0px">
+      <ion-item (click)="avaliar()">
+        <ion-icon slot="start" name="star-outline"></ion-icon>
+        <ion-label>{{aluno.nome}}</ion-label>
+        <ion-icon name="ios-arrow-forward" slot="end"></ion-icon>
+      </ion-item>
+    </ion-list>
+
+</ion-card> -->
+
+
+<!-- <ion-header mode="ios">
+  <ion-toolbar>
+    <ion-buttons slot="primary">
+      <ion-button (click)="openPeriodo = !openPeriodo">
+        <ion-icon slot="icon-only" name="calendar"></ion-icon>
+      </ion-button>
+    </ion-buttons> 
+
+    <ion-title>Atividades</ion-title>
+
+  </ion-toolbar>
+</ion-header> -->
+
+<!-- <div *ngIf="openPeriodo">
+  <ion-list style="padding: 0px">
+    <ion-item lines="none">
+      <ion-label>Data Inicial</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" placeholder="Ex.: 02/07/2019"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Data Final</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" placeholder="Ex.: 05/07/2019"></ion-datetime>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="full" mode="ios" style="margin: 0px;" color="warning">Filtrar</ion-button>
+</div> -->
+
+<!--  =====================================================================================  -->
+ <!-- //
+ // Parte do Código de atividades.page.html
+ //
+
+    Searchbar with a placeholder
+
+    <ion-grid fixed style="padding: 0px;">
+    <ion-row>
+      <ion-col size="10">
+        <ion-searchbar placeholder="Filtrar por Descrição" mode="ios" style="padding: 0px;"></ion-searchbar>
+      </ion-col>
+      <ion-col size="2">
+        <ion-item lines="none" style="--background: rgba(var(--ion-text-color-rgb,0,0,0),0.07); border-radius: 10px; margin-left: 0px;     margin-left: 0px;
+          margin-top: 12px; height: 36px;" (click)="openSelect()">
+          <ion-icon name="funnel" mode="md" style="margin-bottom: 12px;"></ion-icon>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-select interface="popover" #filtro [hidden]='showFiltros' (ionChange)='setFiltro()' *ngIf="true">
+    <ion-select-option value="hoje" selected>Hoje</ion-select-option>
+    <ion-select-option value="semana">Esta semana</ion-select-option>
+    <ion-select-option value="mês">Este Mês</ion-select-option>
+    <ion-select-option value="ano">Este Ano</ion-select-option>
+    <ion-select-option value="tudo">Tudo</ion-select-option>
+  </ion-select> -->
+
+
+  <ion-content class="ion-padding" style="--background: #F7F7F7; border-radius: 3px;">
+
+
+    <!--  <ion-list>
+      <ion-list-header>
+        <ion-label>Alimentação</ion-label>
+      </ion-list-header>
+  
+      <ion-item *ngFor="let item of questoesAlimentacao">
+        <ion-label>{{item.descricao}}</ion-label>
+        <ion-select interface="popover" placeholder="">
+          <ion-select-option value="">Aceitou bem</ion-select-option>
+          <ion-select-option value="">Aceitou pouco</ion-select-option>
+          <ion-select-option value="">Não aceitou</ion-select-option>
+        </ion-select>
+      </ion-item>
+  
+    </ion-list> -->
+  
+  
+    <div
+      style="display:flex;justify-content:center;align-items:center; height: 32px; margin-bottom: 2px; background: white; border: 0.5px solid #E9E9E9;">
+      <ion-label style="font-size: 12px;">{{"Salva em rascunho" | uppercase}}</ion-label>
+    </div>
+  
+  
+  
+    <form [formGroup]="avaliacaoForm" (ngSubmit)="onSubmit()">
+  
+      <ion-list style="padding-top: 0px;">
+  
+        <ion-item-group>
+          <ion-item-divider style="background: #e4e4e4; border-bottom-width: 0px;">
+            <ion-icon name="alert" slot="start" size="small"
+              style="margin-right: 5px; margin-left: 0px; margin-top: 10px; margin-bottom: 10px;"></ion-icon>
+            <ion-label style="font-size: 16px; color: goldenrod;">{{"Alimentação" | uppercase}}</ion-label>
+          </ion-item-divider>
+  
+          <ion-item *ngFor="let item of questoesAlimentacao;" lines="none">
+            <ion-label>{{item.descricao}}</ion-label>
+            <ion-select interface="popover" placeholder="">
+              <ion-select-option value="aceitou bem">Aceitou bem</ion-select-option>
+              <ion-select-option value="aceitou pouco">Aceitou pouco</ion-select-option>
+              <ion-select-option value="não aceitou">Não aceitou</ion-select-option>
+            </ion-select>
+          </ion-item>
+  
+          <ion-item-divider style="background: #e4e4e4; border-bottom-width: 0px;">
+            <ion-icon name="alert" slot="start" size="small"
+              style="margin-right: 5px; margin-left: 0px; margin-top: 10px; margin-bottom: 10px;"></ion-icon>
+            <ion-label style="font-size: 16px; color: goldenrod;">{{"Higiene" | uppercase}}</ion-label>
+          </ion-item-divider>
+  
+          <ion-item lines="none">
+            <ion-label>Banho</ion-label>
+            <ion-select interface="popover" placeholder="">
+              <ion-select-option value="1 vez">1 vez</ion-select-option>
+              <ion-select-option value="2 vezes">2 vezes</ion-select-option>
+              <ion-select-option value="3 vezes">3 vezes</ion-select-option>
+              <ion-select-option value="4 ou mais vezes">4 ou mais vezes</ion-select-option>
+            </ion-select>
+          </ion-item>
+  
+          <ion-item lines="none">
+            <ion-label>Fralda</ion-label>
+            <ion-select interface="popover" placeholder="">
+              <ion-select-option value="1 vez">1 vez</ion-select-option>
+              <ion-select-option value="2 vezes">2 vezes</ion-select-option>
+              <ion-select-option value="3 vezes">3 vezes</ion-select-option>
+              <ion-select-option value="4 ou mais vezes">4 ou mais vezes</ion-select-option>
+            </ion-select>
+          </ion-item>
+  
+          <ion-item lines="none">
+            <ion-label>Escovação</ion-label>
+            <ion-select interface="popover" placeholder="">
+              <ion-select-option value="1 vez">1 vez</ion-select-option>
+              <ion-select-option value="2 vezes">2 vezes</ion-select-option>
+              <ion-select-option value="3 ou mais vezes">3 ou mais vezes</ion-select-option>
+            </ion-select>
+          </ion-item>
+  
+          <ion-item-divider style="background: #e4e4e4; border-bottom-width: 0px;">
+            <ion-icon name="alert" slot="start" size="small"
+              style="margin-right: 5px; margin-left: 0px; margin-top: 10px; margin-bottom: 10px;"></ion-icon>
+            <ion-label style="font-size: 16px; color: goldenrod;">{{"Sono" | uppercase}}</ion-label>
+          </ion-item-divider>
+  
+          <ion-item lines="none">
+            <ion-label>Dormiu</ion-label>
+            <ion-toggle slot="end" color="warning" formControlName="dormiu"></ion-toggle>
+          </ion-item>
+  
+          <ion-item lines="none" *ngIf="avaliacaoForm.get('dormiu').value == true">
+            <ion-label>Estado</ion-label>
+            <ion-select interface="popover" placeholder="">
+              <ion-select-option value="tranquilo">Tranquilo</ion-select-option>
+              <ion-select-option value="agitado">Agitado</ion-select-option>
+            </ion-select>
+          </ion-item>
+  
+          <ion-item-divider style="background: #e4e4e4; border-bottom-width: 0px;">
+            <ion-icon name="alert" slot="start" size="small"
+              style="margin-right: 5px; margin-left: 0px; margin-top: 10px; margin-bottom: 10px;"></ion-icon>
+            <ion-label style="font-size: 16px; color: goldenrod;">{{"Saúde" | uppercase}}</ion-label>
+          </ion-item-divider>
+  
+          <ion-item lines="none">
+            <ion-label>Urina</ion-label>
+            <ion-select interface="popover" placeholder="">
+              <ion-select-option value="normal">Normal</ion-select-option>
+              <ion-select-option value="escura">Escura</ion-select-option>
+            </ion-select>
+          </ion-item>
+  
+          <ion-item lines="none">
+            <ion-label>Evacuação</ion-label>
+            <ion-select interface="popover" placeholder="">
+              <ion-select-option value="normal">Normal</ion-select-option>
+              <ion-select-option value="ressecada">Ressecada</ion-select-option>
+              <ion-select-option value="esbranquiçada">Esbranquiçada</ion-select-option>
+              <ion-select-option value="diarréia">Diárréria</ion-select-option>
+            </ion-select>
+          </ion-item>
+  
+          <ion-item lines="none">
+            <ion-label>Febre</ion-label>
+            <ion-toggle slot="end" name="febre" color="warning"></ion-toggle>
+          </ion-item>
+  
+          <ion-item-divider style="background: #e4e4e4; border-bottom-width: 0px;">
+            <ion-icon name="alert" slot="start" size="small"
+              style="margin-right: 5px; margin-left: 0px; margin-top: 10px; margin-bottom: 10px;"></ion-icon>
+            <ion-label style="font-size: 16px; color: goldenrod;">{{"Socialização" | uppercase}}</ion-label>
+          </ion-item-divider>
+  
+          <ion-item lines="none">
+            <ion-label>Interação</ion-label>
+            <ion-select interface="popover" placeholder="">
+              <ion-select-option value="boa">Boa</ion-select-option>
+              <ion-select-option value="razoável">Razoável</ion-select-option>
+              <ion-select-option value="fraca">Fraca</ion-select-option>
+            </ion-select>
+          </ion-item>
+  
+          <ion-item lines="none">
+            <ion-label>Participação</ion-label>
+            <ion-select interface="popover" placeholder="">
+              <ion-select-option value="atenta">Atenta</ion-select-option>
+              <ion-select-option value="dispersa">Dispersa</ion-select-option>
+            </ion-select>
+          </ion-item>
+  
+          <ion-item-divider style="background: #e4e4e4; border-bottom-width: 0px;">
+            <ion-icon name="alert" slot="start" size="small"
+              style="margin-right: 5px; margin-left: 0px; margin-top: 10px; margin-bottom: 10px;"></ion-icon>
+            <ion-label style="font-size: 16px; color: goldenrod;">{{"Observação" | uppercase}}</ion-label>
+          </ion-item-divider>
+  
+          <ion-item lines="none">
+            <ion-input type="text" placeholder="Fazer observação" clearInput></ion-input>
+          </ion-item>
+  
+  
+        </ion-item-group>
+      </ion-list>
+    </form>
+  
+  
+  </ion-content>
+  
+  <!-- <ion-footer>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button [routerLink]="['/home']" routerLinkActive="router-link-active">
+          <ion-label>Salvar rascunho</ion-label>
+          <ion-icon slot="start" name="finger-print"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+  
+      <ion-buttons slot="end">
+        <ion-button [routerLink]="['/home']" routerLinkActive="router-link-active">
+          <ion-label>Concluir avaliação</ion-label>
+          <ion-icon slot="start" name="more"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer> -->
+
+  <!-- <div style="margin: 0 75px 0 75px; border: 1px solid #e9e9e9; border-radius: 10px; padding: 5px;">
+    <div style="padding: 16px; padding-top: 0px; padding-bottom: 0px;">
+        <ion-item-divider style="--padding-start: 0px;">
+          <ion-icon slot="start" name="list" size="small" style="margin-right: 0px"></ion-icon>
+          <ion-label style="margin: 5px;">
+            <div style="font-size: 16px; font-weight: bold;">
+              Alunos para avaliação
+            </div>
+          </ion-label>
+        </ion-item-divider>
+      </div> 
+    
+    <ion-list style="
+    height: 42vh; overflow-y: scroll;">
+        <ion-item lines="none" *ngFor="let aluno of alunos">
+          <ion-icon name="person" mode="ios" slot="start" style="margin-right: 12px;"></ion-icon>
+          <ion-label>
+            {{aluno.nome}}
+          </ion-label>
+          <ion-icon slot="end" name="arrow-forward" mode="ios"></ion-icon>
+        </ion-item>
+    </ion-list>
+</div> -->
+
+<!-- <div class="div-title-list-children">
+  <ion-item lines="none">
+    <ion-icon name="list" slot="start" style="margin-right: 12px;"></ion-icon>
+    <ion-label class="label-title-list-children">Crianças</ion-label>
+  </ion-item>
+</div> -->

@@ -1,4 +1,124 @@
-.input-wrapper {
-    height: 36px;
+ion-content {
+  font-family: "Open Sans", sans-serif;
 }
-  
+
+.icon-log-out {
+  padding: 16px;
+  float: right;
+}
+
+.background-radius {
+  background-color: white;
+  width: 120%;
+  height: 87%;
+  left: -10%;
+  right: -10%;
+  position: absolute;
+  bottom: 0;
+  border-top-left-radius: 50% 25%;
+  border-top-right-radius: 50% 25%;
+
+  .background-circle {
+    background-color: white;
+    width: 130px;
+    height: 130px;
+    position: relative;
+    top: -60px;
+    bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50% 50%;
+
+    .image-circle {
+      //background-color: #e5efef;
+      //background-color: #A3A0FB;
+      //background-image: url('../../../assets/img/img-page-atv@2x.png');
+      //background-repeat: no-repeat;
+      //background-attachment: fixed;
+      //background-position: center;
+      //background-size: auto;
+      width: 110px;
+      height: 110px;
+      overflow: hidden;
+      right: 0px;
+      left: 0px;
+      //bottom: 0;
+      //width: 100%;
+      position: absolute;
+      margin-top: 10px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 50% 50%;
+    }
+
+    .image-circle img {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+  }
+
+  .label-page {
+    //margin: 0 75px 0 75px;
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+    //margin-top: 105px;
+    text-align: center;
+    position: absolute;
+    //left: -5px;
+    top: 75px;
+    left: 0;
+    right: 0;
+  }
+
+  .list-atividades {
+    //height: 60.6vh;
+    height: 49vh;
+    overflow-y: scroll;
+  }
+
+  .list-sliding-atividade {
+    margin: 0 75px 0 75px;
+    margin-bottom: 10px;
+    //margin-top: 10px;
+    width: auto;
+    border: 1px solid #e9e9e9;
+    border-radius: 10px;
+
+    .icon-item-atividade {
+      margin-right: 12px;
+      border-radius: 50%;
+      background: #ffc205;
+      padding: 5px;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .label-item-atividade {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+
+    .label-item-atividade p {
+      margin-bottom: 0;
+    }
+
+    .note-item-atividade {
+      margin-left: 0px;
+    }
+  }
+}
+
+.input-wrapper {
+  height: 36px;
+}
+
+ion-fab {
+  margin-right: 16px;
+  margin-bottom: 16px;
+
+  ion-fab-button {
+    --box-shadow: none;
+  }
+}

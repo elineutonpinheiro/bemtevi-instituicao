@@ -1,4 +1,136 @@
-.circle {
+ion-content {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.icon-log-out {
+  padding: 16px;
+  float: right;
+}
+
+.background-radius {
+  background-color: #fff; 
+  width: 120%; 
+  height: 87%; 
+  left: -10%;
+  right:-10%;
+  position: absolute; 
+  bottom: 0;
+  border-top-left-radius: 50% 25%;
+  border-top-right-radius: 50% 25%;
+
+  .background-circle {
+      background-color: #fff;
+      width: 130px; 
+      height: 130px; 
+      position: relative;
+      top: -60px;
+      bottom: 0px;
+      margin-left:auto;
+      margin-right:auto;
+      border-radius: 50% 50%;
+
+      .image-circle {
+          //background-color: rgb(243, 243, 243);
+          //background-color: #e5efef;
+          width: 110px; 
+          height: 110px; 
+          overflow: hidden;
+          right: 0px;
+          left: 0px;
+          position: absolute;
+          margin-top: 10px;
+          margin-left:auto;
+          margin-right:auto;
+          border-radius: 50%;
+      }
+
+      .image-circle img {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          height: auto;
+      }
+  }
+  .div-label-page {
+    font-size: 24px;
+    color: black;
+    font-weight: 700;
+    text-align: center;
+    position: absolute;
+    top: 70px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+
+    .label-name {
+      display: block;
+      height: 25px;
+    }
+
+    .label-function {
+      display: block;
+      font-size: 18px;
+      color: #9BA5A7;
+      font-weight: bold;
+    }
+
+    
+  }
+
+  .div-button-edit{
+    position: relative;
+    text-align: center;
+    //margin-top: 10px;
+    
+    .button-edit{
+      font-size: small;
+      text-transform: none;
+      width: 90px;
+      --border-color: #9BA5A7;
+      --color: #9BA5A7;
+      --color-focused: #3880ff;
+      --border-radius: 10px;
+      --border-width: 1px;
+      --border-style: solid;
+      --background-activated: #FFC205;
+      --background-focused: red;
+      --color-activated: #ffffff;
+    
+    }
+
+  }
+
+  .div-form-user {
+    margin-left: 75px; 
+    margin-right: 75px; 
+    margin-top: 10px;
+
+    .div-field-form-user {
+      color: black;
+
+      .field-form-user {
+        
+        .label-field-form-user {
+          padding-top: 0px;
+          padding-bottom: 5px;
+          font-size: small;
+        }
+  
+        .item-field-form-user {
+          border: 1px solid #E9E9E9; 
+          border-radius: 10px;
+        }
+
+      }
+
+    }
+    
+  }
+
+}
+
+
+/* .circle {
     background-color: rgb(243, 243, 243);
     border-radius: 50%;
     width: 96px;
@@ -26,4 +158,4 @@
     width: 50%;
     margin-left:auto;
     margin-right:auto;
-  }
+  } */
