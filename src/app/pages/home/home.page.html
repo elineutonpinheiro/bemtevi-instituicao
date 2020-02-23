@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <ion-select interface="action-sheet" mode="md" #turmaList [hidden]='mostraLista' (ionChange)='setTurma()'
+    <ion-select interface="action-sheet" mode="md" #listaDeTurmas [hidden]='mostraLista' (ionChange)='setTurma()'
       *ngIf="true">
       <ion-select-option *ngFor="let turma of turmas">{{turma.nome}}</ion-select-option>
     </ion-select>

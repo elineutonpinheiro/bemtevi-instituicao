@@ -1,5 +1,7 @@
+import { TurmaService } from './../../services/turma.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSelect } from '@ionic/angular';
+import { TurmaDTO } from 'src/models/turma.dto';
 
 @Component({
   selector: 'app-home',
@@ -10,15 +12,11 @@ export class HomePage implements OnInit {
 
   mostraTurma = false;
   mostraLista = true;
-  turmaSelecionada = 'Fundamental III';
+  turmaSelecionada = 'Infantil I';
 
-  turmas = [
-    { id: '1', nome: 'Infantil I' },
-    { id: '2', nome: 'Infantil II' },
-    { id: '3', nome: 'Maternal III' }
-  ];
+  turmas: TurmaDTO[];
 
-  @ViewChild('turmaList', { static: false }) selectRef: IonSelect;
+  @ViewChild('listaDeTurmas', { static: false }) selectRef: IonSelect;
 
   openSelect() {
     this.selectRef.open();
@@ -29,9 +27,20 @@ export class HomePage implements OnInit {
     this.turmaSelecionada = this.selectRef.value;
   }
 
-  constructor() { }
+  constructor(public turmaService: TurmaService) { }
 
   ngOnInit() {
+    this.listaTurmas();
+  }
+
+  listaTurmas() {
+    this.turmaService.findAll()
+    .subscribe(response => {
+      this.turmas = response;
+    },
+    error => {
+      console.log(error);
+    });
   }
 
 }

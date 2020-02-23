@@ -1,3 +1,4 @@
+import { TurmaService } from './services/turma.service';
 import { FormsModule } from '@angular/forms';
 import { EditaAtividadePageModule } from './pages/edita-atividade/edita-atividade.module';
 import { NovaAtividadePageModule } from './pages/nova-atividade/nova-atividade.module';
@@ -20,7 +21,8 @@ import { AppComponent } from './app.component';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    TurmaService
   ],
   bootstrap: [AppComponent]
 })

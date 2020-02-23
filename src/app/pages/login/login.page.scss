@@ -1,0 +1,27 @@
+ion-content {
+  font-family: "Open Sans", sans-serif;
+  background: white;
+}
+
+.div-form-login {
+  //margin-left: 75px;
+  //margin-right: 75px;
+  margin-top: 10px;
+
+  .div-field-form-login {
+    color: black;
+
+    .field-form-login {
+      .label-field-form-login {
+        padding-top: 0px;
+        padding-bottom: 5px;
+        font-size: small;
+      }
+
+      .item-field-form-login {
+        border: 1px solid #e9e9e9;
+        border-radius: 10px;
+      }
+    }
+  }
+}

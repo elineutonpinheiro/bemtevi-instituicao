@@ -1,20 +1,18 @@
 import { TurmaService } from './../../services/turma.service';
-import { ProgressoAvaliacoesPage } from './../progresso-avaliacoes/progresso-avaliacoes.page';
-import { ListaAlunosAvaliacaoPage } from './../lista-alunos-avaliacao/lista-alunos-avaliacao.page';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule} from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { HomePage } from './home.page';
+import { TurmasPage } from './turmas.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomePage
+    component: TurmasPage
   }
 ];
 
@@ -23,12 +21,12 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    HttpClientModule,
     RouterModule.forChild(routes),
+    HttpClientModule
   ],
   providers: [
     TurmaService
   ],
-  declarations: [HomePage, ProgressoAvaliacoesPage, ListaAlunosAvaliacaoPage]
+  declarations: [TurmasPage]
 })
-export class HomePageModule {}
+export class TurmasPageModule {}
