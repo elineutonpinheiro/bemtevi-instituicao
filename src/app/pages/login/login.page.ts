@@ -1,3 +1,5 @@
+import { AuthService } from './../../services/auth.service';
+import { CredenciaisDTO } from 'src/models/credenciais.dto';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
@@ -10,23 +12,31 @@ import { NavController } from '@ionic/angular';
 export class LoginPage implements OnInit {
 
   loginForm: FormGroup;
+  creds: CredenciaisDTO;
+
+  ngOnInit() {
+    this.createForm();
+  }
 
   constructor(private fb: FormBuilder,
-              private nav: NavController) { }
+              private nav: NavController,
+              private auth: AuthService) { }
 
   createForm() {
     this.loginForm = this.fb.group({
-      codigoDeAcesso: [{value: '', disabled: false}, Validators.required],
-      senha: [{value: '', disabled: false},  Validators.required]
+      codigoAcesso: '',
+      senha: ''
     });
   }
 
   onSubmit() {
-    this.nav.navigateRoot('turmas');
-  }
-
-  ngOnInit() {
-    this.createForm();
+    this.creds = new CredenciaisDTO(this.loginForm.get('codigoAcesso').value, this.loginForm.get('senha').value);
+    this.auth.authenticate(this.creds)
+    .subscribe(response => {
+      console.log(response.headers.get('Authorization'));
+      this.nav.navigateRoot('tabs');
+    },
+    error => {});
   }
 
 }

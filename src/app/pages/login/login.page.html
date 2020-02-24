@@ -15,7 +15,7 @@
           </div>
           <ion-item lines="none" class="item-field-form-login">
             <ion-icon slot="start" name="mail" size="small"></ion-icon>
-            <ion-input type="text" name="codigoDeAcesso" formControlName="codigoDeAcesso"></ion-input>
+            <ion-input type="text" name="codigoAcesso" formControlName="codigoAcesso"></ion-input>
           </ion-item>
         </div>
         <div class="ion-padding-top field-form-login">
@@ -24,7 +24,7 @@
           </div>
           <ion-item lines="none" class="item-field-form-login">
             <ion-icon slot="start" name="lock" size="small"></ion-icon>
-            <ion-input type="password" formControlName="senha"></ion-input>
+            <ion-input type="password" name="senha" formControlName="senha"></ion-input>
             <ion-icon slot="end" name="eye" size="small" style="color: #CDD2D3;"></ion-icon>
           </ion-item>
         </div>
@@ -36,7 +36,7 @@
       
 
       <ion-button style="border-radius: 10px !important; height: 44px;" 
-      expand="block" mode="ios" type="submit" (onclick)="login()">
+      expand="block" mode="ios" type="submit">
         Entrar
       </ion-button>
     </form>

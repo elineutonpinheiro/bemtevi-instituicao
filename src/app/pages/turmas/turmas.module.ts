@@ -1,4 +1,4 @@
-import { TurmaService } from './../../services/turma.service';
+import { TurmaService } from '../../services/domain/turma.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

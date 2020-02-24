@@ -1,4 +1,5 @@
-import { TurmaService } from './services/turma.service';
+import { AuthService } from './services/auth.service';
+import { TurmaService } from './services/domain/turma.service';
 import { FormsModule } from '@angular/forms';
 import { EditaAtividadePageModule } from './pages/edita-atividade/edita-atividade.module';
 import { NovaAtividadePageModule } from './pages/nova-atividade/nova-atividade.module';
@@ -12,17 +13,19 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginPageModule } from './pages/login/login.module';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [FormsModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule,
-  NovaAtividadePageModule, EditaAtividadePageModule],
+  NovaAtividadePageModule, EditaAtividadePageModule, LoginPageModule],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    TurmaService
+    TurmaService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

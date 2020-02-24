@@ -1,4 +1,4 @@
-import { TurmaService } from './../../services/turma.service';
+import { TurmaService } from '../../services/domain/turma.service';
 import { ProgressoAvaliacoesPage } from './../progresso-avaliacoes/progresso-avaliacoes.page';
 import { ListaAlunosAvaliacaoPage } from './../lista-alunos-avaliacao/lista-alunos-avaliacao.page';
 import { NgModule } from '@angular/core';

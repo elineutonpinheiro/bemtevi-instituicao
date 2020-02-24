@@ -1,7 +1,7 @@
 <ion-content class="ion-padding">
 
   <ion-list lines="none">
-    <ion-item *ngFor="let turma of turmas" >
+    <ion-item *ngFor="let turma of turmas" (click)="selecionarTurma()">
       <ion-card style="width: 100%">
         <ion-card-header>
           <ion-card-subtitle>12 alunos</ion-card-subtitle>

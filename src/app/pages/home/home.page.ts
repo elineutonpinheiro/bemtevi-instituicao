@@ -1,4 +1,4 @@
-import { TurmaService } from './../../services/turma.service';
+import { TurmaService } from '../../services/domain/turma.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSelect } from '@ionic/angular';
 import { TurmaDTO } from 'src/models/turma.dto';

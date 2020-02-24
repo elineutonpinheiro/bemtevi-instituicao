@@ -12,11 +12,11 @@ const routes: Routes = [
               loadChildren: () =>
                 import('../pages/login/login.module').then(m => m.LoginPageModule)
             },
-            {
+            /* {
               path: 'turmas',
               loadChildren: () =>
                 import('../pages/turmas/turmas.module').then(m => m.TurmasPageModule)
-            }
+            } */
         ]
     }
 ];

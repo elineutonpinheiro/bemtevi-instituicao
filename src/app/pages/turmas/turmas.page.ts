@@ -1,4 +1,4 @@
-import { TurmaService } from './../../services/turma.service';
+import { TurmaService } from '../../services/domain/turma.service';
 import { Component, OnInit } from '@angular/core';
 import { TurmaDTO } from 'src/models/turma.dto';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -16,11 +16,11 @@ export class TurmasPage implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    this.listaTurmas();
-    //this.listaTurmasPorProfissional(1);
+    this.listarTurmas();
+    //this.listarTurmasPorProfissional(1);
   }
 
-  listaTurmas() {
+  listarTurmas() {
     this.turmaService.findAll()
     .subscribe(response => {
       this.turmas = response;
@@ -30,7 +30,7 @@ export class TurmasPage implements OnInit {
     });
   }
 
-  listaTurmasPorProfissional(id: number) {
+  listarTurmasPorProfissional(id: number) {
     this.turmaService.findByProfissional(id)
     .subscribe(response => {
       this.turmas = response;
@@ -41,7 +41,7 @@ export class TurmasPage implements OnInit {
   }
 
   selecionarTurma() {
-    this.router.navigate(['/view-unidades', ]);
+    this.router.navigate(['/tabs']);
   }
 
 
