@@ -1,3 +1,4 @@
+import { StorageService } from './services/storage.service';
 import { AuthService } from './services/auth.service';
 import { TurmaService } from './services/domain/turma.service';
 import { FormsModule } from '@angular/forms';
@@ -25,7 +26,8 @@ import { LoginPageModule } from './pages/login/login.module';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     TurmaService,
-    AuthService
+    AuthService,
+    StorageService
   ],
   bootstrap: [AppComponent]
 })

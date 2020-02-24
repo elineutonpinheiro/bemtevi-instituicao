@@ -33,7 +33,7 @@ export class LoginPage implements OnInit {
     this.creds = new CredenciaisDTO(this.loginForm.get('codigoAcesso').value, this.loginForm.get('senha').value);
     this.auth.authenticate(this.creds)
     .subscribe(response => {
-      console.log(response.headers.get('Authorization'));
+      this.auth.successfulLogin(response.headers.get('Authorization'));
       this.nav.navigateRoot('tabs');
     },
     error => {});
