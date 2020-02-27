@@ -16,13 +16,8 @@ export class ProfissionalService {
     }
 
     findByCodigoAcesso(codigoAcesso: string): Observable<ProfissionalDTO> {
-
-        let token = this.storage.getLocalUser().token;
-        let authHeader = new HttpHeaders({'Authorization': 'Bearer' + token});
-
         return this.http.get<ProfissionalDTO>
-            (`${this.baseUrl}/profissionais/codigoAcesso?value=${codigoAcesso}`,
-            {'headers': authHeader});
+            (`${this.baseUrl}/profissionais/codigoAcesso?value=${codigoAcesso}`);
     }
 
 }

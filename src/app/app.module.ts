@@ -16,6 +16,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageModule } from './pages/login/login.module';
+import { AuthInterceptorProvider } from './interceptors/auth-interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,7 +30,8 @@ import { LoginPageModule } from './pages/login/login.module';
     TurmaService,
     AuthService,
     StorageService,
-    ProfissionalService
+    ProfissionalService,
+    AuthInterceptorProvider
   ],
   bootstrap: [AppComponent]
 })
