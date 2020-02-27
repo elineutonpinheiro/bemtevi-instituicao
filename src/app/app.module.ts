@@ -1,3 +1,4 @@
+import { ProfissionalService } from './services/domain/profissional.service';
 import { StorageService } from './services/storage.service';
 import { AuthService } from './services/auth.service';
 import { TurmaService } from './services/domain/turma.service';
@@ -27,7 +28,8 @@ import { LoginPageModule } from './pages/login/login.module';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     TurmaService,
     AuthService,
-    StorageService
+    StorageService,
+    ProfissionalService
   ],
   bootstrap: [AppComponent]
 })

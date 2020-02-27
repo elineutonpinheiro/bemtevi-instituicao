@@ -1,5 +1,8 @@
+import { StorageService } from './../../services/storage.service';
+import { ProfissionalService } from './../../services/domain/profissional.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { ProfissionalDTO } from 'src/models/profissional.dto';
 
 @Component({
   selector: 'app-perfil',
@@ -10,7 +13,17 @@ export class PerfilPage implements OnInit {
 
   editaInfoUsuarioForm: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  profissional: ProfissionalDTO;
+
+  constructor(private fb: FormBuilder,
+              private profissionalService: ProfissionalService,
+              private storage: StorageService) { }
+    
+  ngOnInit() {
+    this.createForm();
+    this.mostraInfoUsuario();
+  }
+
 
   createForm() {
     this.editaInfoUsuarioForm = this.fb.group({
@@ -20,23 +33,23 @@ export class PerfilPage implements OnInit {
     });
   }
 
-  /* createForm() {
-    this.editaInfoUsuarioForm = this.fb.group({
-      telefone: ['', Validators.required],
-      senha: ['',  Validators.required]
-    });
-  } */
-
   editaInfoUsuario() {
-    
+
   }
 
   onSubmit() {
 
   }
 
-  ngOnInit() {
-    this.createForm();
+  mostraInfoUsuario() {
+    let localUser = this.storage.getLocalUser();
+    if (localUser && localUser.codigoAcesso) {
+      this.profissionalService.findByCodigoAcesso(localUser.codigoAcesso)
+      .subscribe(response => {
+        this.profissional = response;
+      },
+      error => {});
+    }
   }
 
 }

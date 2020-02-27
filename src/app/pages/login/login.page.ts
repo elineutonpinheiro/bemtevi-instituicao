@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AuthService } from './../../services/auth.service';
 import { CredenciaisDTO } from 'src/models/credenciais.dto';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -14,13 +15,14 @@ export class LoginPage implements OnInit {
   loginForm: FormGroup;
   creds: CredenciaisDTO;
 
+  constructor(private fb: FormBuilder,
+    private nav: NavController,
+    private auth: AuthService,
+    private router: Router) { }
+
   ngOnInit() {
     this.createForm();
   }
-
-  constructor(private fb: FormBuilder,
-              private nav: NavController,
-              private auth: AuthService) { }
 
   createForm() {
     this.loginForm = this.fb.group({
@@ -32,11 +34,12 @@ export class LoginPage implements OnInit {
   onSubmit() {
     this.creds = new CredenciaisDTO(this.loginForm.get('codigoAcesso').value, this.loginForm.get('senha').value);
     this.auth.authenticate(this.creds)
-    .subscribe(response => {
-      this.auth.successfulLogin(response.headers.get('Authorization'));
-      this.nav.navigateRoot('tabs');
-    },
-    error => {});
+      .subscribe(response => {
+        this.auth.successfulLogin(response.headers.get('Authorization'));
+        //this.nav.navigateRoot('tabs');
+        this.router.navigate(['/tabs']);
+      },
+        error => { });
   }
 
 }
