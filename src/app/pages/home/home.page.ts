@@ -38,9 +38,7 @@ export class HomePage implements OnInit {
     .subscribe(response => {
       this.turmas = response;
     },
-    error => {
-      console.log(error);
-    });
+    error => { });
   }
 
 }

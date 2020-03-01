@@ -22,6 +22,7 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     this.createForm();
+    this.refreshToken();
   }
 
   createForm() {
@@ -29,6 +30,15 @@ export class LoginPage implements OnInit {
       codigoAcesso: '',
       senha: ''
     });
+  }
+
+  refreshToken() {
+    this.auth.refreshToken()
+      .subscribe(response => {
+        this.auth.successfulLogin(response.headers.get('Authorization'));
+        this.router.navigate(['/tabs']);
+      },
+      error => { });
   }
 
   onSubmit() {
@@ -39,7 +49,7 @@ export class LoginPage implements OnInit {
         //this.nav.navigateRoot('tabs');
         this.router.navigate(['/tabs']);
       },
-        error => { });
+      error => { });
   }
 
 }

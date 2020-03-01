@@ -30,6 +30,16 @@ import { JwtHelperService } from '@auth0/angular-jwt';
         });
     }
 
+    refreshToken() {
+        return this.http.post(
+            `${this.baseUrl}/auth/refresh_token`,
+        {},
+        {
+            observe: 'response',
+            responseType: 'text'
+        });
+    }
+
     successfulLogin(authorizationValue: string) {
         let tok = authorizationValue.substr(7);
         let user: LocalUser = {

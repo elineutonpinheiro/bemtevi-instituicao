@@ -1,3 +1,4 @@
+import { AuthService } from './../../services/auth.service';
 import { Router } from '@angular/router';
 import { StorageService } from './../../services/storage.service';
 import { ProfissionalService } from './../../services/domain/profissional.service';
@@ -20,7 +21,8 @@ export class PerfilPage implements OnInit {
   constructor(private fb: FormBuilder,
               private profissionalService: ProfissionalService,
               private storage: StorageService,
-              private router: Router) {
+              private router: Router,
+              private authService: AuthService) {
   }
 
   ngOnInit() {
@@ -63,6 +65,11 @@ export class PerfilPage implements OnInit {
 
   ionViewWillEnter(){
     this.mostraInfoUsuario();
+  }
+
+  logout(){
+    this.authService.logout();
+    this.router.navigate(['']);
   }
 
 }
