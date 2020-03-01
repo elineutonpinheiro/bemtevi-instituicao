@@ -1,8 +1,10 @@
+import { Router } from '@angular/router';
 import { StorageService } from './../../services/storage.service';
 import { ProfissionalService } from './../../services/domain/profissional.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ProfissionalDTO } from 'src/models/profissional.dto';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-perfil',
@@ -17,13 +19,13 @@ export class PerfilPage implements OnInit {
 
   constructor(private fb: FormBuilder,
               private profissionalService: ProfissionalService,
-              private storage: StorageService) { }
-    
-  ngOnInit() {
-    this.createForm();
-    this.mostraInfoUsuario();
+              private storage: StorageService,
+              private router: Router) {
   }
 
+  ngOnInit() {
+    this.createForm();
+  }
 
   createForm() {
     this.editaInfoUsuarioForm = this.fb.group({
@@ -48,8 +50,19 @@ export class PerfilPage implements OnInit {
       .subscribe(response => {
         this.profissional = response;
       },
-      error => {});
+      (error: HttpErrorResponse) => {
+        if (error.status == 403) {
+          this.router.navigate(['']);
+        }
+      });
+    } else {
+      this.router.navigate(['']);
     }
+    console.log('entrou no mostra usuário');
+  }
+
+  ionViewWillEnter(){
+    this.mostraInfoUsuario();
   }
 
 }
