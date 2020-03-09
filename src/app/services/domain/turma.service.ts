@@ -1,3 +1,4 @@
+import { AlunoDTO } from './../../../models/aluno.dto';
 import { API_CONFIG } from '../../../config/api.config';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -19,9 +20,10 @@ export class TurmaService {
     return this.http.get<TurmaDTO[]>(`${this.baseUrl}/turmas`);
   }
 
-  findByProfissional(id: number): Observable<TurmaDTO[]> {
+  consultarAlunosPorTurmaId(id: number): Observable<AlunoDTO[]> {
     //return this.http.get<TurmaDTO[]>(`${API_CONFIG.baseUrl}/turmas`);
-    return this.http.get<TurmaDTO[]>(`${this.baseUrl}/profissionais/${id}/turmas`);
+    return this.http.get<AlunoDTO[]>(`${this.baseUrl}/turmas/${id}/alunos`);
   }
+  
 
 }

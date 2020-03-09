@@ -27,6 +27,11 @@ export class PerfilPage implements OnInit {
 
   ngOnInit() {
     this.createForm();
+    this.buscarUsuarioLogado();
+  }
+
+  ionViewWillEnter(){
+    this.buscarUsuarioLogado();
   }
 
   createForm() {
@@ -45,10 +50,10 @@ export class PerfilPage implements OnInit {
 
   }
 
-  mostraInfoUsuario() {
-    let localUser = this.storage.getLocalUser();
+  buscarUsuarioLogado() {
+    const localUser = this.storage.getLocalUser();
     if (localUser && localUser.codigoAcesso) {
-      this.profissionalService.findByCodigoAcesso(localUser.codigoAcesso)
+      this.profissionalService.consultarPorCodigoAcesso(localUser.codigoAcesso)
       .subscribe(response => {
         this.profissional = response;
       },
@@ -60,11 +65,6 @@ export class PerfilPage implements OnInit {
     } else {
       this.router.navigate(['']);
     }
-    console.log('entrou no mostra usuário');
-  }
-
-  ionViewWillEnter(){
-    this.mostraInfoUsuario();
   }
 
   logout(){

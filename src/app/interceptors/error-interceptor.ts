@@ -21,6 +21,10 @@ export class ErrorInterceptor implements HttpInterceptor {
                 if (!error.status ) {
                     error = JSON.parse(error);
                 }
+
+                console.log('Erro detectado pelo Interceptor:');
+                console.log(error)
+
                 switch (error.status) {
                     case 401:
                         this.handle401();
@@ -30,7 +34,6 @@ export class ErrorInterceptor implements HttpInterceptor {
                         break;
                     default:
                         this.handleDefaultError(error);
-                        console.log('entrou no default');
                         break;
                 }
                 console.log('Passou');

@@ -1,3 +1,4 @@
+import { AvaliacaoPageModule } from './pages/avaliacao/avaliacao.module';
 import { ProfissionalService } from './services/domain/profissional.service';
 import { StorageService } from './services/storage.service';
 import { AuthService } from './services/auth.service';
@@ -23,7 +24,7 @@ import { ErrorInterceptorProvider } from './interceptors/error-interceptor';
   declarations: [AppComponent],
   entryComponents: [],
   imports: [FormsModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule,
-  NovaAtividadePageModule, EditaAtividadePageModule, LoginPageModule],
+  NovaAtividadePageModule, EditaAtividadePageModule, LoginPageModule, AvaliacaoPageModule],
   providers: [
     StatusBar,
     SplashScreen,

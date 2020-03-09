@@ -1,4 +1,4 @@
-export class TurmaDTO {
-    id: string;
+export interface TurmaDTO {
+    id: number;
     nome: string;
 }

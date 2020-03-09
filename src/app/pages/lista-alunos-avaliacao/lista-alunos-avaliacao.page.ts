@@ -1,5 +1,7 @@
+import { AlunoDTO } from './../../../models/aluno.dto';
+import { TurmaService } from './../../services/domain/turma.service';
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'app-lista-alunos-avaliacao',
@@ -8,8 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaAlunosAvaliacaoPage implements OnInit {
 
+  @Input() turma: any;
 
-  alunos = [
+/*   alunos = [
     { nome: 'Thiago Ventura', ausencia: false },
     { nome: 'Diana Dias Ventura', ausencia: false },
     { nome: 'Thiago Souza de Lima', ausencia: false },
@@ -18,13 +21,26 @@ export class ListaAlunosAvaliacaoPage implements OnInit {
     { nome: 'Genildo Gomes da Silva', ausencia: false },
     { nome: 'Ana Francisca', ausencia: false },
     { nome: 'Anne Shirley', ausencia: false },
-  ];
+  ]; */
+
+  alunos: AlunoDTO[];
 
   exibeBarraPesquisa: false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, 
+              private turmaService: TurmaService) { }
 
   ngOnInit() {
+    console.log(this.turma);
+    this.consultarAlunosPorTurmaId();
+  }
+
+  consultarAlunosPorTurmaId() {
+    this.turmaService.consultarAlunosPorTurmaId(this.turma.value.id)
+    .subscribe(response => {
+      this.alunos = response;
+    },
+    error => { });
   }
 
   avaliar() {
@@ -33,12 +49,12 @@ export class ListaAlunosAvaliacaoPage implements OnInit {
 
   registrarFrequencia(index: number) {
 
-    if (this.alunos[index].ausencia) {
-      this.alunos[index].ausencia = false;
+    if (this.alunos[index].dataPresenca) {
+      this.alunos[index].dataPresenca = false;
     } else {
-      this.alunos[index].ausencia = true;
+      this.alunos[index].dataPresenca = true;
     }
-    console.log(this.alunos[index].ausencia);
+    console.log(this.alunos[index].dataPresenca);
   }
 
 

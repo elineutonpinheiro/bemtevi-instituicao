@@ -3,7 +3,7 @@ import { ProgressoAvaliacoesPage } from './../progresso-avaliacoes/progresso-ava
 import { ListaAlunosAvaliacaoPage } from './../lista-alunos-avaliacao/lista-alunos-avaliacao.page';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -24,10 +24,8 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     HttpClientModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes),
-  ],
-  providers: [
-    TurmaService
   ],
   declarations: [HomePage, ProgressoAvaliacoesPage, ListaAlunosAvaliacaoPage]
 })

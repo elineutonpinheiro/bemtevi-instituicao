@@ -1,5 +1,6 @@
 export interface ProfissionalDTO {
-    id: string;
+    id: number;
     nome: string;
     cargo: string;
+    ultimaTurmaSelecionada: string;
 }

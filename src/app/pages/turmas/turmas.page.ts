@@ -1,3 +1,4 @@
+import { ProfissionalService } from './../../services/domain/profissional.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { TurmaService } from '../../services/domain/turma.service';
 import { Component, OnInit } from '@angular/core';
@@ -13,8 +14,9 @@ export class TurmasPage implements OnInit {
 
   turmas: TurmaDTO[];
 
-  constructor(public turmaService: TurmaService,
-              private router: Router) { }
+  constructor(private turmaService: TurmaService,
+              private router: Router, 
+              private profissionalService: ProfissionalService) { }
 
   ngOnInit() {
     this.listarTurmas();
@@ -32,7 +34,7 @@ export class TurmasPage implements OnInit {
   }
 
   listarTurmasPorProfissional(id: number) {
-    this.turmaService.findByProfissional(id)
+    this.profissionalService.consultaTurmasPorProfissionalId(id)
     .subscribe(response => {
       this.turmas = response;
     },

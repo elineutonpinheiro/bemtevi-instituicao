@@ -1,3 +1,4 @@
+import { TurmaDTO } from 'src/models/turma.dto';
 import { StorageService } from './../storage.service';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
@@ -15,9 +16,14 @@ export class ProfissionalService {
                 private storage: StorageService) {
     }
 
-    findByCodigoAcesso(codigoAcesso: string): Observable<ProfissionalDTO> {
+    consultarPorCodigoAcesso(codigoAcesso: string): Observable<ProfissionalDTO> {
         return this.http.get<ProfissionalDTO>
             (`${this.baseUrl}/profissionais/codigoAcesso?value=${codigoAcesso}`);
+    }
+
+    consultaTurmasPorProfissionalId(id: number): Observable<TurmaDTO[]> {
+        //return this.http.get<TurmaDTO[]>(`${API_CONFIG.baseUrl}/turmas`);
+        return this.http.get<TurmaDTO[]>(`${this.baseUrl}/profissionais/${id}/turmas`);
     }
 
 }

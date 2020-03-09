@@ -3,18 +3,13 @@
   <div class="background-radius">
     
     <div class="background-circle">
-      <!-- <div class="progress-circle">
-        <div class="label-progress-circle">
-          100% concluídas
-        </div>
-      </div> -->
       <app-progresso-avaliacoes></app-progresso-avaliacoes>
     </div>
 
     <div class="turma-section">
       <div class="turma-select" (click)="openSelect()">
         <div class="label-turma-select">
-          {{turmaSelecionada}}
+          {{formGroup.controls.turmaSelecionada.value}}
         </div>
         <ion-buttons class="button-turma-select" slot="primary" *ngIf="true">
           <ion-button class="icon-select" disabled>
@@ -24,25 +19,14 @@
       </div>
     </div>
 
-    <ion-select interface="action-sheet" mode="md" #listaDeTurmas [hidden]='mostraLista' (ionChange)='setTurma()'
-      *ngIf="true">
-      <ion-select-option *ngFor="let turma of turmas">{{turma.nome}}</ion-select-option>
-    </ion-select>
+    <form [formGroup]="formGroup">
+      <ion-select interface="action-sheet" mode="md" #listaDeTurmas [hidden]='mostraLista'
+      *ngIf="true" formControlName="turmaSelecionada" [value]="formGroup.controls.turmaSelecionada.value">
+        <ion-select-option *ngFor="let turma of turmas" value="{{turma}}">{{turma.nome}}</ion-select-option>
+      </ion-select>
+    </form>
 
-    <!-- <ion-grid fixed class="grid-section-children" style="padding: 0;">
-      <ion-row>
-        <ion-col size="12" style="align-items: center; justify-content: center; display: flex; padding: 0;">
-          <ion-item lines="none">
-             <ion-icon name="search" size="small" slot="end" style="margin-top: 0; margin-bottom: 0;"></ion-icon>
-            <ion-label style="margin: 0; font-weight: 700;
-            font-size: 18px; color: #777; 
-            letter-spacing: 1px;">Crianças</ion-label>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-    </ion-grid> -->
-
-    <app-lista-alunos-avaliacao></app-lista-alunos-avaliacao>
+    <app-lista-alunos-avaliacao [turma]="formGroup.controls.turmaSelecionada"></app-lista-alunos-avaliacao> -->
     
   </div>
 

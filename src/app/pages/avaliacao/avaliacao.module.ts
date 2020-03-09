@@ -1,3 +1,4 @@
+import { AvaliacaoService } from './../../services/domain/avaliacao.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -22,6 +23,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [AvaliacaoPage]
+  declarations: [AvaliacaoPage],
+  providers: [AvaliacaoService]
 })
 export class AvaliacaoPageModule {}
