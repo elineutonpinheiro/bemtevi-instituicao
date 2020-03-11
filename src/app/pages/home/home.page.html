@@ -1,4 +1,77 @@
-<ion-content style="--background: #FFC205;">
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="6">
+        <div>
+          <label>Saudação</label>
+          <label>Nome profissional</label>
+        </div>
+      </ion-col>
+      <ion-col size="6">
+        <div>IconProfile</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div>
+    <p>Turma</p>
+    <div style="background: rebeccapurple; padding: 5px; border-radius: 10px;">
+      <form [formGroup]="formTurma">
+        <ion-item lines="none">
+          <ion-icon slot="start" name="add"></ion-icon>
+          <ion-select 
+          placeholder="Selecione uma turma" formControlName="turma" (ionChange)="onChange($event)" [value]="formTurma.controls.turma.value">
+            <ion-select-option *ngFor="let turma of turmas" [value]="turma.id">{{turma.nome}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </form>
+    </div>
+  </div>
+
+  <div>
+    <ion-card>
+      <ion-card-content>
+        <ion-grid fixed>
+          <ion-row>
+            <ion-col size="5" style="background: skyblue;">
+              <ion-card-title>Atividades</ion-card-title>
+              <ion-card-subtitle>da turma</ion-card-subtitle>
+            </ion-col>
+            <ion-col size="6" style="background: rosybrown;">
+              imagem
+            </ion-col>
+            <ion-col size="1" style="background: silver;">
+              <ion-icon name="arrow-forward" mode="ios"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  
+  <div>
+    <p>Alunos para avaliação</p>
+    <p>Alunos:</p>
+    <app-lista-alunos-avaliacao [turma]="turma"></app-lista-alunos-avaliacao> 
+  </div>
+
+  <div>
+    <p>Alunos para avaliação</p>
+    <ion-list lines="none">
+      <ion-item style="background: rebeccapurple; padding: 5px; border-radius: 10px;" 
+      *ngFor="let aluno of alunos;" (click)="avaliarAluno(aluno)">
+        <label>{{aluno.nome}}</label>
+        <ion-icon slot="end" name="add"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>
+
+
+<!-- <ion-content style="--background: #FFC205;">
 
   <div class="background-radius">
     
@@ -26,9 +99,8 @@
       </ion-select>
     </form>
 
-    <app-lista-alunos-avaliacao [turma]="formGroup.controls.turmaSelecionada"></app-lista-alunos-avaliacao> -->
+    <app-lista-alunos-avaliacao [turma]="formGroup.controls.turmaSelecionada"></app-lista-alunos-avaliacao>
     
   </div>
 
-</ion-content>
-
+</ion-content> -->

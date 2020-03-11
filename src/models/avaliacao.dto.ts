@@ -1,5 +1,4 @@
 export interface AvaliacaoDTO {
-    id: number;
     alunoId: number;
     profissionalId: number;
     data: string;

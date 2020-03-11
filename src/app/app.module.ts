@@ -1,3 +1,5 @@
+import { AvaliacaoService } from './services/domain/avaliacao.service';
+import { AlunoService } from './services/domain/aluno.service';
 import { AvaliacaoPageModule } from './pages/avaliacao/avaliacao.module';
 import { ProfissionalService } from './services/domain/profissional.service';
 import { StorageService } from './services/storage.service';
@@ -34,7 +36,9 @@ import { ErrorInterceptorProvider } from './interceptors/error-interceptor';
     AuthInterceptorProvider,
     ErrorInterceptorProvider,
     StorageService,
-    ProfissionalService
+    ProfissionalService,
+    AlunoService,
+    AvaliacaoService
   ],
   bootstrap: [AppComponent]
 })

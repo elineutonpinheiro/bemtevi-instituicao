@@ -8,7 +8,7 @@
     <ion-back-button defaultHref="home"></ion-back-button>
   </ion-buttons>
   <ion-title style="text-align: center; padding-top: 20px; padding-bottom: 10px;">
-    <ion-label style="display: block; font-size: 20px; color: #000;">Iam Barroso</ion-label>
+    <ion-label style="display: block; font-size: 20px; color: #000;" *ngIf="aluno" >{{aluno.nome}}</ion-label>
     <ion-label style="font-size: 14px; color: #9BA5A7;">Finalizada</ion-label>
   </ion-title>
 </ion-toolbar>

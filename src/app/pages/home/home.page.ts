@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { AvaliacaoPage } from './../avaliacao/avaliacao.page';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { AlunoDTO } from './../../../models/aluno.dto';
 import { TurmaService } from './../../services/domain/turma.service';
@@ -5,7 +7,7 @@ import { ProfissionalService } from './../../services/domain/profissional.servic
 import { ProfissionalDTO } from 'src/models/profissional.dto';
 import { StorageService } from './../../services/storage.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSelect } from '@ionic/angular';
+import { IonSelect, NavController } from '@ionic/angular';
 import { TurmaDTO } from 'src/models/turma.dto';
 
 @Component({
@@ -15,8 +17,8 @@ import { TurmaDTO } from 'src/models/turma.dto';
 })
 export class HomePage implements OnInit {
 
-  mostraTurma = false;
-  mostraLista = true;
+  //mostraTurma = false;
+  //mostraLista = true;
 
   turmas: TurmaDTO[];
 
@@ -24,63 +26,76 @@ export class HomePage implements OnInit {
 
   profissional: ProfissionalDTO;
 
-  formGroup: FormGroup;
+  //formGroup: FormGroup;
 
-  @ViewChild('listaDeTurmas', { static: false }) selectRef: IonSelect;
+  formTurma: FormGroup;
 
-  openSelect() {
+  turmaSelecionada: any;
+
+  //@ViewChild('listaDeTurmas', { static: false }) selectRef: IonSelect;
+
+  /* openSelect() {
     this.selectRef.open();
-  }
+  } */
 
   /* setTurma() {
     this.turmaSelecionada = this.selectRef.value;
     console.log('Turma selecionada: ' + this.selectRef.value);
   } */
 
+  onChange(event) {
+    console.log('Id da turma selecionada = ' + event.target.value);
+    this.turmaSelecionada = event.target.value;
+    this.consultarAlunosPorTurmaId();
+  }
 
   constructor(private turmaService: TurmaService, 
               private storage: StorageService,
               private profissionalService: ProfissionalService, 
-              private fb: FormBuilder) {
-              this.criaForm();
+              private fb: FormBuilder, 
+              private navCtrl: NavController, 
+              private router: Router) {
+              //this.criaForm();
+              this.criaFormTurma();
               this.buscarTurmasProfissionalLogado();
+              console.log('construtor')
   }
 
   ngOnInit() {
-  
+    console.log('ngOnInit')
+    console.log(this.formTurma.value);
   }
 
-  criaForm() {
-    this.formGroup = this.fb.group({
-      turmaSelecionada: [null],
+  criaFormTurma() {
+    this.formTurma = this.fb.group({
+      turma: [null],
     });
   }
 
-  buscarAlunos(turmaId: number) {
-    this.turmaService.consultarAlunosPorTurmaId(turmaId)
-    .subscribe(response => {
-      this.alunos = response;
-      console.log(this.alunos);
-    },
-    error => { });
-  }
+  //CONTINUAR DAQUI!!!
 
-  async buscarTurmas(id: number){
-    await this.profissionalService.consultaTurmasPorProfissionalId(id)
+  /* criaForm() {
+    this.formGroup = this.fb.group({
+      turmaSelecionada: [null],
+    });
+  } */
+
+  buscarTurmas(id: number){
+    this.profissionalService.consultaTurmasPorProfissionalId(id)
     .subscribe(response => {
       this.turmas = response;
-      this.formGroup.controls.turmaSelecionada.setValue(this.turmas[0]);
     },
     error => { });
   }
 
-  async buscarTurmasProfissionalLogado() {
+  buscarTurmasProfissionalLogado() {
     const localUser = this.storage.getLocalUser();
     if (localUser && localUser.codigoAcesso) {
       this.profissionalService.consultarPorCodigoAcesso(localUser.codigoAcesso)
       .subscribe(response => {
         this.profissional = response;
         this.buscarTurmas(this.profissional.id);
+        console.log(this.formTurma.value);
       },
       error => { });
     }
@@ -92,6 +107,20 @@ export class HomePage implements OnInit {
       this.turmas = response;
     },
     error => { });
+  }
+
+  consultarAlunosPorTurmaId() {
+    this.turmaService.consultarAlunosPorTurmaId(this.turmaSelecionada)
+    .subscribe(response => {
+      this.alunos = response;
+      console.log(this.alunos);
+    },
+    error => { });
+  }
+
+  avaliarAluno(aluno: any) {
+    let alunoId = aluno.id;
+    this.router.navigate(['/avaliacao', {id: alunoId}]);
   }
 
 }

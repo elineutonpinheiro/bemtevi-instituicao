@@ -24,8 +24,8 @@ export class AvaliacaoService {
         `${this.baseUrl}/avaliacoes`,
         avaliacao,
         {
-            observe: 'response',
-            responseType: 'text'
+          observe: 'response',
+          responseType: 'text'
         }
     );
   }

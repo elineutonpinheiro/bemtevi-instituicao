@@ -23,7 +23,6 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [AvaliacaoPage],
-  providers: [AvaliacaoService]
+  declarations: [AvaliacaoPage]
 })
 export class AvaliacaoPageModule {}

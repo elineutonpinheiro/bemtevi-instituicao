@@ -27,12 +27,17 @@ export class ListaAlunosAvaliacaoPage implements OnInit {
 
   exibeBarraPesquisa: false;
 
-  constructor(private router: Router, 
-              private turmaService: TurmaService) { }
+  constructor(private router: Router,
+              private turmaService: TurmaService) {
+               
+               }
 
   ngOnInit() {
-    console.log(this.turma);
-    this.consultarAlunosPorTurmaId();
+    if(this.turma == null) {
+      console.log('Turma Nula');
+    } else {
+      this.consultarAlunosPorTurmaId();
+    }
   }
 
   consultarAlunosPorTurmaId() {
@@ -47,7 +52,7 @@ export class ListaAlunosAvaliacaoPage implements OnInit {
     this.router.navigateByUrl('/avaliacao');
   }
 
-  registrarFrequencia(index: number) {
+  /* registrarFrequencia(index: number) {
 
     if (this.alunos[index].dataPresenca) {
       this.alunos[index].dataPresenca = false;
@@ -55,7 +60,7 @@ export class ListaAlunosAvaliacaoPage implements OnInit {
       this.alunos[index].dataPresenca = true;
     }
     console.log(this.alunos[index].dataPresenca);
-  }
+  } */
 
 
 }
