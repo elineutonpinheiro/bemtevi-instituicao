@@ -44,7 +44,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
         let tok = authorizationValue.substr(7);
         let user: LocalUser = {
             token: tok,
-            codigoAcesso: this.jwtHelper.decodeToken(tok).sub
+            email: this.jwtHelper.decodeToken(tok).sub
         };
         this.storage.setLocalUser(user);
     }

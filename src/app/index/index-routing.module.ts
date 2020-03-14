@@ -7,16 +7,17 @@ const routes: Routes = [
         path: '',
         component: IndexPage,
         children: [
-            {
+            /* {
               path: '',
               loadChildren: () =>
                 import('../pages/login/login.module').then(m => m.LoginPageModule)
-            },
-            /* {
-              path: 'turmas',
+            }, */
+            {
+              //path: 'turmas',
+              path: '',
               loadChildren: () =>
                 import('../pages/turmas/turmas.module').then(m => m.TurmasPageModule)
-            } */
+            }
         ]
     }
 ];

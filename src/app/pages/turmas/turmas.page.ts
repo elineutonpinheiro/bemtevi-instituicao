@@ -14,37 +14,26 @@ export class TurmasPage implements OnInit {
 
   turmas: TurmaDTO[];
 
-  constructor(private turmaService: TurmaService,
-              private router: Router, 
+  constructor(private router: Router,
               private profissionalService: ProfissionalService) { }
 
   ngOnInit() {
-    this.listarTurmas();
-    //this.listarTurmasPorProfissional(1);
+    this.listarTurmasPorProfissional();
   }
 
-  listarTurmas() {
-    this.turmaService.findAll()
+  listarTurmasPorProfissional() {
+    this.profissionalService.consultarTurmasPorEmailProfissional('elineuton.ps@gmail.com')
     .subscribe(response => {
       this.turmas = response;
+      console.log(this.turmas);
     },
     error => {
       console.log(error);
     });
   }
 
-  listarTurmasPorProfissional(id: number) {
-    this.profissionalService.consultaTurmasPorProfissionalId(id)
-    .subscribe(response => {
-      this.turmas = response;
-    },
-    error => {
-      console.log(error);
-    });
-  }
-
-  selecionarTurma() {
-    this.router.navigate(['/tabs']);
+  selecionarTurma(turmaId: string) {
+    this.router.navigate(['/home', {id: turmaId}]);
   }
 
 

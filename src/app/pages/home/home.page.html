@@ -1,3 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="turmas"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Voltar a Turmas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
 <ion-content>
   <ion-grid fixed>
     <ion-row>
@@ -13,7 +23,7 @@
     </ion-row>
   </ion-grid>
 
-  <div>
+  <!-- <div>
     <p>Turma</p>
     <div style="background: rebeccapurple; padding: 5px; border-radius: 10px;">
       <form [formGroup]="formTurma">
@@ -26,9 +36,9 @@
         </ion-item>
       </form>
     </div>
-  </div>
+  </div> -->
 
-  <div>
+  <!-- <div>
     <ion-card>
       <ion-card-content>
         <ion-grid fixed>
@@ -48,20 +58,13 @@
 
       </ion-card-content>
     </ion-card>
-  </div>
-
-  
-  <div>
-    <p>Alunos para avaliação</p>
-    <p>Alunos:</p>
-    <app-lista-alunos-avaliacao [turma]="turma"></app-lista-alunos-avaliacao> 
-  </div>
+  </div> -->
 
   <div>
     <p>Alunos para avaliação</p>
     <ion-list lines="none">
       <ion-item style="background: rebeccapurple; padding: 5px; border-radius: 10px;" 
-      *ngFor="let aluno of alunos;" (click)="avaliarAluno(aluno)">
+      *ngFor="let aluno of alunos;" (click)="avaliarAluno(aluno.id)">
         <label>{{aluno.nome}}</label>
         <ion-icon slot="end" name="add"></ion-icon>
       </ion-item>

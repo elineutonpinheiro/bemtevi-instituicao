@@ -12,18 +12,16 @@ export class ProfissionalService {
 
     private baseUrl = 'http://localhost:8080';
 
-    constructor(private http: HttpClient,
-                private storage: StorageService) {
+    constructor(private http: HttpClient) {
     }
 
-    consultarPorCodigoAcesso(codigoAcesso: string): Observable<ProfissionalDTO> {
+    consultarPorEmail(email: string): Observable<ProfissionalDTO> {
         return this.http.get<ProfissionalDTO>
-            (`${this.baseUrl}/profissionais/codigoAcesso?value=${codigoAcesso}`);
+            (`${this.baseUrl}/profissionais/email?value=${email}`);
     }
 
-    consultaTurmasPorProfissionalId(id: number): Observable<TurmaDTO[]> {
-        //return this.http.get<TurmaDTO[]>(`${API_CONFIG.baseUrl}/turmas`);
-        return this.http.get<TurmaDTO[]>(`${this.baseUrl}/profissionais/${id}/turmas`);
+    consultarTurmasPorEmailProfissional(email: string): Observable<TurmaDTO[]> {
+        return this.http.get<TurmaDTO[]>(`${this.baseUrl}/profissionais/${email}/turmas`);
     }
 
 }

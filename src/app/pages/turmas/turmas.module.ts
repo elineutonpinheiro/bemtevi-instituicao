@@ -24,9 +24,6 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     HttpClientModule
   ],
-  providers: [
-    TurmaService
-  ],
   declarations: [TurmasPage]
 })
 export class TurmasPageModule {}

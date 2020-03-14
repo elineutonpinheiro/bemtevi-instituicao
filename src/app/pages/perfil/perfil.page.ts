@@ -52,8 +52,8 @@ export class PerfilPage implements OnInit {
 
   buscarUsuarioLogado() {
     const localUser = this.storage.getLocalUser();
-    if (localUser && localUser.codigoAcesso) {
-      this.profissionalService.consultarPorCodigoAcesso(localUser.codigoAcesso)
+    if (localUser && localUser.email) {
+      this.profissionalService.consultarPorEmail(localUser.email)
       .subscribe(response => {
         this.profissional = response;
       },

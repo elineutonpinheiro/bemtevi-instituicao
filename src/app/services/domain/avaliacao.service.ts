@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TurmaDTO } from 'src/models/turma.dto';
+import { AlunoDTO } from 'src/models/aluno.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -14,20 +15,14 @@ export class AvaliacaoService {
 
   constructor(public http: HttpClient) {
   }
-  
-  /* findAll(turmaId: string): Observable<AvaliacaoDTO[]> {
-    return this.http.get<AvaliacaoDTO[]>(`${this.baseUrl}/turmas/${turmaId}/avaliacoes`);
-  } */
 
-  insert(avaliacao: AvaliacaoDTO) {
-      return this.http.post(
-        `${this.baseUrl}/avaliacoes`,
-        avaliacao,
-        {
-          observe: 'response',
-          responseType: 'text'
-        }
-    );
+  salvarAvaliacao(avaliacao: AvaliacaoDTO): Observable<any> {
+      return this.http.put(
+        `${this.baseUrl}/avaliacoes`, avaliacao);
+  }
+
+  consultarPorAlunoIdEData(alunoId: number, data: string): Observable<AvaliacaoDTO>{
+    return this.http.get<AvaliacaoDTO>(`${this.baseUrl}/alunos/${alunoId}/avaliacoes?data=${data}`);
   }
 
 }

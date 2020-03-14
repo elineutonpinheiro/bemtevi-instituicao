@@ -1,6 +1,6 @@
 import { AvaliacaoService } from './../../services/domain/avaliacao.service';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -23,6 +23,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
+  providers: [DatePipe],
   declarations: [AvaliacaoPage]
 })
 export class AvaliacaoPageModule {}
