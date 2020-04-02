@@ -1,12 +1,11 @@
 import { AvaliacaoDTO } from './../../../models/avaliacao.dto';
 import { ProfissionalService } from './../../services/domain/profissional.service';
-import { StorageService } from './../../services/storage.service';
 import { AlunoService } from './../../services/domain/aluno.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AvaliacaoService } from './../../services/domain/avaliacao.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
-import { AlertController, NavParams } from '@ionic/angular';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { AlertController} from '@ionic/angular';
 import { AlunoDTO } from 'src/models/aluno.dto';
 import { ProfissionalDTO } from 'src/models/profissional.dto';
 import { DatePipe } from '@angular/common';
@@ -30,7 +29,6 @@ export class AvaliacaoPage implements OnInit {
 
   avaliacaoForm: FormGroup;
 
-
   qtdeBanho = 0;
 
   qtdeFralda = 0;
@@ -49,21 +47,21 @@ export class AvaliacaoPage implements OnInit {
 
   urlTurma: string;
 
-  constructor(private fb: FormBuilder, 
-              private avaliacaoService: AvaliacaoService, 
-              private alertCtrl: AlertController, 
-              private router: Router, 
-              private activeRouter: ActivatedRoute, 
-              private alunoService: AlunoService,
-              private profissionalService: ProfissionalService,
-              private datapipe: DatePipe) {
-              this.alunoId = this.activeRouter.snapshot.paramMap.get('id');
-              this.turmaId = this.activeRouter.snapshot.paramMap.get('turmaId');
-              this.consultarAvaliador();
-              this.consultarAlunoPorId(this.alunoId);
-              this.criarFormAvaliacao();
-              this.urlTurma = `home;id=${this.turmaId}`;
-                     
+  constructor(
+    private fb: FormBuilder, 
+    private avaliacaoService: AvaliacaoService,
+    private alertCtrl: AlertController,
+    private router: Router,
+    private activeRouter: ActivatedRoute,
+    private alunoService: AlunoService,
+    private profissionalService: ProfissionalService,
+    private datapipe: DatePipe) {
+    this.alunoId = this.activeRouter.snapshot.paramMap.get('id');
+    this.turmaId = this.activeRouter.snapshot.paramMap.get('turmaId');
+    this.consultarAvaliador();
+    this.consultarAlunoPorId(this.alunoId);
+    this.criarFormAvaliacao();
+    this.urlTurma = `home;id=${this.turmaId}`;
   }
 
   ngOnInit() {

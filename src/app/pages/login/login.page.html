@@ -7,15 +7,15 @@
   </div>
 
   <div class="div-form-login">
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
       <div class="ion-no-padding div-field-form-login">
         <div class="ion-padding-top field-form-login">
           <div class="label-field-form-user">
-            <ion-label>Código de Acesso</ion-label>
+            <ion-label>Email</ion-label>
           </div>
           <ion-item lines="none" class="item-field-form-login">
-            <ion-icon slot="start" name="mail" size="small"></ion-icon>
-            <ion-input type="text" name="codigoAcesso" formControlName="codigoAcesso"></ion-input>
+            <ion-icon slot="start" name="mail-outline" size="small"></ion-icon>
+            <ion-input type="text" name="email" formControlName="email"></ion-input>
           </ion-item>
         </div>
         <div class="ion-padding-top field-form-login">
@@ -23,22 +23,23 @@
             <ion-label>Senha</ion-label>
           </div>
           <ion-item lines="none" class="item-field-form-login">
-            <ion-icon slot="start" name="lock" size="small"></ion-icon>
+            <ion-icon slot="start" name="lock-closed-outline" size="small"></ion-icon>
             <ion-input type="password" name="senha" formControlName="senha"></ion-input>
             <ion-icon slot="end" name="eye" size="small" style="color: #CDD2D3;"></ion-icon>
           </ion-item>
         </div>
-      </div>
-
-      <div style="padding-top: 10px; padding-bottom: 20px; float: right; font-size: 14px;">
-        <ion-label><strong>Esqueci</strong> minha senha</ion-label>
-      </div>
-      
+      </div>      
 
       <ion-button style="border-radius: 10px !important; height: 44px;" 
       expand="block" mode="ios" type="submit">
         Entrar
       </ion-button>
     </form>
+
+    
+    <div style="padding-top: 10px; padding-bottom: 20px; float: right; font-size: 14px;">
+      <ion-label><strong>Esqueci</strong> minha senha</ion-label>
+    </div>
+
   </div>
 </ion-content>

@@ -1,17 +1,40 @@
-import { StorageService } from './storage.service';
-import { LocalUser } from './../../models/localUser';
-import { HttpClient } from '@angular/common/http';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { CredenciaisDTO } from 'src/models/credenciais.dto';
 import { Injectable } from '@angular/core';
-import { API_CONFIG } from 'src/config/api.config';
-import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
     providedIn: 'root'
-  })
-  export class AuthService {
+})
+export class AuthService {
 
-    private baseUrl = 'http://localhost:8080';
+    constructor(private afa: AngularFireAuth) {
+
+    }
+
+    login(creds: CredenciaisDTO) {
+        return this.afa.auth.signInWithEmailAndPassword(creds.email, creds.senha);
+    }
+
+
+    // IMPLEMENTAR NA PLATAFORMA WEB
+    registrar(creds: CredenciaisDTO) {
+        return this.afa.auth.createUserWithEmailAndPassword(creds.email, creds.senha);
+    }
+
+    logout() {
+        this.afa.auth.signOut();
+    }
+
+    getAuth() {
+        return this.afa.auth;
+    }
+}
+
+
+
+/*
+
+private baseUrl = 'http://localhost:8080';
 
      jwtHelper = new JwtHelperService();
     //jwtHelper: JwtHelper = new JwtHelper();
@@ -52,4 +75,5 @@ import { JwtHelperService } from '@auth0/angular-jwt';
     logout() {
         this.storage.setLocalUser(null);
     }
-}
+
+*/

@@ -1,0 +1,24 @@
+.titulo-pagina {
+    position: relative;
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.container {
+    --background: #FBFB47;
+}
+
+.item-card {
+    --padding-start: 0px;
+    --inner-padding-end: 0px; 
+    --background: #FBFB47;
+}
+
+
+ion-icon {
+    --ionicon-stroke-width: 24px;
+}

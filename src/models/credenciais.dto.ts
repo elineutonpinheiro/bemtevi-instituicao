@@ -1,9 +1,9 @@
 export class CredenciaisDTO {
-    codigoAcesso: string;
-    senha: string;
+    email?: string;
+    senha?: string;
 
-    constructor(codigoAcesso: string , senha: string) {
-        this.codigoAcesso = codigoAcesso;
+    constructor(email: string , senha: string) {
+        this.email = email;
         this.senha = senha;
     }
 }
