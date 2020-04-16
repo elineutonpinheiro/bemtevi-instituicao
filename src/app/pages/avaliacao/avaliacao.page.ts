@@ -1,3 +1,4 @@
+import { AuthService } from './../../services/auth.service';
 import { AvaliacaoDTO } from './../../../models/avaliacao.dto';
 import { ProfissionalService } from './../../services/domain/profissional.service';
 import { AlunoService } from './../../services/domain/aluno.service';
@@ -5,7 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AvaliacaoService } from './../../services/domain/avaliacao.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { AlertController} from '@ionic/angular';
+import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { AlunoDTO } from 'src/models/aluno.dto';
 import { ProfissionalDTO } from 'src/models/profissional.dto';
 import { DatePipe } from '@angular/common';
@@ -47,21 +48,26 @@ export class AvaliacaoPage implements OnInit {
 
   urlTurma: string;
 
+  loading: any;
+
   constructor(
-    private fb: FormBuilder, 
+    private fb: FormBuilder,
     private avaliacaoService: AvaliacaoService,
     private alertCtrl: AlertController,
     private router: Router,
     private activeRouter: ActivatedRoute,
     private alunoService: AlunoService,
     private profissionalService: ProfissionalService,
-    private datapipe: DatePipe) {
+    private datapipe: DatePipe,
+    private auth: AuthService,
+    private loadingCtrl: LoadingController,
+    private toastCtrl: ToastController) {
     this.alunoId = this.activeRouter.snapshot.paramMap.get('id');
     this.turmaId = this.activeRouter.snapshot.paramMap.get('turmaId');
     this.consultarAvaliador();
     this.consultarAlunoPorId(this.alunoId);
     this.criarFormAvaliacao();
-    this.urlTurma = `home;id=${this.turmaId}`;
+    this.urlTurma = `alunos;id=${this.turmaId}`;
   }
 
   ngOnInit() {
@@ -93,24 +99,40 @@ export class AvaliacaoPage implements OnInit {
     });
   }
 
-  salvarAvaliacao() {
+  async salvarAvaliacao() {
+
+    await this.presentLoading();
+    try {
       this.avaliacaoService.salvarAvaliacao(this.avaliacaoForm.value).
-      subscribe(response => {
-        this.avaliacao = response;
-        console.log(this.avaliacao);
-        this.criarAvaliacao(this.avaliacao);
-      }, error => {
-        console.log(error);
-      });
+        subscribe(response => {
+          this.avaliacao = response;
+          console.log(this.avaliacao);
+          this.criarAvaliacao(this.avaliacao);
+        }, error => {
+          console.log(error);
+        });
+    } catch (error) {
+      this.presentToast(error.message);
+    } finally {
+      this.loading.dismiss();
+    }
   }
 
   consultarAvaliacaoPorAlunoIdEData(alunoId: number, data: string) {
     this.avaliacaoService.consultarPorAlunoIdEData(alunoId, data).
       subscribe(response => {
         this.avaliacao = response;
-        console.log(this.avaliacao);
+        if (this.avaliacao.banho == null) {
+          this.avaliacao.banho = 0;
+        }
+        if (this.avaliacao.fralda == null) {
+          this.avaliacao.fralda = 0;
+        }
+        if (this.avaliacao.escovacao == null) {
+          this.avaliacao.escovacao = 0;
+        }
         this.criarAvaliacao(this.avaliacao);
-      }, error => {});
+      }, error => { });
   }
 
   criarAvaliacao(avaliacao: AvaliacaoDTO) {
@@ -141,7 +163,9 @@ export class AvaliacaoPage implements OnInit {
     this.qtdeEscovacao = avaliacao.escovacao;
   }
 
-  finalizarAvaliacao(){  }
+  concluirAvaliacao() {
+    this.concluirAvaliacaoAlertConfirm();
+  }
 
   async showInsertOk() {
     const alert = await this.alertCtrl.create({
@@ -151,7 +175,7 @@ export class AvaliacaoPage implements OnInit {
       buttons: [{
         text: 'OK',
         handler: () => {
-          this.router.navigate(['/home', {id: this.turmaId}]);
+          this.router.navigate(['/home', { id: this.turmaId }]);
         }
       }]
     });
@@ -160,32 +184,32 @@ export class AvaliacaoPage implements OnInit {
 
   consultarAlunoPorId(alunoId) {
     this.alunoService.consultarPorId(alunoId).
-    subscribe(response => {
-      this.aluno = response;
-      console.log('Aluno: ' + this.aluno);
-    },
-    error => {});
+      subscribe(response => {
+        this.aluno = response;
+        console.log('Aluno: ' + this.aluno);
+      },
+        error => { });
   }
 
   consultarAvaliador() {
-      this.profissionalService.consultarPorEmail('elineuton.ps@gmail.com')
+    this.profissionalService.consultarProfissionalPorEmail(this.auth.getAuth().currentUser.email)
       .subscribe(response => {
         this.profissional = response;
         this.profissionalId = this.profissional.id.toString();
       },
-      (error) => {});
+        (error) => { });
   }
 
 
   incrementa(nome: string) {
     if (nome === 'banho' && this.avaliacaoForm.get('banho').value < 99) {
-      this.avaliacaoForm.get('banho').setValue(this.qtdeBanho++);
+      this.avaliacaoForm.get('banho').setValue(this.qtdeBanho += 1);
     }
     if (nome === 'fralda' && this.avaliacaoForm.get('fralda').value < 99) {
-      this.avaliacaoForm.get('fralda').setValue(this.qtdeFralda++);
+      this.avaliacaoForm.get('fralda').setValue(this.qtdeFralda += 1);
     }
     if (nome === 'escovacao' && this.avaliacaoForm.get('escovacao').value < 99) {
-      this.avaliacaoForm.get('escovacao').setValue(this.qtdeEscovacao++);
+      this.avaliacaoForm.get('escovacao').setValue(this.qtdeEscovacao += 1);
     }
   }
 
@@ -199,6 +223,51 @@ export class AvaliacaoPage implements OnInit {
     if (nome === 'escovacao' && this.avaliacaoForm.get('escovacao').value > 0) {
       this.avaliacaoForm.get('escovacao').setValue(this.qtdeEscovacao--);
     }
+  }
+
+  voltar() {
+    this.router.navigate(['/alunos', { id: this.turmaId }]);
+  }
+
+  async concluirAvaliacaoAlertConfirm() {
+    const alert = await this.alertCtrl.create({
+      header: 'Concluir avaliação?',
+      message: 'Ao concluir não será mais possível editar a avaliação na presente data.',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Cancelado com sucesso');
+          }
+        }, {
+          text: 'Sim',
+          handler: () => {
+            this.avaliacaoForm.controls.status.setValue('CONCLUIDA');
+            this.salvarAvaliacao();
+            this.router.navigate(['/alunos', { id: this.turmaId }]);
+            console.log('Concluída com sucesso com sucesso');
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+
+  async presentLoading() {
+    this.loading = await this.loadingCtrl.create({
+      message: 'Salvando avaliação...',
+    });
+    return this.loading.present();
+  }
+
+  async presentToast(mensagem: string) {
+    const toast = await this.toastCtrl.create({
+      message: mensagem,
+      duration: 2000
+    });
+    toast.present();
   }
 
 }

@@ -1,17 +1,14 @@
 import { AvaliacaoDTO } from './../../../models/avaliacao.dto';
-import { API_CONFIG } from '../../../config/api.config';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { TurmaDTO } from 'src/models/turma.dto';
-import { AlunoDTO } from 'src/models/aluno.dto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AvaliacaoService {
 
-  private baseUrl = 'http://localhost:8080';
+  private baseUrl = 'http://192.168.0.109:8080';
 
   constructor(public http: HttpClient) {
   }

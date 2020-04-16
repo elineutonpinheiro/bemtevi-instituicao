@@ -2,7 +2,6 @@ import { AvaliacaoService } from './services/domain/avaliacao.service';
 import { AlunoService } from './services/domain/aluno.service';
 import { AvaliacaoPageModule } from './pages/avaliacao/avaliacao.module';
 import { ProfissionalService } from './services/domain/profissional.service';
-import { StorageService } from './services/storage.service';
 import { AuthService } from './services/auth.service';
 import { TurmaService } from './services/domain/turma.service';
 import { FormsModule } from '@angular/forms';
@@ -18,8 +17,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageModule } from './pages/login/login.module';
 import { AngularFireModule} from '@angular/fire';
-import { AuthInterceptorProvider } from './interceptors/auth-interceptor';
-import { ErrorInterceptorProvider } from './interceptors/error-interceptor';
 import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
@@ -44,9 +41,6 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     TurmaService,
     AuthService,
-    //AuthInterceptorProvider,
-    //ErrorInterceptorProvider,
-    StorageService,
     ProfissionalService,
     AlunoService,
     AvaliacaoService

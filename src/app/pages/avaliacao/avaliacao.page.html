@@ -1,200 +1,214 @@
-<ion-toolbar>
-  <ion-buttons slot="start">
-    <ion-back-button [defaultHref]="urlTurma"></ion-back-button>
-  </ion-buttons>
-  <ion-title>
-    <ion-label class="label-titulo" *ngIf="aluno" >{{aluno.nome}}</ion-label>
-  </ion-title>
-</ion-toolbar>
+<ion-content class="container ion-padding">
+  <div class="div-card" slot="fixed">
+    <div *ngIf="aluno" class="cabecalho-card">
+      <ion-grid fixed class="ion-no-padding">
+        <ion-row>
+          <ion-col size="2" class="ion-no-padding col-cabecalho">
+            <ion-icon name="arrow-back-outline" (click)="voltar()">
+            </ion-icon>
+          </ion-col>
+          <ion-col size="8" class="ion-no-padding col-cabecalho" style="text-align: center;">{{aluno.nome}}</ion-col>
+          <ion-col size="2" class="ion-no-padding col-cabecalho">
+            
+          </ion-col>
+        </ion-row>
+      </ion-grid>
 
-<ion-content class="ion-padding container">
-
-  <form [formGroup]="avaliacaoForm">
-
-    <!-- =================== SEÇÃO DE ALIMENTAÇÃO ==================== -->
-    <div>
-      <ion-item-divider class="item-divider">
-        <ion-icon name="alert" slot="start" size="small" class="icone-categoria"></ion-icon>
-        <ion-label class="titulo-categoria">{{"Alimentação" | uppercase}}</ion-label>
-      </ion-item-divider>
-
-      <ion-item lines="none" class="item-categoria">
-        <ion-label>Café da Manhã</ion-label>
-        <ion-select interface="popover" placeholder="" formControlName="cafeDaManha"
-          class="select-item-categoria" selectedText = "{{avaliacaoForm.controls.cafeDaManha.value}}">
-          <ion-select-option value="aceitou bem">Aceitou bem</ion-select-option>
-          <ion-select-option value="aceitou pouco">Aceitou pouco</ion-select-option>
-          <ion-select-option value="não aceitou">Não aceitou</ion-select-option>
-        </ion-select>
-      </ion-item>
-      <ion-item lines="none" class="item-categoria">
-        <ion-label>Lanche da Manhã</ion-label>
-        <ion-select interface="popover" placeholder="" formControlName="lancheDaManha"
-          class="select-item-categoria">
-          <ion-select-option value="aceitou bem">Aceitou bem</ion-select-option>
-          <ion-select-option value="aceitou pouco">Aceitou pouco</ion-select-option>
-          <ion-select-option value="não aceitou">Não aceitou</ion-select-option>
-        </ion-select>
-      </ion-item>
-      <ion-item lines="none" class="item-categoria">
-        <ion-label>Almoço</ion-label>
-        <ion-select interface="popover" placeholder="" formControlName="almoco"
-          class="select-item-categoria">
-          <ion-select-option value="aceitou bem">Aceitou bem</ion-select-option>
-          <ion-select-option value="aceitou pouco">Aceitou pouco</ion-select-option>
-          <ion-select-option value="não aceitou">Não aceitou</ion-select-option>
-        </ion-select>
-      </ion-item>
-      <ion-item lines="none" class="item-categoria">
-        <ion-label>Lanche da Tarde</ion-label>
-        <ion-select interface="popover" placeholder="" formControlName="lancheDaTarde"
-          class="select-item-categoria">
-          <ion-select-option value="aceitou bem">Aceitou bem</ion-select-option>
-          <ion-select-option value="aceitou pouco">Aceitou pouco</ion-select-option>
-          <ion-select-option value="não aceitou">Não aceitou</ion-select-option>
-        </ion-select>
-      </ion-item>
     </div>
+    <div class="div-avaliacao" slot="fixed">
+      
+      <div class="div-form-categorias">
+        <form [formGroup]="avaliacaoForm">
+          <div class="div-separacao">
+            <ion-item-divider class="item-divider">
+              <!-- <ion-icon name="fast-food-outline" slot="start" size="small" class="icone-categoria"></ion-icon> -->
+              <ion-label class="titulo-categoria">{{"Alimentação" | titlecase}}</ion-label>
+            </ion-item-divider>
 
-    <!-- =================== SEÇÃO DE HIGIENE ==================== -->
-    <div>
-      <ion-item-divider class="item-divider">
-        <ion-icon name="alert" slot="start" size="small" class="icone-categoria"></ion-icon>
-        <ion-label class="titulo-categoria">{{"Higiene" | uppercase}}</ion-label>
-      </ion-item-divider>
-      <ion-item lines="none" class="item-categoria">
-        <ion-label>Banho</ion-label>
-        <ion-icon name="remove-circle-outline" (click)="decrementa('banho')" style="margin-right: 10px;"></ion-icon>
-        <div class="div-categoria">
-          {{avaliacaoForm.get('banho').value}}
-        </div>
-        <ion-icon name="add-circle-outline" (click)="incrementa('banho')" style="margin-left: 10px;"></ion-icon>
-      </ion-item>
-      <ion-item lines="none" class="item-categoria">
-        <ion-label>Fralda</ion-label>
-        <ion-icon name="remove-circle-outline" (click)="decrementa('fralda')" style="margin-right: 10px;"></ion-icon>
-        <div class="div-categoria">
-          {{avaliacaoForm.get('fralda').value}}
-        </div>
-        <ion-icon name="add-circle-outline" (click)="incrementa('fralda')" style="margin-left: 10px;"></ion-icon>
-      </ion-item>
-      <ion-item lines="none" class="item-categoria">
-        <ion-label>Escovação</ion-label>
-        <ion-icon name="remove-circle-outline" (click)="decrementa('escovacao')" style="margin-right: 10px;"></ion-icon>
-        <div class="div-categoria">
-          {{avaliacaoForm.get('escovacao').value}}
-        </div>
-        <ion-icon name="add-circle-outline" (click)="incrementa('escovacao')" style="margin-left: 10px;"></ion-icon>
-      </ion-item>
+            <ion-item lines="none" class="item-categoria">
+              <ion-label>Café da Manhã</ion-label>
+              <ion-select interface="popover" placeholder="" formControlName="cafeDaManha"
+                [disabled]="avaliacaoForm.controls.status.value == 'CONCLUIDA'" class="select-item-categoria">
+                <ion-select-option value="aceitou bem">Aceitou bem</ion-select-option>
+                <ion-select-option value="aceitou pouco">Aceitou pouco</ion-select-option>
+                <ion-select-option value="não aceitou">Não aceitou</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item lines="none" class="item-categoria">
+              <ion-label>Lanche da Manhã</ion-label>
+              <ion-select interface="popover" placeholder="" formControlName="lancheDaManha"
+                [disabled]="avaliacaoForm.controls.status.value == 'CONCLUIDA'" class="select-item-categoria">
+                <ion-select-option value="aceitou bem">Aceitou bem</ion-select-option>
+                <ion-select-option value="aceitou pouco">Aceitou pouco</ion-select-option>
+                <ion-select-option value="não aceitou">Não aceitou</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item lines="none" class="item-categoria">
+              <ion-label>Almoço</ion-label>
+              <ion-select interface="popover" placeholder="" formControlName="almoco"
+                [disabled]="avaliacaoForm.controls.status.value == 'CONCLUIDA'" class="select-item-categoria">
+                <ion-select-option value="aceitou bem">Aceitou bem</ion-select-option>
+                <ion-select-option value="aceitou pouco">Aceitou pouco</ion-select-option>
+                <ion-select-option value="não aceitou">Não aceitou</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item lines="none" class="item-categoria">
+              <ion-label>Lanche da Tarde</ion-label>
+              <ion-select interface="popover" placeholder="" formControlName="lancheDaTarde"
+                [disabled]="avaliacaoForm.controls.status.value == 'CONCLUIDA'" class="select-item-categoria">
+                <ion-select-option value="aceitou bem">Aceitou bem</ion-select-option>
+                <ion-select-option value="aceitou pouco">Aceitou pouco</ion-select-option>
+                <ion-select-option value="não aceitou">Não aceitou</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+
+          <div class="div-separacao">
+            <ion-item-divider class="item-divider">
+              <!-- <ion-icon name="alert" slot="start" size="small" class="icone-categoria"></ion-icon> -->
+              <ion-label class="titulo-categoria">{{"Higiene" | titlecase}}</ion-label>
+            </ion-item-divider>
+            <ion-item lines="none" class="item-categoria" [disabled]="avaliacaoForm.controls.status.value == 'CONCLUIDA'">
+              <ion-label>Banho</ion-label>
+              <ion-item class="item-opcao-categoria">
+                <ion-icon name="remove-circle-outline" (click)="decrementa('banho')" style="margin-right: 10px;">
+                </ion-icon>
+                <div class="div-categoria" style="width: 20px;">
+                  {{avaliacaoForm.get('banho').value}}
+                </div>
+                <ion-icon name="add-circle-outline" (click)="incrementa('banho')" style="margin-left: 10px;"></ion-icon>
+              </ion-item>
+            </ion-item>
+            <ion-item lines="none" class="item-categoria" [disabled]="avaliacaoForm.controls.status.value == 'CONCLUIDA'">
+              <ion-label>Fralda</ion-label>
+              <ion-item class="item-opcao-categoria">
+                <ion-icon name="remove-circle-outline" (click)="decrementa('fralda')" style="margin-right: 10px;">
+                </ion-icon>
+                <div class="div-categoria" style="width: 20px;">
+                  {{avaliacaoForm.get('fralda').value}}
+                </div>
+                <ion-icon name="add-circle-outline" (click)="incrementa('fralda')" style="margin-left: 10px;">
+                </ion-icon>
+              </ion-item>
+            </ion-item>
+            <ion-item lines="none" class="item-categoria" [disabled]="avaliacaoForm.controls.status.value == 'CONCLUIDA'">
+              <ion-label ngStyle>Escovação</ion-label>
+              <ion-item class="item-opcao-categoria">
+                <ion-icon name="remove-circle-outline" (click)="decrementa('escovacao')" style="margin-right: 10px;">
+                </ion-icon>
+                <div class="div-categoria" style="width: 20px;">
+                  {{avaliacaoForm.get('escovacao').value}}
+                </div>
+                <ion-icon name="add-circle-outline" (click)="incrementa('escovacao')" style="margin-left: 10px;">
+                </ion-icon>
+              </ion-item>
+            </ion-item>
+          </div>
+
+          <div class="div-separacao">
+            <ion-item-divider class="item-divider">
+              <!-- <ion-icon name="alert" slot="start" size="small" class="icone-categoria"></ion-icon> -->
+              <ion-label class="titulo-categoria">{{"Saúde" | titlecase}}</ion-label>
+            </ion-item-divider>
+            <ion-item lines="none" class="item-categoria">
+              <ion-label>Febre?</ion-label>
+              <ion-note slot="end" *ngIf="avaliacaoForm.get('febre').value">Sim</ion-note>
+              <ion-note slot="end" *ngIf="!avaliacaoForm.get('febre').value">Não</ion-note>
+              <ion-toggle slot="end" name="febre" color="dark" formControlName="febre"
+                [disabled]="avaliacaoForm.controls.status.value == 'CONCLUIDA'"></ion-toggle>
+            </ion-item>
+            <ion-item lines="none" class="item-categoria">
+              <ion-label>Urina</ion-label>
+              <ion-select interface="popover" placeholder="" formControlName="urina" class="select-item-categoria"
+                [disabled]="avaliacaoForm.controls.status.value == 'CONCLUIDA'">
+                <ion-select-option value="normal">Normal</ion-select-option>
+                <ion-select-option value="escura">Escura</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item lines="none" class="item-categoria">
+              <ion-label>Evacuação</ion-label>
+              <ion-select interface="popover" placeholder="" formControlName="evacuacao" class="select-item-categoria"
+                [disabled]="avaliacaoForm.controls.status.value == 'CONCLUIDA'">
+                <ion-select-option value="normal">Normal</ion-select-option>
+                <ion-select-option value="ressecada">Ressecada</ion-select-option>
+                <ion-select-option value="esbranquiçada">Esbranquiçada</ion-select-option>
+                <ion-select-option value="diarréia">Diárréria</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+
+          <div class="div-separacao">
+            <ion-item-divider class="item-divider">
+              <!-- <ion-icon name="alert" slot="start" size="small" class="icone-categoria"></ion-icon> -->
+              <ion-label class="titulo-categoria">{{"Sono" | titlecase}}</ion-label>
+            </ion-item-divider>
+            <ion-item lines="none" class="item-categoria">
+              <ion-label>Dormiu?</ion-label>
+              <ion-note slot="end" *ngIf="avaliacaoForm.get('dormiu').value">Sim</ion-note>
+              <ion-note slot="end" *ngIf="!avaliacaoForm.get('dormiu').value">Não</ion-note>
+              <ion-toggle slot="end" color="dark" formControlName="dormiu"
+                [disabled]="avaliacaoForm.controls.status.value == 'CONCLUIDA'"></ion-toggle>
+            </ion-item>
+
+            <ion-item lines="none" *ngIf="avaliacaoForm.get('dormiu').value == true" class="item-categoria">
+              <ion-label>Estado</ion-label>
+              <ion-select interface="popover" placeholder="" formControlName="estadoDoSono"
+                class="select-item-categoria" [disabled]="avaliacaoForm.controls.status.value == 'CONCLUIDA'">
+                <ion-select-option value="tranquilo">Tranquilo</ion-select-option>
+                <ion-select-option value="agitado">Agitado</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+
+          <div class="div-separacao">
+            <ion-item-divider class="item-divider">
+              <!-- <ion-icon name="alert" slot="start" size="small" class="icone-categoria"></ion-icon> -->
+              <ion-label class="titulo-categoria">{{"Socialização" | titlecase}}</ion-label>
+            </ion-item-divider>
+            <ion-item lines="none" class="item-categoria">
+              <ion-label>Interação</ion-label>
+              <ion-select interface="popover" placeholder="" formControlName="interacao" class="select-item-categoria"
+                [disabled]="avaliacaoForm.controls.status.value == 'CONCLUIDA'">
+                <ion-select-option value="boa">Boa</ion-select-option>
+                <ion-select-option value="razoável">Razoável</ion-select-option>
+                <ion-select-option value="fraca">Fraca</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item lines="none" class="item-categoria">
+              <ion-label>Participação</ion-label>
+              <ion-select interface="popover" placeholder="" formControlName="participacao"
+                class="select-item-categoria" [disabled]="avaliacaoForm.controls.status.value == 'CONCLUIDA'">
+                <ion-select-option value="atenta">Atenta</ion-select-option>
+                <ion-select-option value="dispersa">Dispersa</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+
+          <div class="div-separacao-ultimo"> 
+            <ion-item-divider class="item-divider">
+              <!-- <ion-icon name="alert" slot="start" size="small" class="icone-categoria"></ion-icon> -->
+              <ion-label class="titulo-categoria">{{"Observação" | titlecase}}</ion-label>
+            </ion-item-divider>
+            <ion-item lines="none" class="item-categoria">
+              <ion-label position="stacked">Destaque do dia, Atividade para casa, etc.</ion-label>
+              <ion-textarea formControlName="observacao"
+                [disabled]="avaliacaoForm.controls.status.value == 'CONCLUIDA'"></ion-textarea>
+            </ion-item>
+          </div>
+
+        </form>
+      </div>
     </div>
-
-    <!-- =================== SEÇÃO DE SAÚDE ==================== -->
-    <div>
-      <ion-item-divider class="item-divider">
-        <ion-icon name="alert" slot="start" size="small" class="icone-categoria"></ion-icon>
-        <ion-label class="titulo-categoria">{{"Saúde" | uppercase}}</ion-label>
-      </ion-item-divider>
-      <ion-item lines="none" class="item-categoria">
-        <ion-label>Febre</ion-label>
-        <ion-note slot="end" *ngIf="avaliacaoForm.get('febre').value">Sim</ion-note>
-        <ion-note slot="end" *ngIf="!avaliacaoForm.get('febre').value">Não</ion-note>
-        <ion-toggle slot="end" name="febre" color="warning" formControlName="febre"></ion-toggle>
-      </ion-item>
-      <ion-item lines="none" class="item-categoria">
-        <ion-label>Urina</ion-label>
-        <ion-select interface="popover" placeholder="" formControlName="urina" class="select-item-categoria">
-          <ion-select-option value="normal">Normal</ion-select-option>
-          <ion-select-option value="escura">Escura</ion-select-option>
-        </ion-select>
-      </ion-item>
-      <ion-item lines="none" class="item-categoria">
-        <ion-label>Evacuação</ion-label>
-        <ion-select interface="popover" placeholder="" formControlName="evacuacao" class="select-item-categoria">
-          <ion-select-option value="normal">Normal</ion-select-option>
-          <ion-select-option value="ressecada">Ressecada</ion-select-option>
-          <ion-select-option value="esbranquiçada">Esbranquiçada</ion-select-option>
-          <ion-select-option value="diarréia">Diárréria</ion-select-option>
-        </ion-select>
-      </ion-item>
+    <div class="botoes-avaliacao" lines="none">
+      <div style="width: 50%;">
+        <ion-button expand="full" (click)="salvarAvaliacao(aluno.id)" [disabled]="avaliacaoForm.controls.status.value == 'CONCLUIDA'"
+          class="btn-salvar">Salvar
+        </ion-button>
+      </div> 
+      <div style="width: 50%;">
+        <ion-button expand="full" (click)="concluirAvaliacao(aluno.id)" [disabled]="avaliacaoForm.controls.status.value == 'CONCLUIDA'" 
+         class="btn-concluir">Finalizar</ion-button>
+      </div>
     </div>
-
-    <!-- =================== SEÇÃO DE SONO ==================== -->
-    <div>
-      <ion-item-divider class="item-divider">
-        <ion-icon name="alert" slot="start" size="small" class="icone-categoria"></ion-icon>
-        <ion-label class="titulo-categoria">{{"Sono" | uppercase}}</ion-label>
-      </ion-item-divider>
-      <ion-item lines="none" class="item-categoria">
-        <ion-label>Dormiu</ion-label>
-        <ion-note slot="end" *ngIf="avaliacaoForm.get('dormiu').value">Sim</ion-note>
-        <ion-note slot="end" *ngIf="!avaliacaoForm.get('dormiu').value">Não</ion-note>
-        <ion-toggle slot="end" color="warning" formControlName="dormiu"></ion-toggle>
-      </ion-item>
-
-      <ion-item lines="none" *ngIf="avaliacaoForm.get('dormiu').value == true" class="item-categoria">
-        <ion-label>Estado</ion-label>
-        <ion-select interface="popover" placeholder="" formControlName="estadoDoSono" class="select-item-categoria">
-          <ion-select-option value="tranquilo">Tranquilo</ion-select-option>
-          <ion-select-option value="agitado">Agitado</ion-select-option>
-        </ion-select>
-      </ion-item>
-    </div>
-
-    <!-- =================== SEÇÃO DE SOCIALIZAÇÃO ==================== -->
-    <div>
-      <ion-item-divider class="item-divider">
-        <ion-icon name="alert" slot="start" size="small" class="icone-categoria"></ion-icon>
-        <ion-label class="titulo-categoria">{{"Socialização" | uppercase}}</ion-label>
-      </ion-item-divider>
-      <ion-item lines="none" class="item-categoria">
-        <ion-label>Interação</ion-label>
-        <ion-select interface="popover" placeholder="" formControlName="interacao" class="select-item-categoria">
-          <ion-select-option value="boa">Boa</ion-select-option>
-          <ion-select-option value="razoável">Razoável</ion-select-option>
-          <ion-select-option value="fraca">Fraca</ion-select-option>
-        </ion-select>
-      </ion-item>
-      <ion-item lines="none" class="item-categoria">
-        <ion-label>Participação</ion-label>
-        <ion-select interface="popover" placeholder="" formControlName="participacao" class="select-item-categoria">
-          <ion-select-option value="atenta">Atenta</ion-select-option>
-          <ion-select-option value="dispersa">Dispersa</ion-select-option>
-        </ion-select>
-      </ion-item>
-    </div>
-
-    <!-- =================== SEÇÃO DE OBSERVAÇÃO ==================== -->
-    <div>
-      <ion-item-divider class="item-divider">
-        <ion-icon name="alert" slot="start" size="small" class="icone-categoria"></ion-icon>
-        <ion-label class="titulo-categoria">{{"Observação" | uppercase}}</ion-label>
-      </ion-item-divider>
-      <ion-item lines="none" class="item-categoria">
-        <ion-label position="stacked">Atenção!</ion-label>
-        <ion-textarea formControlName="observacao"></ion-textarea>
-      </ion-item>
-    </div>
-
-  </form>
-
+  </div>
 </ion-content>
-
-
-<ion-footer class="ion-no-border">
-  <ion-toolbar>
-    <ion-grid fixed>
-      <ion-row>
-        <ion-col size="6">
-          <ion-button (click)="salvarAvaliacao(aluno.id)" expand="block" fill="solid" mode="ios">
-            Salvar
-          </ion-button>
-        </ion-col>
-        <ion-col size="6">
-          <ion-button (click)="finalizarAvaliacao()" expand="block" fill="outline" mode="ios">
-            Finalizar
-          </ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-toolbar>
-</ion-footer>

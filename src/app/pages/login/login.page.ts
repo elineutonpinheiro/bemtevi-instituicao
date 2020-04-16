@@ -49,7 +49,6 @@ export class LoginPage implements OnInit {
     } finally {
       this.loading.dismiss();
       this.consultarProfissionalPorEmail(this.auth.getAuth().currentUser.email);
-      this.usuarioInexistenteAlert();
       console.log('Sempre passa por aqui depois de autenticar');
     }
   }

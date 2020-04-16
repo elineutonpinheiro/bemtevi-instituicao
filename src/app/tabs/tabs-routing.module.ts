@@ -27,7 +27,7 @@ const routes: Routes = [
           }
         ]
       },
-      {
+      /* {
         path: 'perfil',
         children: [
           {
@@ -36,7 +36,7 @@ const routes: Routes = [
               import('../pages/perfil/perfil.module').then(m => m.PerfilPageModule)
           }
         ]
-      },
+      }, */
       {
         path: '',
         redirectTo: '/tabs/home',

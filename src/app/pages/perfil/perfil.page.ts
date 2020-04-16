@@ -1,4 +1,4 @@
-import { AuthService } from './../../services/auth.service';
+/* import { AuthService } from './../../services/auth.service';
 import { Router } from '@angular/router';
 import { StorageService } from './../../services/storage.service';
 import { ProfissionalService } from './../../services/domain/profissional.service';
@@ -53,7 +53,7 @@ export class PerfilPage implements OnInit {
   buscarUsuarioLogado() {
     const localUser = this.storage.getLocalUser();
     if (localUser && localUser.email) {
-      this.profissionalService.consultarPorEmail(localUser.email)
+      this.profissionalService.consultarProfissionalPorEmail(localUser.email)
       .subscribe(response => {
         this.profissional = response;
       },
@@ -73,3 +73,4 @@ export class PerfilPage implements OnInit {
   }
 
 }
+ */

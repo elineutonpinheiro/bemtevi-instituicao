@@ -1,5 +1,4 @@
-import { StorageService } from './../services/storage.service';
-import { Observable } from 'rxjs';
+/* import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -28,3 +27,4 @@ export const AuthInterceptorProvider = {
     multi: true
 };
 
+ */

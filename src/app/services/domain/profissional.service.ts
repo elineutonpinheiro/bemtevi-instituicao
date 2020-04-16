@@ -1,17 +1,15 @@
 import { TurmaDTO } from 'src/models/turma.dto';
-import { StorageService } from './../storage.service';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { ProfissionalDTO } from 'src/models/profissional.dto';
-import { Usuario } from 'src/models/usuario';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ProfissionalService {
 
-    private baseUrl = 'http://localhost:8080';
+    private baseUrl = 'http://192.168.0.109:8080';
 
     constructor(private http: HttpClient) {
     }
@@ -23,10 +21,6 @@ export class ProfissionalService {
 
     consultarTurmasPorEmailProfissional(email: string): Observable<TurmaDTO[]> {
         return this.http.get<TurmaDTO[]>(`${this.baseUrl}/profissionais/${email}/turmas`);
-    }
-
-    consultarUsuarioPorEmail(email: string): Observable<Usuario> {
-        return this.http.get<Usuario>(`${this.baseUrl}/profissionais/emailUsuario?value=${email}`);
     }
 
 }

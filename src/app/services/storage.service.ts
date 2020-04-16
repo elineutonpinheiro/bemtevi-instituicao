@@ -1,4 +1,4 @@
-import { STORAGE_KEYS } from './../../config/storage_keys.config';
+/* import { STORAGE_KEYS } from './../../config/storage_keys.config';
 import { LocalUser } from './../../models/localUser';
 import { Injectable } from '@angular/core';
 
@@ -23,4 +23,4 @@ import { Injectable } from '@angular/core';
             localStorage.setItem(STORAGE_KEYS.localUser, JSON.stringify(user));
         }
     }
-}
+} */
