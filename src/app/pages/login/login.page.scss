@@ -1,27 +1,118 @@
 ion-content {
-  font-family: "Open Sans", sans-serif;
-  background: white;
+  font-family: "Roboto";
+  --background: #1C1C20;
+}
+
+.div-container-circulo {
+  background: rgb(10, 10, 15); 
+  height: 130px; 
+  width: 100%;
+}
+
+.div-circulo {
+  background: #FFCB08;
+  position: absolute;
+  top:0;
+  width: 125%;
+  height: 0px;
+  border-bottom-left-radius: 100% 140%;
+  border-bottom-right-radius: 100% 140%;
+  left: -13%;
+  right: -5%;
+  padding-bottom: 250px;
+}
+
+.div-img-logo {
+  display: flex; 
+  justify-content: center; 
+  margin-top: 50px;
+}
+
+.img-logo {
+  width: 40%;
 }
 
 .div-form-login {
-  //margin-left: 75px;
-  //margin-right: 75px;
-  margin-top: 10px;
+  display: grid; 
+  justify-content: center; 
+  position: relative;
+}
 
-  .div-field-form-login {
-    color: black;
+.div-form-campos-login {
+  background: #fff; 
+  padding: 10px 10px 75px 10px; 
+  border-radius: 10px; margin: 16px;
+}
 
-    .field-form-login {
-      .label-field-form-login {
-        padding-top: 0px;
-        padding-bottom: 5px;
-        font-size: small;
-      }
+.row-email-login {
+  background: #fff; 
+  border-bottom: 1px solid #CDD2D3; 
+  padding-bottom: 10px;
+}
 
-      .item-field-form-login {
-        border: 1px solid #e9e9e9;
-        border-radius: 10px;
-      }
-    }
-  }
+.col-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-login {
+  font-size: 16px;
+}
+
+.row-senha-login {
+  background: #fff; 
+  padding-top: 10px;
+}
+
+.btn-icon-mostra-senha {
+  --box-shadow: none; 
+  --background: #FFFFFF;
+}
+
+.icon-mostra-senha {
+  color: #CDD2D3;
+}
+
+.div-btn-entrar {
+  width: 86%; 
+  margin: auto; 
+  margin-top: -80px;
+}
+
+.btn-entrar {
+  border-radius: 10px; 
+  height: 50px; 
+  font-size: 18px; 
+  letter-spacing: 1px; 
+  font-weight: 700; 
+  --background: linear-gradient(90deg, rgba(255,203,8,1) 0%, rgba(251,251,71,1) 100%);
+  ; color: #000;
+}
+
+.div-hr {
+  margin-top: 30px; 
+  padding-bottom: 10px; 
+  font-size: 14px; 
+  color: white; 
+  padding-left: 16px; 
+  padding-right: 16px;
+}
+
+hr {
+  background: linear-gradient(90deg, rgba(28,28,32,1) 0%, rgba(255,255,255,1) 25%, rgba(243,243,243,1) 75%, rgba(28,28,32,1) 100%);
+}
+
+.div-esqueceu-senha {
+  margin-top: 10px; 
+  text-align: center; 
+  color: white; 
+  font-size: 16px; 
+  font-weight: normal; 
+  letter-spacing: 1px;
+}
+
+.label-esqueceu-senha {
+  color: white; 
+  font-weight: 700;
 }

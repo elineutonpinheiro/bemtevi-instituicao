@@ -108,6 +108,7 @@ export class AvaliacaoPage implements OnInit {
           this.avaliacao = response;
           console.log(this.avaliacao);
           this.criarAvaliacao(this.avaliacao);
+          this.router.navigate(['/alunos', { id: this.turmaId }]);
         }, error => {
           console.log(error);
         });

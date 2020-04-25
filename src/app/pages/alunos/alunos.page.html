@@ -1,29 +1,38 @@
-<ion-toolbar>
+<ion-toolbar class="toolbar">
   <ion-buttons slot="start">
     <ion-back-button defaultHref="turmas"></ion-back-button>
   </ion-buttons>
-  <ion-title style="padding-right: 52px; padding-left: 0px; text-align: center;">Alunos para avaliação</ion-title>
+  <ion-title class="titulo-pagina">Alunos para avaliação</ion-title>
 </ion-toolbar>
 
 <ion-content class="ion-padding container">
-  <div>
-    <ion-list lines="none" class="ion-no-padding lista-alunos">
-      <ion-item class="item-aluno" *ngFor="let aluno of alunos;"
-        (click)="avaliarAluno(aluno.id)">
-        <label>{{aluno.nome}}</label>
-        <ion-icon slot="end" name="chevron-forward-outline" style="color: darkgray;"></ion-icon>
-      </ion-item>
-    </ion-list>
-  </div>
-
+  <ion-list lines="none" class="ion-no-padding lista-alunos">
+    <ion-item class="item-card" *ngFor="let aluno of alunos;" (click)="avaliarAluno(aluno.id)">
+      <ion-card class="card">
+        <ion-grid fixed class="ion-no-padding">
+          <ion-row>
+            <ion-col size="2" class="ion-no-padding icon-col">
+              <ion-icon src="../../../assets/svg/baby.svg" size="large" class="icon-crianca"></ion-icon>
+            </ion-col>
+            <ion-col size="9" class="ion-no-padding header-col">
+              <ion-card-header class="header-card">
+                <ion-card-title class="title-card">{{aluno.nome}}
+                </ion-card-title>
+              </ion-card-header>
+            </ion-col>
+            <ion-col size="1" class="ion-no-padding icon-arrow-col">
+              <ion-icon name="chevron-forward-outline" size="small" class="icon-arrow"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+    </ion-item>
+  </ion-list>
 </ion-content>
 
 <ion-footer class="ion-no-border">
-  <ion-toolbar>
-    <ion-title>
-      <div *ngIf="alunos"  style="text-align: center; font-size: 12px">
-        Selecione uma criança para continuar.
-      </div>
+  <ion-toolbar style="--background: #FFF;">
+    <ion-title style="text-align: center; font-size: 14px; color: #C1C8D9;">Selecione uma criança para continuar.
     </ion-title>
   </ion-toolbar>
 </ion-footer>

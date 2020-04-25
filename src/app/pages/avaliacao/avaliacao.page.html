@@ -1,4 +1,4 @@
-<ion-content class="container ion-padding">
+<ion-content class="container">
   <div class="div-card" slot="fixed">
     <div *ngIf="aluno" class="cabecalho-card">
       <ion-grid fixed class="ion-no-padding">
@@ -71,35 +71,35 @@
             <ion-item lines="none" class="item-categoria" [disabled]="avaliacaoForm.controls.status.value == 'CONCLUIDA'">
               <ion-label>Banho</ion-label>
               <ion-item class="item-opcao-categoria">
-                <ion-icon name="remove-circle-outline" (click)="decrementa('banho')" style="margin-right: 10px;">
+                <ion-icon name="remove-circle-outline" (click)="decrementa('banho')" class="icon-menos">
                 </ion-icon>
                 <div class="div-categoria" style="width: 20px;">
                   {{avaliacaoForm.get('banho').value}}
                 </div>
-                <ion-icon name="add-circle-outline" (click)="incrementa('banho')" style="margin-left: 10px;"></ion-icon>
+                <ion-icon name="add-circle-outline" (click)="incrementa('banho')" class="icon-mais"></ion-icon>
               </ion-item>
             </ion-item>
             <ion-item lines="none" class="item-categoria" [disabled]="avaliacaoForm.controls.status.value == 'CONCLUIDA'">
               <ion-label>Fralda</ion-label>
               <ion-item class="item-opcao-categoria">
-                <ion-icon name="remove-circle-outline" (click)="decrementa('fralda')" style="margin-right: 10px;">
+                <ion-icon name="remove-circle-outline" (click)="decrementa('fralda')" class="icon-menos">
                 </ion-icon>
                 <div class="div-categoria" style="width: 20px;">
                   {{avaliacaoForm.get('fralda').value}}
                 </div>
-                <ion-icon name="add-circle-outline" (click)="incrementa('fralda')" style="margin-left: 10px;">
+                <ion-icon name="add-circle-outline" (click)="incrementa('fralda')" class="icon-mais">
                 </ion-icon>
               </ion-item>
             </ion-item>
             <ion-item lines="none" class="item-categoria" [disabled]="avaliacaoForm.controls.status.value == 'CONCLUIDA'">
               <ion-label ngStyle>Escovação</ion-label>
               <ion-item class="item-opcao-categoria">
-                <ion-icon name="remove-circle-outline" (click)="decrementa('escovacao')" style="margin-right: 10px;">
+                <ion-icon name="remove-circle-outline" (click)="decrementa('escovacao')" class="icon-menos">
                 </ion-icon>
                 <div class="div-categoria" style="width: 20px;">
                   {{avaliacaoForm.get('escovacao').value}}
                 </div>
-                <ion-icon name="add-circle-outline" (click)="incrementa('escovacao')" style="margin-left: 10px;">
+                <ion-icon name="add-circle-outline" (click)="incrementa('escovacao')" class="icon-mais">
                 </ion-icon>
               </ion-item>
             </ion-item>
@@ -112,9 +112,9 @@
             </ion-item-divider>
             <ion-item lines="none" class="item-categoria">
               <ion-label>Febre?</ion-label>
-              <ion-note slot="end" *ngIf="avaliacaoForm.get('febre').value">Sim</ion-note>
-              <ion-note slot="end" *ngIf="!avaliacaoForm.get('febre').value">Não</ion-note>
-              <ion-toggle slot="end" name="febre" color="dark" formControlName="febre"
+              <ion-note slot="end" *ngIf="avaliacaoForm.get('febre').value" class="text-note">Sim</ion-note>
+              <ion-note slot="end" *ngIf="!avaliacaoForm.get('febre').value" class="text-note">Não</ion-note>
+              <ion-toggle slot="end" name="febre" color="primary" formControlName="febre"
                 [disabled]="avaliacaoForm.controls.status.value == 'CONCLUIDA'"></ion-toggle>
             </ion-item>
             <ion-item lines="none" class="item-categoria">
@@ -144,9 +144,9 @@
             </ion-item-divider>
             <ion-item lines="none" class="item-categoria">
               <ion-label>Dormiu?</ion-label>
-              <ion-note slot="end" *ngIf="avaliacaoForm.get('dormiu').value">Sim</ion-note>
-              <ion-note slot="end" *ngIf="!avaliacaoForm.get('dormiu').value">Não</ion-note>
-              <ion-toggle slot="end" color="dark" formControlName="dormiu"
+              <ion-note slot="end" *ngIf="avaliacaoForm.get('dormiu').value" class="text-note">Sim</ion-note>
+              <ion-note slot="end" *ngIf="!avaliacaoForm.get('dormiu').value" class="text-note">Não</ion-note>
+              <ion-toggle slot="end" color="primary" formControlName="dormiu"
                 [disabled]="avaliacaoForm.controls.status.value == 'CONCLUIDA'"></ion-toggle>
             </ion-item>
 
@@ -201,14 +201,14 @@
     </div>
     <div class="botoes-avaliacao" lines="none">
       <div style="width: 50%;">
-        <ion-button expand="full" (click)="salvarAvaliacao(aluno.id)" [disabled]="avaliacaoForm.controls.status.value == 'CONCLUIDA'"
+        <ion-button (click)="concluirAvaliacao(aluno.id)" [disabled]="avaliacaoForm.controls.status.value == 'CONCLUIDA'" 
+         class="btn-concluir">Finalizar</ion-button>
+      </div>
+      <div style="width: 50%;">
+        <ion-button (click)="salvarAvaliacao(aluno.id)" [disabled]="avaliacaoForm.controls.status.value == 'CONCLUIDA'"
           class="btn-salvar">Salvar
         </ion-button>
       </div> 
-      <div style="width: 50%;">
-        <ion-button expand="full" (click)="concluirAvaliacao(aluno.id)" [disabled]="avaliacaoForm.controls.status.value == 'CONCLUIDA'" 
-         class="btn-concluir">Finalizar</ion-button>
-      </div>
     </div>
   </div>
 </ion-content>

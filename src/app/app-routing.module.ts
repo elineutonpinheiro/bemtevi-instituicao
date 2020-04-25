@@ -33,7 +33,13 @@ const routes: Routes = [
     path: 'avaliacao',
     loadChildren: () => import('./pages/avaliacao/avaliacao.module').then(m => m.AvaliacaoPageModule),
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./pages/perfil/perfil.module').then(m => m.PerfilPageModule),
+    canActivate: [AuthGuard]
   }
+
   /* {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)

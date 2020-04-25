@@ -16,6 +16,7 @@ export class LoginPage implements OnInit {
   loginForm: FormGroup;
   creds: CredenciaisDTO;
   loading: any;
+  hide = true;
 
   constructor(
     private fb: FormBuilder,
@@ -32,8 +33,8 @@ export class LoginPage implements OnInit {
 
   createForm() {
     this.loginForm = this.fb.group({
-      email: '',
-      senha: ''
+      email: [''],
+      senha: ['']
     });
   }
 
@@ -49,31 +50,8 @@ export class LoginPage implements OnInit {
     } finally {
       this.loading.dismiss();
       this.consultarProfissionalPorEmail(this.auth.getAuth().currentUser.email);
-      console.log('Sempre passa por aqui depois de autenticar');
     }
   }
-
-  consultarProfissionalPorEmail(email: string) {
-    this.profissionalService.consultarProfissionalPorEmail(email).
-    subscribe(response => {
-      const profissional = response;
-    }, error => {
-      this.auth.logout();
-    });
-  }
-
-  //IMPLEMENTAR NA PLATAFORMA WEB
-  /* async registrar() {
-    await this.presentLoading();
-
-    try {
-      await this.authService.registrar(this.creds);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      this.loading.dismiss();
-    }
-  } */
 
   async presentLoading() {
     this.loading = await this.loadingCtrl.create({
@@ -90,12 +68,25 @@ export class LoginPage implements OnInit {
     toast.present();
   }
 
+  consultarProfissionalPorEmail(email: string) {
+    this.profissionalService.consultarProfissionalPorEmail(email).
+    subscribe(response => {
+      const profissional = response;
+    }, error => {
+      this.auth.logout();
+    });
+  }
+
   async usuarioInexistenteAlert() {
     const alert = await this.alertCtrl.create({
       header: 'ERRO',
       message: 'Usuário inexistente'
     });
     await alert.present();
+  }
+
+  esqueceuSenha() {
+
   }
 
 }

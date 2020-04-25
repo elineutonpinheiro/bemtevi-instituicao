@@ -1,23 +1,137 @@
-.titulo-pagina {
-    position: relative;
-    font-family: Roboto;
-    font-style: normal;
-    font-size: 18px;
-    line-height: 21px;
-    text-align: center;
-    text-transform: capitalize;
+.toolbar {
+    --background: linear-gradient(90deg, rgba(255, 203, 8, 1) 0%, rgba(251, 251, 71, 1) 100%);
+    padding-top: 10px;
 }
 
 .container {
-    --background: #FBFB47;
+    font-family: "Roboto";
+    --background: linear-gradient(90deg, rgba(255, 203, 8, 1) 0%, rgba(251, 251, 71, 1) 100%);
+    color: #000;
 }
+
+.no-ripple {
+    --ripple-color: transparent;
+    --background-focused: transparent;
+    --background-hover: transparent;
+}
+
+.icon-logo {
+    --padding-end: 0px !important;
+}
+
+.btn-icon-perfil {
+    --padding-top: 3px !important;
+    --padding-end: 3px !important;
+    --padding-bottom: 3px !important;
+    --padding-start: 3px !important;
+    color: #1C1C20;
+}
+
+.div-circulo {
+    background: #FFCB08;
+    position: absolute;
+    top: 0;
+    width: 125%;
+    height: 0px;
+    border-bottom-left-radius: 100% 140%;
+    border-bottom-right-radius: 100% 140%;
+    left: -13%;
+    right: -5%;
+    padding-bottom: 250px;
+}
+
+.div-img-logo {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.img-logo {
+    width: 25%;
+}
+
+.div-form-login {
+    display: grid;
+    justify-content: center;
+    position: relative;
+}
+
+.lista-alunos {
+    border-radius: 10px;
+    padding: 0px;
+}
+
 
 .item-card {
     --padding-start: 0px;
-    --inner-padding-end: 0px; 
-    --background: #FBFB47;
+    --inner-padding-end: 0px;
+    --background: linear-gradient(90deg, rgba(255, 203, 8, 1) 0%, rgba(251, 251, 71, 1) 100%);
 }
 
+.card {
+    width: 100%;
+    box-shadow: none;
+    background: #ffffff;
+    border-radius: 10px;
+    margin: 0px 0px 10px;
+    padding: 10px 0px 10px 0px;
+    //border: 3px solid #C1C8D9;
+}
+
+.icon-crianca {
+    color: #c1c8d9;
+}
+
+.icon-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 0.5px solid #c1c8d9;
+}
+
+.header-col {
+    padding-left: 16px;
+}
+
+.header-card {
+    padding: 5px 0px 0px;
+}
+
+.title-card {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1c1c20;
+}
+
+.subtitle-card {
+    font-size: 18px;
+    color: #1c1c20;
+    //font-weight: 700;
+    margin-top: 0px;
+    padding-bottom: 10px;
+}
+
+.content-card {
+    font-size: 18px;
+    color: #c1c8d9;
+    //font-weight: 700;
+    padding-left: 0px;
+    padding-right: 5px;
+    padding-top: 10px;
+}
+
+.icon-arrow-col {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    vertical-align: middle;
+}
+
+.icon-arrow {
+    color: #c1c8d9;
+}
 
 ion-icon {
     --ionicon-stroke-width: 24px;

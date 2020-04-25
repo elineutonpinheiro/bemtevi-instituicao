@@ -2,11 +2,9 @@ import { AlertController } from '@ionic/angular';
 import { AuthService } from './../../services/auth.service';
 import { ProfissionalDTO } from './../../../models/profissional.dto';
 import { ProfissionalService } from './../../services/domain/profissional.service';
-import { HttpErrorResponse } from '@angular/common/http';
-import { TurmaService } from '../../services/domain/turma.service';
 import { Component, OnInit } from '@angular/core';
 import { TurmaDTO } from 'src/models/turma.dto';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-turmas',
@@ -46,8 +44,9 @@ export class TurmasPage implements OnInit {
     this.profissionalService.consultarProfissionalPorEmail(this.auth.getAuth().currentUser.email).
     subscribe(response => {
       this.profissional = response;
-      console.log(this.profissional);
-    }, error => {});
+    }, error => {
+      this.auth.logout();
+    });
   }
 
   selecionarTurma(turmaId: string) {
@@ -60,7 +59,7 @@ export class TurmasPage implements OnInit {
 
   async logoutAlertConfirm() {
     const alert = await this.alertCtrl.create({
-      header: 'LOG OUT',
+      header: 'SAIR',
       message: 'Você realmente deseja sair do aplicativo?',
       buttons: [
         {
@@ -68,18 +67,20 @@ export class TurmasPage implements OnInit {
           role: 'cancel',
           cssClass: 'secondary',
           handler: () => {
-            console.log('Cancelado com sucesso');
           }
         }, {
           text: 'Sim',
           handler: () => {
             this.auth.logout();
-            console.log('Logout com sucesso');
           }
         }
       ]
     });
     await alert.present();
+  }
+
+  visualizarPerfil() {
+    this.router.navigate(['/perfil']);
   }
 
 }

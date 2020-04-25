@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "47275856640",
+    "firebase_url": "https://app-bemtevi.firebaseio.com",
+    "project_id": "app-bemtevi",
+    "storage_bucket": "app-bemtevi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:47275856640:android:1d5a00ee32e0fae88519e5",
+        "android_client_info": {
+          "package_name": "com.elineuton.bemtevi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "47275856640-c9ber48cmktc8f6bb20t4b33dd0i4t74.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrJ8LJ_DB23T5PWGRAqu08q74f8g5jxuc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "47275856640-c9ber48cmktc8f6bb20t4b33dd0i4t74.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

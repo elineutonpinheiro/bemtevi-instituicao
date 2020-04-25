@@ -19,6 +19,7 @@ import { LoginPageModule } from './pages/login/login.module';
 import { AngularFireModule} from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { FCM } from '@ionic-native/fcm/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -38,12 +39,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    TurmaService,
-    AuthService,
-    ProfissionalService,
-    AlunoService,
-    AvaliacaoService
+    FCM,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
 })

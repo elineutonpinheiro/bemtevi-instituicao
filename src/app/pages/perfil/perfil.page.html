@@ -1,161 +1,61 @@
-<ion-content style="--background: #FFC205;">
+<ion-content class="ion-padding container">
 
-  <div class="icon-log-out">
-    <ion-icon name="log-out" mode="ios" size="large" (click)="logout()"></ion-icon>
-  </div>
+  <ion-list class="lista-opcoes" lines="none" style="background: #ffff; padding-top: 0; padding-bottom: 0;">
 
-  <div class="background-radius">
-    <div class="background-circle">
-      <div class="image-circle">
-        <img src="assets/svg/img-perfil-320.svg">
-      </div>
+    <div class="div-cabecalho">
+      <ion-item>
+        <ion-icon name="arrow-back-outline" color="dark" size="small" (click)="voltar()"></ion-icon>
+        <ion-label style="text-align: center; margin-right: 24px; font-weight: 700; font-size: 18px;">Perfil</ion-label>
+      </ion-item>
     </div>
-    <div class="div-label-page">
-      <ion-label class="label-name">{{profissional?.nome}}</ion-label>
-      <ion-label class="label-function">{{profissional?.cargo}}</ion-label>
+
+    <div class="div-usuario">
+      <ion-item-divider class="item-divider">
+        <ion-label>
+          USUÁRIO
+        </ion-label>
+      </ion-item-divider>
+      <ion-item class="item-usuario">
+        <ion-icon name="person-outline" slot="start"></ion-icon>
+        <ion-label *ngIf="profissional">
+          <h3>Nome</h3>
+          <p>{{profissional.nome}}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item class="item-usuario">
+        <ion-icon name="school-outline" slot="start"></ion-icon>
+        <ion-label *ngIf="profissional">
+          <h3>Cargo</h3>
+          <p>{{profissional.cargo}}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item class="item-usuario">
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
+        <ion-label *ngIf="profissional">
+          <h3>E-mail</h3>
+          <p>{{emailUsuario}}</p>
+        </ion-label>
+      </ion-item>
     </div>
-    <div class="div-button-edit">
-      <ion-button class="button-edit" fill="outline" size="small">
-        Editar
-      </ion-button>
+
+    <div class="div-acesso">
+      <ion-item-divider class="item-divider">
+        <ion-label>
+          ACESSO
+        </ion-label>
+      </ion-item-divider>
+      <ion-item class="item-acesso" button (click)="redefinirSenha()" detail>
+        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+        <ion-label>
+          Redefinir senha
+        </ion-label>
+      </ion-item>
     </div>
-    <!-- <div class="div-form-user">
-      <form [formGroup]="editaInfoUsuarioForm" (ngSubmit)="onSubmit()">
-        <div class="ion-no-padding div-field-form-user">
-          <div class="ion-padding-top field-form-user">
-            <div class="label-field-form-user">
-              <ion-label>Telefone</ion-label>
-            </div>
-            <ion-item lines="none" class="item-field-form-user">
-              <ion-icon slot="start" name="call" size="small"></ion-icon>
-              <ion-input type="text" name="telefone" formControlName="telefone" [brmasker]="{phone: true}"></ion-input>
-            </ion-item>
-          </div>
-          <div class="ion-padding-top field-form-user">
-            <div class="label-field-form-user">
-              <ion-label>E-mail</ion-label>
-            </div>
-            <ion-item lines="none" class="item-field-form-user">
-              <ion-icon slot="start" name="mail" size="small"></ion-icon>
-              <ion-input type="text" name="email" formControlName="email"></ion-input>
-            </ion-item>
-          </div>
-          <div class="ion-padding-top field-form-user">
-            <div class="label-field-form-user">
-              <ion-label>Senha</ion-label>
-            </div>
-            <ion-item lines="none" class="item-field-form-user">
-              <ion-icon slot="start" name="lock" size="small"></ion-icon>
-              <ion-input type="password" formControlName="senha"></ion-input>
-              <ion-icon slot="end" name="eye" size="small" style="color: #CDD2D3;"></ion-icon>
-            </ion-item>
-          </div>
-        </div>
-      </form>
-    </div> -->
-  </div>
-  
+
+    <div style="background: #ffffff; margin-top: 5px; height: inherit;"></div>
+
+    <ion-button expand="full" color="dark" class="btn-sair" (click)="logout()">Sair</ion-button>
+
+  </ion-list>
+
 </ion-content>
-
-
-<!-- <ion-header mode="ios">
-  <ion-toolbar>
-    <ion-buttons slot="primary" (click)="onClick()">
-      <ion-button>
-        <ion-label>Editar</ion-label>
-        <ion-icon slot="end" name="create"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-
-    <ion-title>Perfil</ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
-
-<!-- <ion-content class="ion-padding" style="--background: #F7F7F7; border-radius: 0px;">
-
-  <ion-card style="background: white; width: 100%; height: 100%; margin: 0px; 
-  border-radius: 0px; box-shadow: none;">
-    <div class="ion-padding" style="display: flex; justify-content: center; align-items: center; 
-    background: #f7f7f7; height: 50%; border-radius: 0px;">
-      <div>
-        <div class="circle">
-          <img src="https://i.stack.imgur.com/atUuf.png">
-        </div>
-
-        <div class="personal-information">
-          <h3>Francisca Lemos</h3>
-          <p style="color: darkgray; font-size: 18px; margin-top: 0px; margin-bottom: 0px;">Cuidadora</p>
-        </div>
-      </div>
-      <ion-button class="button-sair" (click)="onClick()">
-        Sair
-      </ion-button>
-    </div>
-
-
-
-    <div class="ion-padding" style="padding-top: 10px; height: 50%; background: #f7f7f7;">
-      <form [formGroup]="editaInfoUsuarioForm" (ngSubmit)="onSubmit()">
-        <ion-list class="ion-no-padding">
-
-          <ion-list-header style="padding-left: 0px; background: #f7f7f7;">
-                <ion-label style="font-weight: bold;">INFORMAÇÕES DE PERFIL</ion-label>
-              </ion-list-header>
-
-          <div class="ion-padding-top" style="background: #f7f7f7;">
-            <div style="padding-bottom: 10px;">
-              <ion-label>Telefone</ion-label>
-            </div>
-            <ion-item lines="none" style="border: 0.5px solid #E9E9E9; border-radius: 10px;">
-              <ion-icon slot="start" name="call"></ion-icon>
-              <ion-input type="text" name="telefone" formControlName="telefone" 
-              [brmasker]="{phone: true}"></ion-input>
-            </ion-item>
-          </div>
-          <div class="ion-padding-top" style="background: #f7f7f7;">
-            <div style="padding-bottom: 10px;">
-              <ion-label>Senha</ion-label>
-            </div>
-            <ion-item lines="none" style="border: 0.5px solid #E9E9E9; border-radius: 10px;">
-              <ion-icon slot="start" name="lock"></ion-icon>
-              <ion-input type="password" formControlName="senha"></ion-input>
-            </ion-item>
-          </div>
-        </ion-list>
-      </form>
-    </div>
-
-
-
-    <div class="ion-padding" style="padding-top: 10px; height: 50%; background: #f7f7f7;">
-      <ion-list class="ion-no-padding">
-
-        <ion-list-header style="padding-left: 0px; background: #f7f7f7;">
-          <ion-label style="font-weight: bold;">INFORMAÇÕES DE PERFIL</ion-label>
-        </ion-list-header>
-
-        <div class="ion-padding-top" style="background: #f7f7f7;">
-          <div style="padding-bottom: 10px;">
-              <ion-label>Telefone</ion-label>
-          </div>
-          <ion-item lines="none" style="border: 0.5px solid #E9E9E9; border-radius: 10px;">
-            <ion-icon slot="start" name="call"></ion-icon>
-            <ion-input type="number" value="(95) 99111-8293" ></ion-input>
-          </ion-item>
-        </div>
-        <div class="ion-padding-top" style="background: #f7f7f7;">
-            <div style="padding-bottom: 10px;">
-                <ion-label>Senha</ion-label>
-            </div>
-          <ion-item lines="none" style="border: 0.5px solid #E9E9E9; border-radius: 10px;">
-            <ion-icon slot="start" name="lock"></ion-icon>
-            <ion-input type="password" value="(95) 99111-8293"></ion-input>
-          </ion-item>
-        </div>
-      </ion-list>
-    </div>
-
-  </ion-card>
-
-</ion-content> -->

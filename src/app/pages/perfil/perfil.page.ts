@@ -1,6 +1,6 @@
-/* import { AuthService } from './../../services/auth.service';
+import { AlertController } from '@ionic/angular';
+import { AuthService } from './../../services/auth.service';
 import { Router } from '@angular/router';
-import { StorageService } from './../../services/storage.service';
 import { ProfissionalService } from './../../services/domain/profissional.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -18,59 +18,60 @@ export class PerfilPage implements OnInit {
 
   profissional: ProfissionalDTO;
 
-  constructor(private fb: FormBuilder,
-              private profissionalService: ProfissionalService,
-              private storage: StorageService,
-              private router: Router,
-              private authService: AuthService) {
+  emailUsuario: any;
+
+  constructor(
+    private fb: FormBuilder,
+    private profissionalService: ProfissionalService,
+    private router: Router,
+    private authService: AuthService,
+    private alertCtrl: AlertController) {
   }
 
   ngOnInit() {
-    this.createForm();
-    this.buscarUsuarioLogado();
+    this.buscarUsuarioLogado(this.authService.getAuth().currentUser.email);
+    this.emailUsuario = this.authService.getAuth().currentUser.email;
   }
 
-  ionViewWillEnter(){
-    this.buscarUsuarioLogado();
+  voltar(){
+    this.router.navigate(['turmas']);
   }
 
-  createForm() {
-    this.editaInfoUsuarioForm = this.fb.group({
-      email: [{value: '', disabled: false}, Validators.required],
-      telefone: [{value: '', disabled: false}, Validators.required],
-      senha: [{value: '', disabled: false},  Validators.required]
-    });
-  }
-
-  editaInfoUsuario() {
-
-  }
-
-  onSubmit() {
-
-  }
-
-  buscarUsuarioLogado() {
-    const localUser = this.storage.getLocalUser();
-    if (localUser && localUser.email) {
-      this.profissionalService.consultarProfissionalPorEmail(localUser.email)
-      .subscribe(response => {
+  buscarUsuarioLogado(email: string) {
+    this.profissionalService.consultarProfissionalPorEmail(email).
+      subscribe(response => {
         this.profissional = response;
-      },
-      (error: HttpErrorResponse) => {
-        if (error.status == 403) {
-          this.router.navigate(['']);
-        }
-      });
-    } else {
-      this.router.navigate(['']);
-    }
+      }, error => { });
   }
 
-  logout(){
-    this.authService.logout();
-    this.router.navigate(['']);
+  redefinirSenha() {
+
+  }
+
+  logout() {
+    this.logoutAlertConfirm();
+  }
+
+  async logoutAlertConfirm() {
+    const alert = await this.alertCtrl.create({
+      header: 'SAIR',
+      message: 'Você realmente deseja sair do aplicativo?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+          }
+        }, {
+          text: 'Sim',
+          handler: () => {
+            this.authService.logout();
+          }
+        }
+      ]
+    });
+    await alert.present();
   }
 
 }
- */
