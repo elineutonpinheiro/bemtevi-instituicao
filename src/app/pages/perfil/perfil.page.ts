@@ -2,10 +2,9 @@ import { AlertController } from '@ionic/angular';
 import { AuthService } from './../../services/auth.service';
 import { Router } from '@angular/router';
 import { ProfissionalService } from './../../services/domain/profissional.service';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder} from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ProfissionalDTO } from 'src/models/profissional.dto';
-import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-perfil',
@@ -31,6 +30,10 @@ export class PerfilPage implements OnInit {
   ngOnInit() {
     this.buscarUsuarioLogado(this.authService.getAuth().currentUser.email);
     this.emailUsuario = this.authService.getAuth().currentUser.email;
+  }
+
+  ionViewDidLoad(){
+   //por o que está no onInit aqui
   }
 
   voltar(){

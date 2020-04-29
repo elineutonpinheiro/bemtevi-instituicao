@@ -24,7 +24,8 @@ export class LoginPage implements OnInit {
     public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
     private profissionalService: ProfissionalService,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -86,7 +87,7 @@ export class LoginPage implements OnInit {
   }
 
   esqueceuSenha() {
-
+    this.router.navigate(['esqueceu-senha']);
   }
 
 }

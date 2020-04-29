@@ -7,10 +7,20 @@ ion-content {
   height: 100%;
   border-radius: 10px;
   background: #F5F7F9;
+  background: #ffff; 
+  padding-top: 0; 
+  padding-bottom: 0;
 }
 
 .div-cabecalho {
   border-bottom: 0.5px solid #C1C8D9;
+}
+
+.label-cabecalho {
+  text-align: center; 
+  margin-right: 24px; 
+  font-weight: 700; 
+  font-size: 18px;
 }
 
 .div-usuario {
@@ -29,6 +39,12 @@ ion-content {
   //border-radius: 10px;
   //padding: 4px;
   //border: 0.5px solid #c1c8d9;
+}
+
+.div-em-branco {
+  background: #ffffff; 
+  margin-top: 5px; 
+  height: inherit;
 }
 
 .btn-sair {

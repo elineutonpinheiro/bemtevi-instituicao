@@ -1,0 +1,44 @@
+<ion-toolbar class="toolbar">
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="login"></ion-back-button>
+  </ion-buttons>
+  <ion-title class="titulo-pagina">Recuperar senha</ion-title>
+</ion-toolbar>
+
+<ion-content class="container">
+
+  <div class="div-container-form">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="div-form-login">
+        <div class="div-form-campos-login">
+
+          <div class="div-titulo-form">
+            <ion-label>Digite seu e-mail para <br> recuperar a senha</ion-label>
+          </div>
+
+          <ion-grid fixed>
+            <ion-row class="row-email-login">
+              <ion-col size="2" class="col-icon">
+                <ion-icon name="mail-outline" size="large"></ion-icon>
+              </ion-col>
+              <ion-col size="10">
+                <ion-item lines="none">
+                  <ion-input type="email" required formControlName="email" placeholder="E-mail" class="input-login">
+                  </ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+        <div class="div-btn-entrar">
+          <ion-button class="btn-entrar" expand="block" mode="ios" type="submit" [disabled]="loginForm.invalid">
+            {{'solicitar nova senha' | uppercase}}
+          </ion-button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+</ion-content>

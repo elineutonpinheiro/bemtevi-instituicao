@@ -38,6 +38,10 @@ const routes: Routes = [
     path: 'perfil',
     loadChildren: () => import('./pages/perfil/perfil.module').then(m => m.PerfilPageModule),
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'esqueceu-senha',
+    loadChildren: () => import('./pages/esqueceu-senha/esqueceu-senha.module').then( m => m.EsqueceuSenhaPageModule)
   }
 
   /* {

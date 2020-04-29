@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { AvaliacaoService } from './services/domain/avaliacao.service';
 import { AlunoService } from './services/domain/aluno.service';
 import { AvaliacaoPageModule } from './pages/avaliacao/avaliacao.module';
@@ -29,10 +30,7 @@ import { FCM } from '@ionic-native/fcm/ngx';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    NovaAtividadePageModule,
-    EditaAtividadePageModule,
-    LoginPageModule,
-    AvaliacaoPageModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule
   ],
