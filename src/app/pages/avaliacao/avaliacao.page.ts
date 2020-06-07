@@ -120,7 +120,7 @@ export class AvaliacaoPage implements OnInit {
   }
 
   consultarAvaliacaoPorAlunoIdEData(alunoId: number, data: string) {
-    this.avaliacaoService.consultarPorAlunoIdEData(alunoId, data).
+    this.alunoService.consultarAvaliacaoPorAlunoIdEData(alunoId, data).
       subscribe(response => {
         this.avaliacao = response;
         if (this.avaliacao.banho == null) {
@@ -232,8 +232,8 @@ export class AvaliacaoPage implements OnInit {
 
   async concluirAvaliacaoAlertConfirm() {
     const alert = await this.alertCtrl.create({
-      header: 'Concluir avaliação?',
-      message: 'Ao concluir não será mais possível editar a avaliação na presente data.',
+      header: 'Finalizar avaliação?',
+      message: 'Ao finalizar não será mais possível editar a avaliação na presente data.',
       buttons: [
         {
           text: 'Cancelar',
@@ -248,7 +248,7 @@ export class AvaliacaoPage implements OnInit {
             this.avaliacaoForm.controls.status.setValue('CONCLUIDA');
             this.salvarAvaliacao();
             this.router.navigate(['/alunos', { id: this.turmaId }]);
-            console.log('Concluída com sucesso com sucesso');
+            console.log('Avaliação finalizada com sucesso');
           }
         }
       ]

@@ -17,12 +17,14 @@
 .lista-alunos {
     border-radius: 10px;
     padding: 0px;
+    background: linear-gradient(90deg, rgba(255, 203, 8, 1) 0%, rgba(251, 251, 71, 1) 100%);
 }
 
 .item-card {
     --padding-start: 0px;
     --inner-padding-end: 0px;
     --background: linear-gradient(90deg, rgba(255, 203, 8, 1) 0%, rgba(251, 251, 71, 1) 100%);
+    margin-bottom: 10px;
 }
 
 .icon-arrow {

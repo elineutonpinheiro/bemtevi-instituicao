@@ -1,3 +1,4 @@
+import { environment } from './../../../environments/environment.prod';
 import { AlunoDTO } from './../../../models/aluno.dto';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -9,13 +10,14 @@ import { TurmaDTO } from 'src/models/turma.dto';
 })
 export class TurmaService {
 
-  private baseUrl = 'http://192.168.0.105:8080';
+  private baseUrl: string;
 
   constructor(public http: HttpClient) {
+    this.baseUrl = `${environment.apiUrl}/turmas`;
   }
 
   consultarAlunosPorTurmaId(id: number): Observable<AlunoDTO[]> {
-    return this.http.get<AlunoDTO[]>(`${this.baseUrl}/turmas/${id}/alunos`);
+    return this.http.get<AlunoDTO[]>(`${this.baseUrl}/${id}/alunos`);
   }
 
 }

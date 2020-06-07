@@ -31,7 +31,8 @@ export class AppComponent {
       } */
 
       if (this.platform.is('android')) {
-        this.statusBar.backgroundColorByHexString('#FFCB08');
+        this.statusBar.backgroundColorByHexString('#FFC906');
+        /* this.statusBar.styleBlackTranslucent(); */
       }
 
     });

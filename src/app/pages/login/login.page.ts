@@ -47,7 +47,23 @@ export class LoginPage implements OnInit {
     try {
       await this.auth.login(this.creds);
     } catch (error) {
-      this.presentToast(error.message);
+      let message: string;
+      console.log(error);
+      switch (error.code) {
+        case 'auth/invalid-email':
+          message = 'O e-mail informado é inválido';
+          break;
+        case 'auth/user-not-found':
+          message = 'O e-mail informado não foi encontrado.';
+          break;
+        case 'auth/wrong-password':
+          message = 'Senha inválida';
+          break;
+        default:
+          //message = 'Os campos e-mail e senha são de preenchimento obrigatório';
+          break;
+      }
+      this.presentToast(message);
     } finally {
       this.loading.dismiss();
       this.consultarProfissionalPorEmail(this.auth.getAuth().currentUser.email);
@@ -71,11 +87,11 @@ export class LoginPage implements OnInit {
 
   consultarProfissionalPorEmail(email: string) {
     this.profissionalService.consultarProfissionalPorEmail(email).
-    subscribe(response => {
-      const profissional = response;
-    }, error => {
-      this.auth.logout();
-    });
+      subscribe(response => {
+        const profissional = response;
+      }, error => {
+        this.auth.logout();
+      });
   }
 
   async usuarioInexistenteAlert() {

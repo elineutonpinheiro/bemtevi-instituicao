@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  apiUrl: 'http://192.168.0.109:8080',
   firebase: {
     apiKey: "AIzaSyBxUvMyWIzWLwOS8BtiE8ahqRnMnSSdQ8s",
     authDomain: "app-bemtevi.firebaseapp.com",

@@ -48,7 +48,7 @@ export class PerfilPage implements OnInit {
   }
 
   redefinirSenha() {
-
+    this.router.navigate(['esqueceu-senha']);
   }
 
   logout() {

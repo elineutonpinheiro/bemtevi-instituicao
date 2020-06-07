@@ -35,7 +35,14 @@
               </ion-card-header>
 
               <ion-card-content class="content-card">
-                {{turma.qtdeMatriculas}} alunos
+                <div [ngPlural] = "turma.qtdeMatriculas">
+                  <ng-template ngPluralCase="=1">
+                    {{turma.qtdeMatriculas}} aluno
+                  </ng-template>
+                  <ng-template ngPluralCase="other">
+                    {{turma.qtdeMatriculas}} alunos
+                  </ng-template>
+                </div>
               </ion-card-content>
             </ion-col>
             <ion-col size="1" class="ion-no-padding icon-arrow-col">

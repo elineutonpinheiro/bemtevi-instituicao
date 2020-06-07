@@ -1,3 +1,4 @@
+import { environment } from './../../../environments/environment.prod';
 import { TurmaDTO } from 'src/models/turma.dto';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
@@ -9,18 +10,19 @@ import { ProfissionalDTO } from 'src/models/profissional.dto';
 })
 export class ProfissionalService {
 
-    private baseUrl = 'http://192.168.0.105:8080';
+    private baseUrl: string;
 
     constructor(private http: HttpClient) {
+        this.baseUrl = `${environment.apiUrl}/profissionais`;
     }
 
     consultarProfissionalPorEmail(email: string): Observable<ProfissionalDTO> {
         return this.http.get<ProfissionalDTO>
-            (`${this.baseUrl}/profissionais/email?value=${email}`);
+            (`${this.baseUrl}/email?value=${email}`);
     }
 
     consultarTurmasPorEmailProfissional(email: string): Observable<TurmaDTO[]> {
-        return this.http.get<TurmaDTO[]>(`${this.baseUrl}/profissionais/${email}/turmas`);
+        return this.http.get<TurmaDTO[]>(`${this.baseUrl}/${email}/turmas`);
     }
 
 }

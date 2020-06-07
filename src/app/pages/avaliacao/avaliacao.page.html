@@ -21,8 +21,8 @@
         <form [formGroup]="avaliacaoForm">
           <div class="div-separacao">
             <ion-item-divider class="item-divider">
-              <!-- <ion-icon name="fast-food-outline" slot="start" size="small" class="icone-categoria"></ion-icon> -->
               <ion-label class="titulo-categoria">{{"Alimentação" | titlecase}}</ion-label>
+              <ion-icon name="nutrition-outline" slot="end" size="small" class="icone-categoria"></ion-icon>
             </ion-item-divider>
 
             <ion-item lines="none" class="item-categoria">
@@ -64,9 +64,9 @@
           </div>
 
           <div class="div-separacao">
-            <ion-item-divider class="item-divider">
-              <!-- <ion-icon name="alert" slot="start" size="small" class="icone-categoria"></ion-icon> -->
+            <ion-item-divider class="item-divider"> 
               <ion-label class="titulo-categoria">{{"Higiene" | titlecase}}</ion-label>
+              <ion-icon name="water-outline" slot="end" size="small" class="icone-categoria"></ion-icon>
             </ion-item-divider>
             <ion-item lines="none" class="item-categoria" [disabled]="avaliacaoForm.controls.status.value == 'CONCLUIDA'">
               <ion-label>Banho</ion-label>
@@ -107,8 +107,8 @@
 
           <div class="div-separacao">
             <ion-item-divider class="item-divider">
-              <!-- <ion-icon name="alert" slot="start" size="small" class="icone-categoria"></ion-icon> -->
               <ion-label class="titulo-categoria">{{"Saúde" | titlecase}}</ion-label>
+              <ion-icon name="thermometer-outline" slot="end" size="small" class="icone-categoria"></ion-icon>
             </ion-item-divider>
             <ion-item lines="none" class="item-categoria">
               <ion-label>Febre?</ion-label>
@@ -139,8 +139,8 @@
 
           <div class="div-separacao">
             <ion-item-divider class="item-divider">
-              <!-- <ion-icon name="alert" slot="start" size="small" class="icone-categoria"></ion-icon> -->
               <ion-label class="titulo-categoria">{{"Sono" | titlecase}}</ion-label>
+              <ion-icon src="../../../assets/svg/icon-sono.svg" slot="end" size="small" class="icone-categoria"></ion-icon>
             </ion-item-divider>
             <ion-item lines="none" class="item-categoria">
               <ion-label>Dormiu?</ion-label>
@@ -162,8 +162,8 @@
 
           <div class="div-separacao">
             <ion-item-divider class="item-divider">
-              <!-- <ion-icon name="alert" slot="start" size="small" class="icone-categoria"></ion-icon> -->
               <ion-label class="titulo-categoria">{{"Socialização" | titlecase}}</ion-label>
+              <ion-icon src="../../../assets/svg/icon-socializacao.svg" slot="end" size="small" class="icone-categoria"></ion-icon>
             </ion-item-divider>
             <ion-item lines="none" class="item-categoria">
               <ion-label>Interação</ion-label>
@@ -186,8 +186,8 @@
 
           <div class="div-separacao-ultimo"> 
             <ion-item-divider class="item-divider">
-              <!-- <ion-icon name="alert" slot="start" size="small" class="icone-categoria"></ion-icon> -->
               <ion-label class="titulo-categoria">{{"Observação" | titlecase}}</ion-label>
+              <ion-icon name="bookmark-outline" slot="end" size="small" class="icone-categoria"></ion-icon>
             </ion-item-divider>
             <ion-item lines="none" class="item-categoria">
               <ion-label position="stacked">Destaque do dia, Atividade para casa, etc.</ion-label>

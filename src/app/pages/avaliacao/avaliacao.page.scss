@@ -96,15 +96,20 @@
 }
 
 .div-separacao {
-  border-bottom: 0.5px solid #D4E1F4;
+  //border-bottom: 0.5px solid #D4E1F4;
 }
 
 .item-divider {
   border-bottom-width: 0px;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 900;
-  color: #000;
-  background: #f6f6f6;
+  color: #1C1C20;
+  padding-right: 16px;
+  background: #F5F7F9;
+}
+
+.icone-categoria {
+  color: #C1C8D9;
 }
 
 .item-categoria {
@@ -133,7 +138,7 @@
   text-align: center;
   width: 14px;
   font-weight: 500;
-  color: #9ba5a7;
+  color: #C1C8D9;
 }
 
 ion-note {
